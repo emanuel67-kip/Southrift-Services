@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Southrift Services SACCO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #6A0DAD;
+      --purple-dark: #4e0b8a;
+      --purple-light: #8A2BE2;
+      --accent: #FF6EC4;
+      --accent-secondary: #7873F5;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #28a745;
+      --warning: #ffc107;
+      --info: #17a2b8;
+      --gradient-primary: linear-gradient(135deg, var(--purple), var(--purple-light));
+      --gradient-secondary: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      --shadow: 0 10px 20px rgba(0,0,0,0.1);
+      --shadow-hover: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoGlow {
+      0% { text-shadow: 0 0 8px #fff, 0 0 12px #0ff; }
+      100% { text-shadow: 0 0 12px #fff, 0 0 20px #f0f; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Header Styles */
+    header {
+  background-color: var(--purple);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  position: relative;
+  color: paleturquoise;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+    /* Hero Section */
+    .hero {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      transform: rotate(30deg);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .stat-item:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .stat-item:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      padding-bottom: 100px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--purple);
+      margin: 2rem 0;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-secondary);
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    /* Contact Details */
+    .contact-details {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .contact-details h3 {
+      color: var(--purple);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-details h3 i {
+      background: var(--gradient-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 1rem;
+      background: #f8f9ff;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-icon {
+      background: var(--gradient-primary);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .info-content h4 {
+      color: var(--purple);
+      margin-bottom: 5px;
+    }
+
+    .info-content p {
+      margin: 0;
+      color: #555;
+    }
+
+    /* Form Styles */
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    input, textarea {
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 2px solid #e1e5f2;
+      font-size: 1rem;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--purple);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(106, 13, 173, 0.3);
+      letter-spacing: 0.5px;
+      align-self: flex-start;
+      width: auto;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(106, 13, 173, 0.4);
+      background: var(--gradient-secondary);
+    }
+
+    button:active {
+      transform: translateY(-1px);
+    }
+
+    /* Social Media Section */
+    .social-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .social-section h3 {
+      color: var(--purple);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-section h3 i {
+      background: var(--gradient-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      padding: 1.5rem;
+      background: #f8f9ff;
+      border-radius: 15px;
+      text-decoration: none;
+      color: var(--dark);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      background: white;
+    }
+
+    .social-link i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-link.email i { color: #ea4335; }
+    .social-link.whatsapp i { color: #25D366; }
+    .social-link.facebook i { color: #1877F2; }
+    .social-link.phone i { color: #34B7F1; }
+
+    .social-link span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* Features Section */
+    .features {
+      background: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      border-radius: 15px;
+      background: #f8f9ff;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      color: var(--purple-dark);
+    }
+
+    /* Footer */
+    footer {
+  background: var(--purple);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  flex-shrink: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .stats {
+        gap: 1rem;
+      }
+      
+      .stat-item {
+        padding: 0.8rem 1.5rem;
+      }
+      
+      .stat-value {
+        font-size: 1.5rem;
+      }
+      
+      .container {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      nav {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+      }
+      
+      nav a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .hero {
+        padding: 2rem 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .container {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        padding-bottom: 120px;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .contact-details, .social-section, form {
+        padding: 1.5rem;
+      }
+      
+      input, textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+      }
+      
+      button {
+        padding: 12px 16px;
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .container {
+        padding: 1.2rem 0.8rem;
+        margin: 1.2rem 0.3rem;
+        padding-bottom: 140px;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      .contact-details, .social-section, form {
+        padding: 1.2rem;
+      }
+      
+      .info-item {
+        padding: 0.8rem;
+      }
+      
+      .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      input, textarea {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+      
+      button {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+      }
+      
+      .social-links {
+        gap: 1rem;
+      }
+      
+      .social-link {
+        width: 100px;
+        padding: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.3rem;
+      }
+      
+      nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .hero {
+        padding: 1.5rem 0.8rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      
+      .container {
+        padding: 1rem 0.6rem;
+        margin: 1rem 0.2rem;
+        padding-bottom: 150px;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+      
+      .contact-details, .social-section, form {
+        padding: 1rem;
+      }
+      
+      .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      input, textarea {
+        padding: 7px 8px;
+        font-size: 0.85rem;
+      }
+      
+      button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .social-link {
+        width: 85px;
+        padding: 0.8rem;
+      }
+      
+      .social-link i {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .social-link span {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Southrift Services Limited</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="logout.php">Logout</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>We're here to help you with any questions or concerns. Reach out to us through any of the channels below or use our contact form.</p>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Support</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">30+</div>
+        <div class="stat-label">Vehicles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">★ 4.8</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+
+    <div class="contact-details">
+      <h3><i class='bx bx-map'></i> Contact Information</h3>
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-icon">
+            <i class='bx bx-buildings'></i>
+          </div>
+          <div class="info-content">
+            <h4>Head Office</h4>
+            <p>Afya Center Building, Ground Floor, Nairobi</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class='bx bx-phone'></i>
+          </div>
+          <div class="info-content">
+            <h4>Phone</h4>
+            <p>+254 712 345 678</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class='bx bx-envelope'></i>
+          </div>
+          <div class="info-content">
+            <h4>Email</h4>
+            <p>info@southrift.co.ke</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class='bx bx-time'></i>
+          </div>
+          <div class="info-content">
+            <h4>Working Hours</h4>
+            <p>Open 24 hours, Monday to Monday</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form action="#" method="post">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (optional)" />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="What is this regarding?" />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+      </div>
+      
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Social Media Links Section -->
+    <div class="social-section">
+      <h3><i class='bx bx-link'></i> Connect With Us</h3>
+      <div class="social-links">
+        <a href="mailto:info@southrift.co.ke" class="social-link email" target="_blank">
+          <i class='bx bx-envelope'></i>
+          <span>Email</span>
+        </a>
+        <a href="https://wa.me/254712345678" class="social-link whatsapp" target="_blank">
+          <i class='bx bxl-whatsapp'></i>
+          <span>WhatsApp</span>
+        </a>
+        <a href="https://www.facebook.com/SouthriftServices" class="social-link facebook" target="_blank">
+          <i class='bx bxl-facebook'></i>
+          <span>Facebook</span>
+        </a>
+        <a href="tel:+254712345678" class="social-link phone">
+          <i class='bx bx-phone'></i>
+          <span>Call Us</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="features">
+    <h2 class="section-title">Why Contact Us</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-support'></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Our team is available around the clock to assist you</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-response'></i>
+        </div>
+        <h3>Quick Response</h3>
+        <p>We aim to respond to all inquiries within 24 hours</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-chat'></i>
+        </div>
+        <h3>Multiple Channels</h3>
+        <p>Reach us via phone, email, WhatsApp or social media</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-help-circle'></i>
+        </div>
+        <h3>Expert Assistance</h3>
+        <p>Get help from our knowledgeable support team</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Southrift Services Limited. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

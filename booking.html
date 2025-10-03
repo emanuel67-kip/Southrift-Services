@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Seat - Southrift Services Limited</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/responsive-framework.css">
+  <style>
+    :root {
+      --purple: #6A0DAD;
+      --purple-dark: #4e0b8a;
+      --purple-light: #8A2BE2;
+      --accent: #00BFFF;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoGlow {
+      0% { text-shadow: 0 0 8px #fff, 0 0 12px #0ff; }
+      100% { text-shadow: 0 0 12px #fff, 0 0 20px #f0f; }
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero-banner h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .hero-banner p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .booking-form {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+    }
+
+    .step {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #6c757d;
+      position: relative;
+    }
+
+    .step.active {
+      background: var(--purple);
+      color: white;
+    }
+
+    .step.completed {
+      background: #28a745;
+      color: white;
+    }
+
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 2rem;
+      height: 2px;
+      background: #e9ecef;
+      transform: translateY(-50%);
+    }
+
+    /* .step-label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    } */
+
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .form-col {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .payment-option {
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .payment-option:hover {
+      border-color: var(--purple);
+      background: rgba(106, 13, 173, 0.05);
+    }
+
+    .payment-option.selected {
+      border-color: var(--purple);
+      background: rgba(106, 13, 173, 0.1);
+      box-shadow: 0 5px 15px rgba(106, 13, 173, 0.1);
+    }
+
+    .payment-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--purple);
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .summary-item.total {
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #333;
+      margin-top: 0.5rem;
+    }
+
+    .confirmation-message {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .confirmation-icon {
+      font-size: 4rem;
+      color: #28a745;
+      margin-bottom: 1.5rem;
+    }
+
+    .confirmation-message h2 {
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-banner {
+        padding: 2rem 1rem;
+      }
+      
+      .hero-banner h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-banner p {
+        font-size: 1rem;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .step-indicator {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-banner {
+        padding: 1.5rem 0.75rem;
+      }
+      
+      .hero-banner h1 {
+        font-size: 1.8rem;
+      }
+      
+      .step {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner h1 {
+        font-size: 1.6rem;
+      }
+      
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Southrift Services Limited</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <div class="hero-banner">
+    <h1>Book Your Seat</h1>
+    <p>Reserve your seat in advance and enjoy a hassle-free journey with Southrift Services</p>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="section booking-form">
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+          <div class="step active" data-step="1">
+            1
+          </div>
+          <div class="step" data-step="2">
+            2
+          </div>
+          <div class="step" data-step="3">
+            3
+          </div>
+          <div class="step" data-step="4">
+            4
+          </div>
+        </div>
+
+        <!-- Step 1: Trip Details -->
+        <div class="form-step active" id="step1">
+          <h2 class="section-title">Select Your Trip</h2>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <div class="form-group">
+                <label class="form-label">Select Route</label>
+                <select class="form-control" id="route">
+                  <option value="">Choose a route</option>
+                  <option value="nairobi-bomet">Nairobi - Bomet - Litein</option>
+                  <option value="nairobi-kisumu">Nairobi - Kericho - Kisumu</option>
+                  <option value="nairobi-nakuru">Nairobi - Nakuru</option>
+                  <option value="litein-nairobi">Litein - Nairobi</option>
+                  <option value="kisumu-nairobi">Kisumu - Nairobi</option>
+                  <option value="nakuru-nairobi">Nakuru - Nairobi</option>
+                  <option value="bomet-nairobi">Bomet - Nairobi</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-col">
+              <div class="form-group">
+                <label class="form-label">Travel Date</label>
+                <input type="date" class="form-control" id="travelDate">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <div class="form-group">
+                <label class="form-label">Number of Seats</label>
+                <select class="form-control" id="seats">
+                  <option value="1">1 Seat</option>
+                  <option value="2">2 Seats</option>
+                  <option value="3">3 Seats</option>
+                  <option value="4">4 Seats</option>
+                  <option value="5">5 Seats</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-col">
+              <div class="form-group">
+                <label class="form-label">Boarding Point</label>
+                <input type="text" class="form-control" id="boardingPoint" placeholder="Enter your boarding point">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <button class="btn" onclick="nextStep(1)">Continue to Passenger Info</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Passenger Information -->
+        <div class="form-step" id="step2">
+          <h2 class="section-title">Passenger Information</h2>
+          
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+              </div>
+            </div>
+            
+            <div class="form-col">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email address">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Special Requests (Optional)</label>
+            <textarea class="form-control" id="requests" rows="3" placeholder="Any special requests or notes"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <button class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+            <button class="btn" onclick="nextStep(2)">Continue to Payment</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Payment -->
+        <div class="form-step" id="step3">
+          <h2 class="section-title">Payment Method</h2>
+          
+          <div class="payment-methods">
+            <div class="payment-option" onclick="selectPayment(this, 'mpesa')">
+              <div class="payment-icon">📱</div>
+              <h3>M-Pesa</h3>
+              <p>Pay via M-Pesa</p>
+            </div>
+            <div class="payment-option" onclick="selectPayment(this, 'cash')">
+              <div class="payment-icon">💵</div>
+              <h3>Cash</h3>
+              <p>Pay on boarding</p>
+            </div>
+            <div class="payment-option" onclick="selectPayment(this, 'card')">
+              <div class="payment-icon">💳</div>
+              <h3>Credit Card</h3>
+              <p>Visa, Mastercard</p>
+            </div>
+          </div>
+          
+          <div id="mpesa-details" style="display: none;">
+            <h3 class="section-title">M-Pesa Payment</h3>
+            <p>Send KSh <span id="amount">0</span> to <strong>0712 345 678</strong> using PayBill Number <strong>123456</strong></p>
+            <p>Enter your M-Pesa transaction code below after payment:</p>
+            <div class="form-group">
+              <label class="form-label">Transaction Code</label>
+              <input type="text" class="form-control" id="transactionCode" placeholder="Enter M-Pesa transaction code">
+            </div>
+          </div>
+          
+          <div class="section">
+            <h3 class="section-title">Booking Summary</h3>
+            <div class="summary-item">
+              <span>Route:</span>
+              <span id="summaryRoute">-</span>
+            </div>
+            <div class="summary-item">
+              <span>Date:</span>
+              <span id="summaryDate">-</span>
+            </div>
+            <div class="summary-item">
+              <span>Seats:</span>
+              <span id="summarySeats">-</span>
+            </div>
+            <div class="summary-item">
+              <span>Boarding Point:</span>
+              <span id="summaryBoarding">-</span>
+            </div>
+            <div class="summary-item total">
+              <span>Total Amount:</span>
+              <span id="totalAmount">KSh 0</span>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <button class="btn btn-secondary" onclick="prevStep(3)">Back</button>
+            <button class="btn" onclick="submitBooking()">Confirm Booking</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Confirmation -->
+        <div class="form-step" id="step4">
+          <div class="confirmation-message">
+            <div class="confirmation-icon">✓</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Your seat has been successfully reserved. A confirmation has been sent to your email.</p>
+            
+            <div class="section">
+              <h3 class="section-title">Booking Details</h3>
+              <div class="summary-item">
+                <span>Booking ID:</span>
+                <span id="bookingId">#B12345</span>
+              </div>
+              <div class="summary-item">
+                <span>Route:</span>
+                <span id="confirmRoute">-</span>
+              </div>
+              <div class="summary-item">
+                <span>Date & Time:</span>
+                <span id="confirmDateTime">-</span>
+              </div>
+              <div class="summary-item">
+                <span>Seats:</span>
+                <span id="confirmSeats">-</span>
+              </div>
+              <div class="summary-item">
+                <span>Boarding Point:</span>
+                <span id="confirmBoarding">-</span>
+              </div>
+              <div class="summary-item">
+                <span>Passenger:</span>
+                <span id="confirmPassenger">-</span>
+              </div>
+              <div class="summary-item total">
+                <span>Total Amount:</span>
+                <span id="confirmAmount">KSh 0</span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <a href="index.html" class="btn">Back to Home</a>
+              <a href="profile.html" class="btn btn-secondary">View My Bookings</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Southrift Services Limited. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Fare data based on routes page
+    const routeFares = {
+      'nairobi-bomet': 1200,
+      'nairobi-kisumu': 2000,
+      'nairobi-nakuru': 500,
+      'litein-nairobi': 1200,
+      'kisumu-nairobi': 2000,
+      'nakuru-nairobi': 500,
+      'bomet-nairobi': 1200
+    };
+    
+    // Step navigation
+    function showStep(stepNumber) {
+      // Hide all steps
+      document.querySelectorAll('.form-step').forEach(step => {
+        step.classList.remove('active');
+      });
+      
+      // Show current step
+      document.getElementById(`step${stepNumber}`).classList.add('active');
+      
+      // Update step indicator
+      document.querySelectorAll('.step').forEach((step, index) => {
+        if (index + 1 < stepNumber) {
+          step.classList.add('completed');
+          step.classList.remove('active');
+        } else if (index + 1 === stepNumber) {
+          step.classList.add('active');
+          step.classList.remove('completed');
+        } else {
+          step.classList.remove('active', 'completed');
+        }
+      });
+    }
+    
+    function nextStep(currentStep) {
+      if (currentStep === 1) {
+        // Validate step 1
+        const route = document.getElementById('route').value;
+        const travelDate = document.getElementById('travelDate').value;
+        const seats = document.getElementById('seats').value;
+        const boardingPoint = document.getElementById('boardingPoint').value;
+        
+        if (!route || !travelDate || !seats || !boardingPoint) {
+          alert('Please fill in all fields');
+          return;
+        }
+        
+        // Update summary
+        updateSummary();
+        showStep(2);
+      } else if (currentStep === 2) {
+        // Validate step 2
+        const fullName = document.getElementById('fullName').value;
+        const phone = document.getElementById('phone').value;
+        
+        if (!fullName || !phone) {
+          alert('Please fill in required fields');
+          return;
+        }
+        
+        showStep(3);
+      } else if (currentStep === 3) {
+        // Validate step 3
+        const paymentMethod = document.querySelector('.payment-option.selected');
+        if (!paymentMethod) {
+          alert('Please select a payment method');
+          return;
+        }
+        
+        if (paymentMethod.dataset.method === 'mpesa') {
+          const transactionCode = document.getElementById('transactionCode').value;
+          if (!transactionCode) {
+            alert('Please enter the M-Pesa transaction code');
+            return;
+          }
+        }
+        
+        // Update confirmation
+        updateConfirmation();
+        showStep(4);
+      }
+    }
+    
+    function prevStep(currentStep) {
+      showStep(currentStep - 1);
+    }
+    
+    function selectPayment(element, method) {
+      // Remove selected class from all options
+      document.querySelectorAll('.payment-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked option
+      element.classList.add('selected');
+      element.dataset.method = method;
+      
+      // Show/hide payment details
+      document.getElementById('mpesa-details').style.display = method === 'mpesa' ? 'block' : 'none';
+    }
+    
+    function updateSummary() {
+      // Get values
+      const routeSelect = document.getElementById('route');
+      const routeValue = routeSelect.value;
+      const routeText = routeSelect.options[routeSelect.selectedIndex].text;
+      const travelDate = document.getElementById('travelDate').value;
+      const seats = document.getElementById('seats').value;
+      const boardingPoint = document.getElementById('boardingPoint').value;
+      
+      // Format date
+      const formattedDate = new Date(travelDate).toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+      
+      // Calculate amount based on route fares
+      const farePerSeat = routeFares[routeValue] || 600; // Default to 600 if route not found
+      const amount = seats * farePerSeat;
+      
+      // Update summary
+      document.getElementById('summaryRoute').textContent = routeText;
+      document.getElementById('summaryDate').textContent = formattedDate;
+      document.getElementById('summarySeats').textContent = seats;
+      document.getElementById('summaryBoarding').textContent = boardingPoint;
+      document.getElementById('totalAmount').textContent = `KSh ${amount.toLocaleString()}`;
+      document.getElementById('amount').textContent = amount.toLocaleString();
+    }
+    
+    function updateConfirmation() {
+      // Get values
+      const routeSelect = document.getElementById('route');
+      const routeValue = routeSelect.value;
+      const routeText = routeSelect.options[routeSelect.selectedIndex].text;
+      const travelDate = document.getElementById('travelDate').value;
+      const seats = document.getElementById('seats').value;
+      const boardingPoint = document.getElementById('boardingPoint').value;
+      const fullName = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      
+      // Format date and time
+      const dateObj = new Date(travelDate);
+      const formattedDate = dateObj.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+      const formattedTime = "8:00 AM"; // Sample time
+      
+      // Calculate amount based on route fares
+      const farePerSeat = routeFares[routeValue] || 600; // Default to 600 if route not found
+      const amount = seats * farePerSeat;
+      
+      // Update confirmation
+      document.getElementById('confirmRoute').textContent = routeText;
+      document.getElementById('confirmDateTime').textContent = `${formattedDate} at ${formattedTime}`;
+      document.getElementById('confirmSeats').textContent = seats;
+      document.getElementById('confirmBoarding').textContent = boardingPoint;
+      document.getElementById('confirmPassenger').textContent = fullName;
+      document.getElementById('confirmAmount').textContent = `KSh ${amount.toLocaleString()}`;
+      
+      // Generate random booking ID
+      const bookingId = 'B' + Math.floor(10000 + Math.random() * 90000);
+      document.getElementById('bookingId').textContent = '#' + bookingId;
+    }
+    
+    // Submit booking to server
+    function submitBooking() {
+      // Get form values
+      const route = document.getElementById('route').value;
+      const travelDate = document.getElementById('travelDate').value;
+      const seats = document.getElementById('seats').value;
+      const boardingPoint = document.getElementById('boardingPoint').value;
+      const fullName = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const requests = document.getElementById('requests').value;
+      
+      // Get selected payment method
+      const paymentMethodElement = document.querySelector('.payment-option.selected');
+      let paymentMethod = 'pay-onboarding'; // Default
+      if (paymentMethodElement) {
+        paymentMethod = paymentMethodElement.dataset.method === 'mpesa' ? 'mpesa' : 
+                       paymentMethodElement.dataset.method === 'card' ? 'card' : 'pay-onboarding';
+      }
+      
+      // Create form data
+      const formData = new FormData();
+      formData.append('fullname', fullName);
+      formData.append('phone', phone);
+      formData.append('route', route);
+      formData.append('boarding_point', boardingPoint);
+      formData.append('travel_date', travelDate);
+      formData.append('departure_time', '8:00 AM'); // Sample time
+      formData.append('seats', seats);
+      formData.append('payment_method', paymentMethod);
+      
+      // Show loading state
+      const submitButton = document.querySelector('#step3 .btn:last-child');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Processing...';
+      submitButton.disabled = true;
+      
+      // Send data to server
+      fetch('book.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Update confirmation
+          updateConfirmation();
+          showStep(4);
+        } else {
+          alert('Booking failed: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while processing your booking. Please try again.');
+      })
+      .finally(() => {
+        // Restore button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      });
+    }
+    
+    // Set min date to today
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('travelDate').setAttribute('min', today);
+    });
+  </script>
+</body>
+</html>

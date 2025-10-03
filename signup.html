@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Southrift Services SACCO</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      width: 850px;
+      max-width: 100%;
+      min-height: 550px;
+      display: flex;
+      margin-bottom: 80px; /* Add margin to prevent overlap with fixed footer */
+    }
+
+    .form-container {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 50px;
+      text-align: center;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-container h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .input-box {
+      position: relative;
+      margin: 10px 0;
+      width: 100%;
+    }
+
+    .input-box input {
+      padding: 12px 15px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .input-box i {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      color: #999;
+    }
+
+    button {
+      border: none;
+      padding: 12px 45px;
+      background-color: #6a1b9a;
+      color: white;
+      font-size: 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #4a148c;
+    }
+
+    .overlay-container {
+      width: 50%;
+      background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 40px;
+      border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    }
+
+    .overlay-container h2 {
+      margin-bottom: 10px;
+    }
+
+    .overlay-container p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-btn {
+      background-color: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 10px 30px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .toggle-btn:hover {
+      background-color: #ffffff22;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 12px;
+      z-index: 1000;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .container {
+        width: 750px;
+        min-height: 500px;
+        margin-bottom: 80px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+        padding-top: 40px;
+        align-items: flex-start;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 500px;
+        min-height: 500px;
+        border-radius: 20px;
+        flex-direction: column;
+        margin-bottom: 100px; /* Increase margin for mobile */
+      }
+      
+      .form-container {
+        width: 100%;
+        padding: 30px 20px;
+      }
+      
+      .overlay-container {
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        padding: 30px 20px;
+      }
+      
+      .input-box input {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+      }
+      
+      button {
+        padding: 10px 40px;
+        font-size: 13px;
+      }
+      
+      .overlay-container h2 {
+        font-size: 1.5rem;
+      }
+      
+      .overlay-container p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      body {
+        padding: 10px;
+        padding-top: 30px;
+      }
+      
+      .container {
+        min-height: 450px;
+        border-radius: 15px;
+        margin-bottom: 120px; /* Increase margin for small mobile */
+      }
+      
+      .form-container {
+        padding: 25px 15px;
+      }
+      
+      .overlay-container {
+        padding: 25px 15px;
+      }
+      
+      .input-box input {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+      }
+      
+      button {
+        padding: 10px 40px;
+        font-size: 13px;
+      }
+      
+      .form-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+      
+      .overlay-container h2 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+      
+      .overlay-container p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 8px;
+        padding-top: 20px;
+      }
+      
+      .container {
+        min-height: 400px;
+        border-radius: 12px;
+        margin-bottom: 130px; /* Increase margin for very small mobile */
+      }
+      
+      .form-container {
+        padding: 20px 12px;
+      }
+      
+      .overlay-container {
+        padding: 20px 12px;
+      }
+      
+      .input-box input {
+        padding: 7px 8px;
+        font-size: 0.85rem;
+      }
+      
+      .input-box i {
+        right: 10px;
+      }
+      
+      button {
+        padding: 7px 30px;
+        font-size: 11px;
+        border-radius: 15px;
+      }
+      
+      .form-container h1 {
+        font-size: 1.3rem;
+      }
+      
+      .overlay-container h2 {
+        font-size: 1.2rem;
+      }
+      
+      .overlay-container p {
+        font-size: 0.9rem;
+      }
+      
+      .toggle-btn {
+        padding: 7px 20px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container {
+        min-height: 380px;
+        margin-bottom: 140px; /* Increase margin for extra small devices */
+      }
+      
+      .form-container {
+        padding: 15px 10px;
+      }
+      
+      .overlay-container {
+        padding: 15px 10px;
+      }
+      
+      .input-box input {
+        padding: 7px 8px;
+        font-size: 0.85rem;
+      }
+      
+      button {
+        padding: 7px 30px;
+        font-size: 11px;
+      }
+      
+      .form-container h1 {
+        font-size: 1.2rem;
+      }
+      
+      .overlay-container h2 {
+        font-size: 1.1rem;
+      }
+      
+      .overlay-container p {
+        font-size: 0.85rem;
+      }
+      
+      .toggle-btn {
+        padding: 6px 20px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <form action="register.php" method="POST">
+        <h1>Create Account</h1>
+        <div class="input-box">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+          <input type="email" name="email" placeholder="Email" required>
+          <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="input-box">
+          <input type="text" name="phone" placeholder="Phone Number" required>
+          <i class='bx bxs-phone'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" placeholder="Password" required>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <h2>Welcome Our Esteemed Customer</h2>
+      <p>Thank you for travelling with us! We value your trust</p>
+      <a href="login.html" class="toggle-btn">Login</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Southrift Services Limited | All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

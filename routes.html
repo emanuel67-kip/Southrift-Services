@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Routes | Southrift Services Limited</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #6A0DAD;
+      --purple-dark: #4e0b8a;
+      --purple-light: #8A2BE2;
+      --accent: #FF6EC4;
+      --accent-secondary: #7873F5;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #28a745;
+      --warning: #ffc107;
+      --info: #17a2b8;
+      --gradient-primary: linear-gradient(135deg, var(--purple), var(--purple-light));
+      --gradient-secondary: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      --shadow: 0 10px 20px rgba(0,0,0,0.1);
+      --shadow-hover: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoGlow {
+      0% { text-shadow: 0 0 8px #fff, 0 0 12px #0ff; }
+      100% { text-shadow: 0 0 12px #fff, 0 0 20px #f0f; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Header Styles */
+    header {
+  background-color: var(--purple);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  position: relative;
+  color: paleturquoise;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+    /* Hero Section */
+    .hero {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      transform: rotate(30deg);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .stat-item:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .stat-item:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Routes Section */
+    .routes-section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.8s ease-out;
+      flex: 1;
+      padding-bottom: 100px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--purple);
+      margin: 2rem 0;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-secondary);
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    .routes-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Table Styles */
+    .routes-table-container {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    thead {
+      background: var(--gradient-primary);
+      color: white;
+    }
+
+    th {
+      padding: 1.2rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    tbody tr {
+      transition: all 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background: #f8f9ff;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .fare-highlight {
+      font-weight: 700;
+      color: var(--purple);
+      font-size: 1.1rem;
+    }
+
+    .departure-times {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Notes Section */
+    .notes-section {
+      background: #f8f9ff;
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 2rem;
+    }
+
+    .notes-section h3 {
+      color: var(--purple);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .notes-section h3 i {
+      background: var(--gradient-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .notes-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .notes-list li {
+      padding: 12px 0;
+      border-bottom: 1px dashed #ddd;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .notes-list li:last-child {
+      border-bottom: none;
+    }
+
+    .notes-list li i {
+      color: var(--purple);
+      margin-top: 4px;
+    }
+
+    /* Features Section */
+    .features {
+      background: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      border-radius: 15px;
+      background: #f8f9ff;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      color: var(--purple-dark);
+    }
+
+    /* Footer */
+    footer {
+  background: var(--purple);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  flex-shrink: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .stats {
+        gap: 1rem;
+      }
+      
+      .stat-item {
+        padding: 0.8rem 1.5rem;
+      }
+      
+      .stat-value {
+        font-size: 1.5rem;
+      }
+      
+      .routes-section {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+      }
+      
+      th, td {
+        padding: 1rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      nav {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+      }
+      
+      nav a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .hero {
+        padding: 2rem 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .routes-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        padding-bottom: 120px;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .routes-intro {
+        font-size: 1rem;
+      }
+      
+      th, td {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .routes-section {
+        padding: 1.2rem 0.8rem;
+        margin: 1.2rem 0.3rem;
+        padding-bottom: 140px;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      .notes-section {
+        padding: 1.5rem;
+      }
+      
+      .notes-list li {
+        font-size: 0.9rem;
+      }
+      
+      th, td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.85rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.3rem;
+      }
+      
+      nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .hero {
+        padding: 1.5rem 0.8rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      
+      .routes-section {
+        padding: 1rem 0.6rem;
+        margin: 1rem 0.2rem;
+        padding-bottom: 150px;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+      
+      th, td {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.8rem;
+      }
+      
+      .notes-section {
+        padding: 1rem;
+      }
+      
+      .notes-list li {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Southrift Services Limited</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Our Routes & Fares</h1>
+    <p>Explore our comprehensive network of routes connecting major cities across Kenya. All fares are fixed and transparent with multiple departure times throughout the day.</p>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-value">6</div>
+        <div class="stat-label">Routes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Destinations</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">6</div>
+        <div class="stat-label">Daily Departures</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="routes-section">
+    <h2 class="section-title">Available Routes</h2>
+    
+    <p class="routes-intro">Below are our most common travel routes, with fixed fares and multiple departure times throughout the day. All fares are one-way and do not change based on direction of travel.</p>
+    
+    <div class="routes-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Fare (KES)</th>
+            <th>Departure Times</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nairobi</td>
+            <td>Litein</td>
+            <td class="fare-highlight">1,200</td>
+            <td class="departure-times">10pm, 5am, 8am, 11am, 2pm, 5pm</td>
+          </tr>
+          <tr>
+            <td>Nairobi</td>
+            <td>Nakuru</td>
+            <td class="fare-highlight">500</td>
+            <td class="departure-times">10pm, 5am, 8am, 11am, 2pm, 5pm</td>
+          </tr>
+          <tr>
+            <td>Nairobi</td>
+            <td>Kisumu</td>
+            <td class="fare-highlight">2,000</td>
+            <td class="departure-times">10pm, 5am, 8am, 11am, 2pm, 5pm</td>
+          </tr>
+          <tr>
+            <td>Kisumu</td>
+            <td>Nairobi</td>
+            <td class="fare-highlight">2,000</td>
+            <td class="departure-times">10pm, 5am, 8am, 11am, 2pm, 5pm</td>
+          </tr>
+          <tr>
+            <td>Nakuru</td>
+            <td>Nairobi</td>
+            <td class="fare-highlight">500</td>
+            <td class="departure-times">10pm, 5am, 8am, 11am, 2pm, 5pm</td>
+          </tr>
+          <tr>
+            <td>Litein</td>
+            <td>Nairobi</td>
+            <td class="fare-highlight">1,200</td>
+            <td class="departure-times">10pm, 5am, 8am, 11am, 2pm, 5pm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notes-section">
+      <h3><i class='bx bx-info-circle'></i> Important Information</h3>
+      <ul class="notes-list">
+        <li><i class='bx bx-check'></i> Fare does not change regardless of the direction of travel between the two stations.</li>
+        <li><i class='bx bx-check'></i> Our customers can book online from any station located between the boarding station and the destination.</li>
+        <li><i class='bx bx-check'></i> All fares are fixed and transparent - no hidden charges or additional fees.</li>
+        <li><i class='bx bx-check'></i> Departure times are consistent and reliable for your travel planning.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2 class="section-title">Why Travel With Us</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-money'></i>
+        </div>
+        <h3>Transparent Pricing</h3>
+        <p>Fixed fares with no hidden charges or additional fees</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-time'></i>
+        </div>
+        <h3>Multiple Departures</h3>
+        <p>6 daily departures for flexible travel planning</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-map'></i>
+        </div>
+        <h3>Wide Coverage</h3>
+        <p>Connecting major cities across Kenya</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-support'></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Customer service available around the clock</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Southrift Services Limited. All rights reserved.</p>
+  </footer>
+</body>
+</html>

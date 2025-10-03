@@ -1,0 +1,6324 @@
+2025-07-29 20:30:02 - Login attempt started
+2025-07-29 20:30:02 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-29 20:30:02 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-29 20:30:02 - Password verified for user: admin@example.com
+2025-07-29 20:31:01 - Login attempt started
+2025-07-29 20:31:01 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-29 20:31:01 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-29 20:31:01 - Password verified for user: passenger@gmail.com
+2025-07-29 20:49:33 - Login attempt started
+2025-07-29 20:49:33 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-29 20:49:33 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-29 20:49:33 - Password verified for user: passenger@gmail.com
+2025-07-29 20:52:31 - Login attempt started
+2025-07-29 20:52:31 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-29 20:52:31 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-29 20:52:31 - Password verified for user: admin@example.com
+2025-07-29 22:02:06 - Login attempt started
+2025-07-29 22:02:06 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-29 22:02:06 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-29 22:02:07 - Password verified for user: admin@example.com
+2025-07-29 22:02:13 - Login attempt started
+2025-07-29 22:02:13 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-29 22:02:13 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-29 22:02:13 - Password verified for user: passenger@gmail.com
+2025-07-30 00:15:07 - Login attempt started
+2025-07-30 00:15:07 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-30 00:15:07 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-30 00:15:07 - Password verified for user: passenger@gmail.com
+2025-07-30 01:07:41 - Login attempt started
+2025-07-30 01:07:41 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-30 01:07:41 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-30 01:07:42 - Password verified for user: admin@example.com
+2025-07-30 20:29:17 - Login attempt started
+2025-07-30 20:29:17 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-30 20:29:17 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-30 20:29:17 - Password verified for user: passenger@gmail.com
+2025-07-30 20:40:34 - Login attempt started
+2025-07-30 20:40:34 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-30 20:40:34 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-30 20:40:34 - Password verified for user: passenger@gmail.com
+2025-07-30 20:42:07 - Login attempt started
+2025-07-30 20:42:07 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-30 20:42:07 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-30 20:42:07 - Password verified for user: admin@example.com
+2025-07-30 20:42:14 - Login attempt started
+2025-07-30 20:42:14 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-07-30 20:42:14 - No matching regular user found, checking drivers
+2025-07-30 20:42:14 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-07-30 20:42:14 - Driver login successful, redirecting to dashboard
+2025-07-30 20:47:34 - Login attempt started
+2025-07-30 20:47:34 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-30 20:47:34 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-30 20:47:35 - Password verified for user: passenger@gmail.com
+2025-07-30 20:52:38 - Login attempt started
+2025-07-30 20:52:38 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-30 20:52:38 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-30 20:52:38 - Password verified for user: admin@example.com
+2025-07-31 18:49:39 - Login attempt started
+2025-07-31 18:49:39 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 18:49:39 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-31 18:49:39 - Password verified for user: passenger@gmail.com
+2025-07-31 18:50:12 - Login attempt started
+2025-07-31 18:50:12 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-07-31 18:50:12 - No matching regular user found, checking drivers
+2025-07-31 18:50:12 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-07-31 18:50:12 - Driver login successful, redirecting to dashboard
+2025-07-31 18:50:57 - Login attempt started
+2025-07-31 18:50:57 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 18:50:57 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-31 18:50:58 - Password verified for user: admin@example.com
+2025-07-31 19:31:02 - Login attempt started
+2025-07-31 19:31:02 - POST data: Array
+(
+    [email] => 0798365357
+    [password] => KDM 540F
+)
+
+2025-07-31 19:31:02 - No matching regular user found, checking drivers
+2025-07-31 19:31:02 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365357
+    [name] => Paul Rop
+    [number_plate] => KDM 540F
+)
+
+2025-07-31 19:31:02 - Driver login successful, redirecting to dashboard
+2025-07-31 19:37:26 - Login attempt started
+2025-07-31 19:37:26 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 19:37:26 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-31 19:37:26 - Password verified for user: admin@example.com
+2025-07-31 20:36:00 - Login attempt started
+2025-07-31 20:36:00 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 20:36:00 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-31 20:36:00 - Password verified for user: passenger@gmail.com
+2025-07-31 20:37:16 - Login attempt started
+2025-07-31 20:37:16 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 20:37:16 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-31 20:37:16 - Password verified for user: admin@example.com
+2025-07-31 20:42:39 - Login attempt started
+2025-07-31 20:42:39 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 20:42:39 - Found user: Array
+(
+    [id] => 14
+    [name] => passenger
+    [email] => passenger@gmail.com
+    [password] => $2y$10$/D2H2YE0t.jPJGkyNNvSLu1rf8BzQXFvFyj2NVuPRoisjAMx0/G2.
+    [role] => passenger
+)
+
+2025-07-31 20:42:39 - Password verified for user: passenger@gmail.com
+2025-07-31 20:44:11 - Login attempt started
+2025-07-31 20:44:11 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 20:44:11 - Found user: Array
+(
+    [id] => 39
+    [name] => Administrator
+    [email] => admin@example.com
+    [password] => $2y$10$zJvreblmGcjXiQFhP/qsFeWo9QOAR1q3iMoVS5FskriQe0z1Ndfri
+    [role] => admin
+)
+
+2025-07-31 20:44:11 - Password verified for user: admin@example.com
+2025-07-31 20:47:12 - Login attempt started
+2025-07-31 20:47:12 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 20:47:12 - No matching regular user found, checking drivers
+2025-07-31 20:47:12 - No driver found with the provided phone and number plate
+2025-07-31 20:47:12 - Driver authentication failed for identifier: admin@example.com
+2025-07-31 20:47:12 - Login failed for identifier: admin@example.com
+2025-07-31 20:47:36 - Login attempt started
+2025-07-31 20:47:36 - POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+2025-07-31 20:47:36 - Found user: Array
+(
+    [id] => 13
+    [name] => Admin Name
+    [email] => admin@gmail.com
+    [password] => $2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi
+    [role] => admin
+)
+
+2025-07-31 20:47:36 - No matching regular user found, checking drivers
+2025-07-31 20:47:36 - No driver found with the provided phone and number plate
+2025-07-31 20:47:36 - Driver authentication failed for identifier: admin@gmail.com
+2025-07-31 20:47:36 - Login failed for identifier: admin@gmail.com
+2025-07-31 20:47:47 - Login attempt started
+2025-07-31 20:47:47 - POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+2025-07-31 20:47:47 - Found user: Array
+(
+    [id] => 13
+    [name] => Admin Name
+    [email] => admin@gmail.com
+    [password] => $2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi
+    [role] => admin
+)
+
+2025-07-31 20:47:47 - No matching regular user found, checking drivers
+2025-07-31 20:47:47 - No driver found with the provided phone and number plate
+2025-07-31 20:47:47 - Driver authentication failed for identifier: admin@gmail.com
+2025-07-31 20:47:47 - Login failed for identifier: admin@gmail.com
+2025-07-31 20:48:44 - Login attempt started
+2025-07-31 20:48:44 - POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+2025-07-31 20:48:44 - Found user: Array
+(
+    [id] => 13
+    [name] => Admin Name
+    [email] => admin@gmail.com
+    [password] => admin123
+    [role] => admin
+)
+
+2025-07-31 20:48:44 - No matching regular user found, checking drivers
+2025-07-31 20:48:44 - No driver found with the provided phone and number plate
+2025-07-31 20:48:44 - Driver authentication failed for identifier: admin@gmail.com
+2025-07-31 20:48:44 - Login failed for identifier: admin@gmail.com
+2025-07-31 20:48:47 - Login attempt started
+2025-07-31 20:48:47 - POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+2025-07-31 20:48:47 - Found user: Array
+(
+    [id] => 13
+    [name] => Admin Name
+    [email] => admin@gmail.com
+    [password] => admin123
+    [role] => admin
+)
+
+2025-07-31 20:48:47 - No matching regular user found, checking drivers
+2025-07-31 20:48:47 - No driver found with the provided phone and number plate
+2025-07-31 20:48:47 - Driver authentication failed for identifier: admin@gmail.com
+2025-07-31 20:48:47 - Login failed for identifier: admin@gmail.com
+2025-07-31 20:48:59 - Login attempt started
+2025-07-31 20:48:59 - POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+2025-07-31 20:48:59 - Found user: Array
+(
+    [id] => 13
+    [name] => Admin Name
+    [email] => admin@gmail.com
+    [password] => admin123
+    [role] => admin
+)
+
+2025-07-31 20:48:59 - No matching regular user found, checking drivers
+2025-07-31 20:48:59 - No driver found with the provided phone and number plate
+2025-07-31 20:48:59 - Driver authentication failed for identifier: admin@gmail.com
+2025-07-31 20:48:59 - Login failed for identifier: admin@gmail.com
+2025-07-31 20:49:03 - Login attempt started
+2025-07-31 20:49:03 - POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+2025-07-31 20:49:03 - Found user: Array
+(
+    [id] => 13
+    [name] => Admin Name
+    [email] => admin@gmail.com
+    [password] => admin123
+    [role] => admin
+)
+
+2025-07-31 20:49:03 - No matching regular user found, checking drivers
+2025-07-31 20:49:03 - No driver found with the provided phone and number plate
+2025-07-31 20:49:03 - Driver authentication failed for identifier: admin@gmail.com
+2025-07-31 20:49:03 - Login failed for identifier: admin@gmail.com
+2025-07-31 20:50:48 - Login attempt started
+2025-07-31 20:50:48 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => adminpassword
+)
+
+2025-07-31 20:50:48 - Found user: Array
+(
+    [id] => 40
+    [name] => Admin Name
+    [email] => admin@example.com
+    [password] => 749f09bade8aca755660eeb17792da880218d4fbdc4e25fbec279d7fe9f65d70
+    [role] => admin
+)
+
+2025-07-31 20:50:48 - No matching regular user found, checking drivers
+2025-07-31 20:50:48 - No driver found with the provided phone and number plate
+2025-07-31 20:50:48 - Driver authentication failed for identifier: admin@example.com
+2025-07-31 20:50:48 - Login failed for identifier: admin@example.com
+2025-07-31 20:56:17 - Login attempt started
+2025-07-31 20:56:17 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 20:56:17 - Found user: Array
+(
+    [id] => 41
+    [name] => Admin
+    [email] => admin@example.com
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 20:56:17 - Password verified for user: admin@example.com
+2025-07-31 20:57:27 - Login attempt started
+2025-07-31 20:57:27 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 20:57:27 - Found user: Array
+(
+    [id] => 42
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [password] => $2y$10$Yx4eObnk2B8nbZtC8sg6P.n57oA1EPVw3vmoddoiBPPgSL16PCVaW
+    [role] => passenger
+)
+
+2025-07-31 20:57:27 - No matching regular user found, checking drivers
+2025-07-31 20:57:27 - No driver found with the provided phone and number plate
+2025-07-31 20:57:27 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 20:57:27 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 20:58:01 - Login attempt started
+2025-07-31 20:58:01 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 20:58:01 - Found user: Array
+(
+    [id] => 42
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [password] => $2y$10$Yx4eObnk2B8nbZtC8sg6P.n57oA1EPVw3vmoddoiBPPgSL16PCVaW
+    [role] => passenger
+)
+
+2025-07-31 20:58:01 - No matching regular user found, checking drivers
+2025-07-31 20:58:01 - No driver found with the provided phone and number plate
+2025-07-31 20:58:01 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 20:58:01 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 20:58:37 - Login attempt started
+2025-07-31 20:58:37 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 20:58:37 - Found user: Array
+(
+    [id] => 43
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [password] => $2y$10$W/SWiUd8PRj692foku5JFudvECPM..wixfzwwKzxQV3cGuW8.Flzm
+    [role] => passenger
+)
+
+2025-07-31 20:58:37 - No matching regular user found, checking drivers
+2025-07-31 20:58:37 - No driver found with the provided phone and number plate
+2025-07-31 20:58:37 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 20:58:37 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 21:00:11 - Login attempt started
+2025-07-31 21:00:11 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:00:11 - Found user: Array
+(
+    [id] => 43
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [password] => $2y$10$W/SWiUd8PRj692foku5JFudvECPM..wixfzwwKzxQV3cGuW8.Flzm
+    [role] => passenger
+)
+
+2025-07-31 21:00:11 - No matching regular user found, checking drivers
+2025-07-31 21:00:11 - No driver found with the provided phone and number plate
+2025-07-31 21:00:11 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 21:00:11 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 21:00:18 - Login attempt started
+2025-07-31 21:00:18 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 21:00:18 - Found user: Array
+(
+    [id] => 43
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [password] => $2y$10$W/SWiUd8PRj692foku5JFudvECPM..wixfzwwKzxQV3cGuW8.Flzm
+    [role] => passenger
+)
+
+2025-07-31 21:00:18 - No matching regular user found, checking drivers
+2025-07-31 21:00:18 - No driver found with the provided phone and number plate
+2025-07-31 21:00:18 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 21:00:18 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 21:03:22 - Login attempt started
+2025-07-31 21:03:22 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 21:03:22 - Found user: Array
+(
+    [id] => 41
+    [name] => Admin
+    [email] => admin@example.com
+    [phone] => 0712345678
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:03:22 - Password verified for user: admin@example.com
+2025-07-31 21:04:09 - Login attempt started
+2025-07-31 21:04:09 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => 1234
+)
+
+2025-07-31 21:04:09 - Found user: Array
+(
+    [id] => 41
+    [name] => Admin
+    [email] => admin@example.com
+    [phone] => 0712345678
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:04:09 - No matching regular user found, checking drivers
+2025-07-31 21:04:09 - No driver found with the provided phone and number plate
+2025-07-31 21:04:09 - Driver authentication failed for identifier: admin@example.com
+2025-07-31 21:04:09 - Login failed for identifier: admin@example.com
+2025-07-31 21:06:52 - Login attempt started
+2025-07-31 21:06:52 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => 1234
+)
+
+2025-07-31 21:06:52 - Found user: Array
+(
+    [id] => 41
+    [name] => Admin
+    [email] => admin@example.com
+    [phone] => 0712345678
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:06:52 - No matching regular user found, checking drivers
+2025-07-31 21:06:52 - No driver found with the provided phone and number plate
+2025-07-31 21:06:52 - Driver authentication failed for identifier: admin@example.com
+2025-07-31 21:06:52 - Login failed for identifier: admin@example.com
+2025-07-31 21:06:58 - Login attempt started
+2025-07-31 21:06:58 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => 1234
+)
+
+2025-07-31 21:06:58 - Found user: Array
+(
+    [id] => 41
+    [name] => Admin
+    [email] => admin@example.com
+    [phone] => 0712345678
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:06:58 - No matching regular user found, checking drivers
+2025-07-31 21:06:58 - No driver found with the provided phone and number plate
+2025-07-31 21:06:58 - Driver authentication failed for identifier: admin@example.com
+2025-07-31 21:06:58 - Login failed for identifier: admin@example.com
+2025-07-31 21:07:03 - Login attempt started
+2025-07-31 21:07:03 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => 1234
+)
+
+2025-07-31 21:07:03 - Found user: Array
+(
+    [id] => 41
+    [name] => Admin
+    [email] => admin@example.com
+    [phone] => 0712345678
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:07:03 - No matching regular user found, checking drivers
+2025-07-31 21:07:03 - No driver found with the provided phone and number plate
+2025-07-31 21:07:03 - Driver authentication failed for identifier: admin@example.com
+2025-07-31 21:07:03 - Login failed for identifier: admin@example.com
+2025-07-31 21:07:10 - Login attempt started
+2025-07-31 21:07:10 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-07-31 21:07:10 - No matching regular user found, checking drivers
+2025-07-31 21:07:10 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-07-31 21:07:10 - Driver login successful, redirecting to dashboard
+2025-07-31 21:07:19 - Login attempt started
+2025-07-31 21:07:19 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 21:07:19 - Found user: Array
+(
+    [id] => 43
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => $2y$10$W/SWiUd8PRj692foku5JFudvECPM..wixfzwwKzxQV3cGuW8.Flzm
+    [role] => passenger
+)
+
+2025-07-31 21:07:19 - No matching regular user found, checking drivers
+2025-07-31 21:07:19 - No driver found with the provided phone and number plate
+2025-07-31 21:07:19 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 21:07:19 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 21:09:11 - Login attempt started
+2025-07-31 21:09:11 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 21:09:11 - Found user: Array
+(
+    [id] => 44
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => $2y$10$W.OIg1e2Lk9LvkLkkkFmwObAHZ9XKMbRd7BOQh4oOHte5iTTueIB6
+    [role] => passenger
+)
+
+2025-07-31 21:09:11 - No matching regular user found, checking drivers
+2025-07-31 21:09:11 - No driver found with the provided phone and number plate
+2025-07-31 21:09:11 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 21:09:11 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 21:09:24 - Login attempt started
+2025-07-31 21:09:24 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => 1234
+)
+
+2025-07-31 21:09:24 - Found user: Array
+(
+    [id] => 44
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => $2y$10$W.OIg1e2Lk9LvkLkkkFmwObAHZ9XKMbRd7BOQh4oOHte5iTTueIB6
+    [role] => passenger
+)
+
+2025-07-31 21:09:24 - No matching regular user found, checking drivers
+2025-07-31 21:09:24 - No driver found with the provided phone and number plate
+2025-07-31 21:09:24 - Driver authentication failed for identifier: kipruto@gmail.com
+2025-07-31 21:09:24 - Login failed for identifier: kipruto@gmail.com
+2025-07-31 21:11:08 - Login attempt started
+2025-07-31 21:11:08 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-07-31 21:11:08 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-07-31 21:11:08 - Password verified for user: passenger@example.com
+2025-07-31 21:15:12 - Login attempt started
+2025-07-31 21:15:12 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:15:12 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 21:15:12 - Password verified for user: kipruto@gmail.com
+2025-07-31 21:16:03 - Login attempt started
+2025-07-31 21:16:03 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => 1234
+)
+
+2025-07-31 21:16:03 - Found user: Array
+(
+    [id] => 41
+    [name] => Admin
+    [email] => admin@example.com
+    [phone] => 0712345678
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:16:03 - No matching regular user found, checking drivers
+2025-07-31 21:16:03 - No driver found with the provided phone and number plate
+2025-07-31 21:16:03 - Driver authentication failed for identifier: admin@example.com
+2025-07-31 21:16:03 - Login failed for identifier: admin@example.com
+2025-07-31 21:19:10 - Login attempt started
+2025-07-31 21:19:10 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 21:19:10 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:19:10 - Password verified for user: admin@example.com
+2025-07-31 21:28:56 - Login attempt started
+2025-07-31 21:28:56 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:28:56 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 21:28:56 - Password verified for user: kipruto@gmail.com
+2025-07-31 21:29:25 - Login attempt started
+2025-07-31 21:29:25 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:29:25 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 21:29:25 - Password verified for user: kipruto@gmail.com
+2025-07-31 21:29:52 - Login attempt started
+2025-07-31 21:29:52 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 21:29:52 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:29:52 - Password verified for user: admin@example.com
+2025-07-31 21:33:12 - Login attempt started
+2025-07-31 21:33:12 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:33:12 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 21:33:12 - Password verified for user: kipruto@gmail.com
+2025-07-31 21:39:37 - Login attempt started
+2025-07-31 21:39:37 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:39:37 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 21:39:37 - Password verified for user: kipruto@gmail.com
+2025-07-31 21:39:47 - Login attempt started
+2025-07-31 21:39:47 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 21:39:47 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:39:47 - Password verified for user: admin@example.com
+2025-07-31 21:39:56 - Login attempt started
+2025-07-31 21:39:56 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-07-31 21:39:56 - No matching regular user found, checking drivers
+2025-07-31 21:39:56 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-07-31 21:39:56 - Driver login successful, redirecting to dashboard
+2025-07-31 21:40:14 - Login attempt started
+2025-07-31 21:40:14 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:40:14 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 21:40:14 - Password verified for user: kipruto@gmail.com
+2025-07-31 21:49:58 - Login attempt started
+2025-07-31 21:49:58 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 21:49:58 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:49:58 - Password verified for user: admin@example.com
+2025-07-31 21:57:00 - Login attempt started
+2025-07-31 21:57:00 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 21:57:00 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 21:57:00 - Password verified for user: kipruto@gmail.com
+2025-07-31 21:59:27 - Login attempt started
+2025-07-31 21:59:27 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 21:59:27 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 21:59:27 - Password verified for user: admin@example.com
+2025-07-31 22:03:03 - Login attempt started
+2025-07-31 22:03:03 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 22:03:03 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 22:03:03 - Password verified for user: kipruto@gmail.com
+2025-07-31 22:03:33 - Login attempt started
+2025-07-31 22:03:33 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 22:03:33 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 22:03:33 - Password verified for user: admin@example.com
+2025-07-31 22:03:56 - Login attempt started
+2025-07-31 22:03:56 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-07-31 22:03:56 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-07-31 22:03:56 - Password verified for user: kipruto@gmail.com
+2025-07-31 22:09:44 - Login attempt started
+2025-07-31 22:09:44 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-07-31 22:09:44 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-07-31 22:09:44 - Password verified for user: admin@example.com
+2025-07-31 22:11:52 - Login attempt started
+2025-07-31 22:11:52 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-07-31 22:11:52 - No matching regular user found, checking drivers
+2025-07-31 22:11:52 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-07-31 22:11:52 - Driver login successful, redirecting to dashboard
+2025-08-05 19:47:00 - Login attempt started
+2025-08-05 19:47:00 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-08-05 19:47:00 - No matching regular user found, checking drivers
+2025-08-05 19:47:00 - No driver found with the provided phone and number plate
+2025-08-05 19:47:00 - Driver authentication failed for identifier: passenger@gmail.com
+2025-08-05 19:47:00 - Login failed for identifier: passenger@gmail.com
+2025-08-05 19:47:32 - Login attempt started
+2025-08-05 19:47:32 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-05 19:47:32 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-05 19:47:32 - Password verified for user: kipruto@gmail.com
+2025-08-05 19:47:41 - Login attempt started
+2025-08-05 19:47:41 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-05 19:47:41 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-05 19:47:41 - Password verified for user: admin@example.com
+2025-08-05 19:48:01 - Login attempt started
+2025-08-05 19:48:01 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-05 19:48:01 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-05 19:48:01 - Password verified for user: admin@example.com
+2025-08-05 19:48:09 - Login attempt started
+2025-08-05 19:48:09 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-08-05 19:48:09 - No matching regular user found, checking drivers
+2025-08-05 19:48:09 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-08-05 19:48:09 - Driver login successful, redirecting to dashboard
+2025-08-05 19:48:27 - Login attempt started
+2025-08-05 19:48:27 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-05 19:48:27 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-05 19:48:27 - Password verified for user: admin@example.com
+2025-08-05 19:48:40 - Login attempt started
+2025-08-05 19:48:40 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-08-05 19:48:40 - No matching regular user found, checking drivers
+2025-08-05 19:48:40 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-08-05 19:48:40 - Driver login successful, redirecting to dashboard
+2025-08-05 19:49:34 - Login attempt started
+2025-08-05 19:49:34 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-05 19:49:34 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-05 19:49:34 - Password verified for user: admin@example.com
+2025-08-05 19:51:17 - Login attempt started
+2025-08-05 19:51:17 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-08-05 19:51:17 - No matching regular user found, checking drivers
+2025-08-05 19:51:17 - No driver found with the provided phone and number plate
+2025-08-05 19:51:17 - Driver authentication failed for identifier: passenger@gmail.com
+2025-08-05 19:51:17 - Login failed for identifier: passenger@gmail.com
+2025-08-05 19:51:22 - Login attempt started
+2025-08-05 19:51:22 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-08-05 19:51:22 - No matching regular user found, checking drivers
+2025-08-05 19:51:22 - No driver found with the provided phone and number plate
+2025-08-05 19:51:22 - Driver authentication failed for identifier: passenger@gmail.com
+2025-08-05 19:51:22 - Login failed for identifier: passenger@gmail.com
+2025-08-05 19:51:40 - Login attempt started
+2025-08-05 19:51:40 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-05 19:51:40 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-05 19:51:40 - Password verified for user: passenger@example.com
+2025-08-05 19:52:35 - Login attempt started
+2025-08-05 19:52:35 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-05 19:52:35 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-05 19:52:35 - Password verified for user: admin@example.com
+2025-08-05 20:08:54 - Login attempt started
+2025-08-05 20:08:54 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-05 20:08:54 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-05 20:08:54 - Password verified for user: passenger@example.com
+2025-08-05 20:31:34 - Login attempt started
+2025-08-05 20:31:34 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-05 20:31:34 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-05 20:31:34 - Password verified for user: admin@example.com
+2025-08-05 20:37:02 - Login attempt started
+2025-08-05 20:37:02 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-05 20:37:02 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-05 20:37:02 - Password verified for user: passenger@example.com
+2025-08-05 20:43:45 - Login attempt started
+2025-08-05 20:43:45 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-05 20:43:45 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-05 20:43:45 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:00:44 - Login attempt started
+2025-08-06 20:00:44 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:00:44 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:00:44 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:00:50 - Login attempt started
+2025-08-06 20:00:50 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:00:50 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:00:50 - Password verified for user: admin@example.com
+2025-08-06 20:00:57 - Login attempt started
+2025-08-06 20:00:57 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-08-06 20:00:57 - No matching regular user found, checking drivers
+2025-08-06 20:00:57 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-08-06 20:00:57 - Driver login successful, redirecting to dashboard
+2025-08-06 20:03:00 - Login attempt started
+2025-08-06 20:03:00 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:03:00 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:03:00 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:19:52 - Login attempt started
+2025-08-06 20:19:52 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:19:52 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:19:52 - Password verified for user: admin@example.com
+2025-08-06 20:19:56 - Login attempt started
+2025-08-06 20:19:56 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-08-06 20:19:56 - No matching regular user found, checking drivers
+2025-08-06 20:19:56 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-08-06 20:19:56 - Driver login successful, redirecting to dashboard
+2025-08-06 20:20:05 - Login attempt started
+2025-08-06 20:20:05 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:20:05 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:20:05 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:26:27 - Login attempt started
+2025-08-06 20:26:27 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:26:27 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:26:27 - Password verified for user: admin@example.com
+2025-08-06 20:27:08 - Login attempt started
+2025-08-06 20:27:08 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:27:08 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:27:08 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:27:51 - Login attempt started
+2025-08-06 20:27:51 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:27:51 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:27:51 - Password verified for user: admin@example.com
+2025-08-06 20:31:54 - Login attempt started
+2025-08-06 20:31:54 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:31:54 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:31:54 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:32:04 - Login attempt started
+2025-08-06 20:32:04 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:32:04 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:32:04 - Password verified for user: admin@example.com
+2025-08-06 20:32:19 - Login attempt started
+2025-08-06 20:32:19 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:32:19 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:32:19 - Password verified for user: admin@example.com
+2025-08-06 20:32:28 - Login attempt started
+2025-08-06 20:32:28 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-08-06 20:32:28 - No matching regular user found, checking drivers
+2025-08-06 20:32:28 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-08-06 20:32:28 - Driver login successful, redirecting to dashboard
+2025-08-06 20:33:50 - Login attempt started
+2025-08-06 20:33:50 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:33:50 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:33:50 - Password verified for user: admin@example.com
+2025-08-06 20:35:18 - Login attempt started
+2025-08-06 20:35:18 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:35:18 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:35:18 - Password verified for user: admin@example.com
+2025-08-06 20:38:01 - Login attempt started
+2025-08-06 20:38:01 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:38:01 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:38:01 - Password verified for user: admin@example.com
+2025-08-06 20:38:16 - Login attempt started
+2025-08-06 20:38:16 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:38:16 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:38:16 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:40:12 - Login attempt started
+2025-08-06 20:40:12 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:40:12 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:40:12 - Password verified for user: admin@example.com
+2025-08-06 20:42:20 - Login attempt started
+2025-08-06 20:42:20 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:42:20 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:42:20 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:42:27 - Login attempt started
+2025-08-06 20:42:27 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:42:27 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:42:27 - Password verified for user: admin@example.com
+2025-08-06 20:45:13 - Login attempt started
+2025-08-06 20:45:13 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:45:13 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:45:13 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:45:21 - Login attempt started
+2025-08-06 20:45:21 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:45:21 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:45:21 - Password verified for user: admin@example.com
+2025-08-06 20:47:55 - Login attempt started
+2025-08-06 20:47:55 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:47:55 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:47:55 - Password verified for user: kipruto@gmail.com
+2025-08-06 20:48:20 - Login attempt started
+2025-08-06 20:48:20 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 20:48:20 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 20:48:20 - Password verified for user: admin@example.com
+2025-08-06 20:49:15 - Login attempt started
+2025-08-06 20:49:15 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 20:49:15 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 20:49:15 - Password verified for user: kipruto@gmail.com
+2025-08-06 21:06:23 - Login attempt started
+2025-08-06 21:06:23 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 21:06:23 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 21:06:23 - Password verified for user: admin@example.com
+2025-08-06 21:12:15 - Login attempt started
+2025-08-06 21:12:15 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 21:12:15 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 21:12:15 - Password verified for user: kipruto@gmail.com
+2025-08-06 21:12:27 - Login attempt started
+2025-08-06 21:12:27 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 21:12:27 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 21:12:27 - Password verified for user: admin@example.com
+2025-08-06 21:13:05 - Login attempt started
+2025-08-06 21:13:05 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 21:13:05 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 21:13:05 - Password verified for user: kipruto@gmail.com
+2025-08-06 21:37:18 - Login attempt started
+2025-08-06 21:37:18 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 21:37:18 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 21:37:18 - Password verified for user: admin@example.com
+2025-08-06 21:38:44 - Login attempt started
+2025-08-06 21:38:44 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-06 21:38:44 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-06 21:38:44 - Password verified for user: passenger@example.com
+2025-08-06 21:40:45 - Login attempt started
+2025-08-06 21:40:45 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 21:40:45 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 21:40:45 - Password verified for user: admin@example.com
+2025-08-06 21:44:08 - Login attempt started
+2025-08-06 21:44:08 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-06 21:44:08 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-06 21:44:08 - Password verified for user: passenger@example.com
+2025-08-06 21:52:40 - Login attempt started
+2025-08-06 21:52:40 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-06 21:52:40 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-06 21:52:40 - Password verified for user: admin@example.com
+2025-08-06 21:52:57 - Login attempt started
+2025-08-06 21:52:57 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-06 21:52:57 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-06 21:52:57 - Password verified for user: passenger@example.com
+2025-08-06 21:57:37 - Login attempt started
+2025-08-06 21:57:37 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-06 21:57:37 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-06 21:57:37 - Password verified for user: passenger@example.com
+2025-08-06 22:00:26 - Login attempt started
+2025-08-06 22:00:26 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-06 22:00:26 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-06 22:00:26 - Password verified for user: kipruto@gmail.com
+2025-08-06 22:08:19 - Login attempt started
+2025-08-06 22:08:19 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-06 22:08:19 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-06 22:08:19 - Password verified for user: passenger@example.com
+2025-08-07 19:17:02 - Login attempt started
+2025-08-07 19:17:02 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 19:17:02 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 19:17:02 - Password verified for user: passenger@example.com
+2025-08-07 19:17:10 - Login attempt started
+2025-08-07 19:17:10 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 19:17:10 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 19:17:10 - Password verified for user: admin@example.com
+2025-08-07 19:17:16 - Login attempt started
+2025-08-07 19:17:16 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-08-07 19:17:16 - No matching regular user found, checking drivers
+2025-08-07 19:17:16 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-08-07 19:17:16 - Driver login successful, redirecting to dashboard
+2025-08-07 19:17:29 - Login attempt started
+2025-08-07 19:17:29 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 19:17:29 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 19:17:29 - Password verified for user: admin@example.com
+2025-08-07 19:17:40 - Login attempt started
+2025-08-07 19:17:40 - POST data: Array
+(
+    [email] => 07983653098
+    [password] => KBS 507 G
+)
+
+2025-08-07 19:17:40 - No matching regular user found, checking drivers
+2025-08-07 19:17:40 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 07983653098
+    [name] => Jacyntha Chebet
+    [number_plate] => KBS 507 G
+)
+
+2025-08-07 19:17:40 - Driver login successful, redirecting to dashboard
+2025-08-07 19:18:22 - Login attempt started
+2025-08-07 19:18:22 - POST data: Array
+(
+    [email] => driver@southrift.com
+    [password] => driver123
+)
+
+2025-08-07 19:18:22 - No matching regular user found, checking drivers
+2025-08-07 19:18:22 - No driver found with the provided phone and number plate
+2025-08-07 19:18:22 - Driver authentication failed for identifier: driver@southrift.com
+2025-08-07 19:18:22 - Login failed for identifier: driver@southrift.com
+2025-08-07 19:18:31 - Login attempt started
+2025-08-07 19:18:31 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 19:18:31 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 19:18:31 - Password verified for user: admin@example.com
+2025-08-07 19:27:44 - Login attempt started
+2025-08-07 19:27:44 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 19:27:44 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 19:27:44 - Password verified for user: passenger@example.com
+2025-08-07 19:44:02 - Login attempt started
+2025-08-07 19:44:02 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 19:44:02 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 19:44:02 - Password verified for user: passenger@example.com
+2025-08-07 20:02:51 - Login attempt started
+2025-08-07 20:02:51 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 20:02:51 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 20:02:51 - Password verified for user: passenger@example.com
+2025-08-07 20:14:15 - Login attempt started
+2025-08-07 20:14:15 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 20:14:15 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 20:14:15 - Password verified for user: admin@example.com
+2025-08-07 20:14:43 - Login attempt started
+2025-08-07 20:14:43 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 20:14:43 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 20:14:43 - Password verified for user: passenger@example.com
+2025-08-07 20:25:14 - Login attempt started
+2025-08-07 20:25:14 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 20:25:14 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 20:25:14 - Password verified for user: admin@example.com
+2025-08-07 20:26:23 - Login attempt started
+2025-08-07 20:26:23 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 20:26:23 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 20:26:23 - Password verified for user: passenger@example.com
+2025-08-07 20:27:23 - Login attempt started
+2025-08-07 20:27:23 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 20:27:23 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 20:27:23 - Password verified for user: admin@example.com
+2025-08-07 20:27:51 - Login attempt started
+2025-08-07 20:27:51 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 20:27:51 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 20:27:51 - Password verified for user: passenger@example.com
+2025-08-07 20:28:18 - Login attempt started
+2025-08-07 20:28:18 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KDK 547 L
+)
+
+2025-08-07 20:28:18 - No matching regular user found, checking drivers
+2025-08-07 20:28:18 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-07 20:28:18 - Driver login successful, redirecting to dashboard
+2025-08-07 20:34:27 - Login attempt started
+2025-08-07 20:34:27 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 20:34:27 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 20:34:27 - Password verified for user: passenger@example.com
+2025-08-07 20:35:54 - Login attempt started
+2025-08-07 20:35:54 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 20:35:54 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 20:35:54 - Password verified for user: passenger@example.com
+2025-08-07 20:37:43 - Login attempt started
+2025-08-07 20:37:43 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-07 20:37:43 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-07 20:37:43 - Password verified for user: kipruto@gmail.com
+2025-08-07 20:38:56 - Login attempt started
+2025-08-07 20:38:56 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 20:38:56 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 20:38:56 - Password verified for user: admin@example.com
+2025-08-07 20:39:19 - Login attempt started
+2025-08-07 20:39:19 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-07 20:39:19 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-07 20:39:19 - Password verified for user: kipruto@gmail.com
+2025-08-07 20:56:05 - Login attempt started
+2025-08-07 20:56:05 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 20:56:05 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 20:56:05 - Password verified for user: admin@example.com
+2025-08-07 20:57:11 - Login attempt started
+2025-08-07 20:57:11 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 20:57:11 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 20:57:11 - Password verified for user: passenger@example.com
+2025-08-07 20:58:04 - Login attempt started
+2025-08-07 20:58:04 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KDK 547 L
+)
+
+2025-08-07 20:58:04 - No matching regular user found, checking drivers
+2025-08-07 20:58:04 - No driver found with the provided phone and number plate
+2025-08-07 20:58:04 - Driver authentication failed for identifier: 0798365356
+2025-08-07 20:58:04 - Login failed for identifier: 0798365356
+2025-08-07 20:58:16 - Login attempt started
+2025-08-07 20:58:16 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-07 20:58:16 - No matching regular user found, checking drivers
+2025-08-07 20:58:16 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-07 20:58:16 - Driver login successful, redirecting to dashboard
+2025-08-07 20:58:51 - Login attempt started
+2025-08-07 20:58:51 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 20:58:51 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 20:58:51 - Password verified for user: admin@example.com
+2025-08-07 20:59:12 - Login attempt started
+2025-08-07 20:59:12 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-07 20:59:12 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-07 20:59:12 - Password verified for user: kipruto@gmail.com
+2025-08-07 21:05:31 - Login attempt started
+2025-08-07 21:05:31 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 21:05:31 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 21:05:31 - Password verified for user: passenger@example.com
+2025-08-07 21:51:55 - Login attempt started
+2025-08-07 21:51:55 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 21:51:55 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 21:51:55 - Password verified for user: admin@example.com
+2025-08-07 21:52:00 - Login attempt started
+2025-08-07 21:52:00 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-07 21:52:00 - No matching regular user found, checking drivers
+2025-08-07 21:52:00 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-07 21:52:00 - Driver login successful, redirecting to dashboard
+2025-08-07 21:52:11 - Login attempt started
+2025-08-07 21:52:11 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-07 21:52:11 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-07 21:52:11 - Password verified for user: kipruto@gmail.com
+2025-08-07 23:10:17 - Login attempt started
+2025-08-07 23:10:17 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-07 23:10:17 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-07 23:10:17 - Password verified for user: kipruto@gmail.com
+2025-08-07 23:29:06 - Login attempt started
+2025-08-07 23:29:06 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-07 23:29:06 - No matching regular user found, checking drivers
+2025-08-07 23:29:06 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-07 23:29:06 - Driver login successful, redirecting to dashboard
+2025-08-07 23:43:06 - Login attempt started
+2025-08-07 23:43:06 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 23:43:06 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 23:43:06 - Password verified for user: passenger@example.com
+2025-08-07 23:46:33 - Login attempt started
+2025-08-07 23:46:33 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-07 23:46:33 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-07 23:46:33 - Password verified for user: admin@example.com
+2025-08-07 23:47:02 - Login attempt started
+2025-08-07 23:47:02 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-07 23:47:02 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-07 23:47:02 - Password verified for user: kipruto@gmail.com
+2025-08-07 23:47:13 - Login attempt started
+2025-08-07 23:47:13 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-07 23:47:13 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-07 23:47:13 - Password verified for user: passenger@example.com
+2025-08-08 19:48:03 - Login attempt started
+2025-08-08 19:48:03 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-08 19:48:03 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-08 19:48:03 - Password verified for user: passenger@example.com
+2025-08-08 19:48:08 - Login attempt started
+2025-08-08 19:48:08 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-08 19:48:08 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-08 19:48:08 - Password verified for user: admin@example.com
+2025-08-08 19:48:13 - Login attempt started
+2025-08-08 19:48:13 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-08 19:48:13 - No matching regular user found, checking drivers
+2025-08-08 19:48:13 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-08 19:48:13 - Driver login successful, redirecting to dashboard
+2025-08-08 19:54:11 - Login attempt started
+2025-08-08 19:54:11 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-08 19:54:11 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-08 19:54:11 - Password verified for user: passenger@example.com
+2025-08-08 20:02:26 - Login attempt started
+2025-08-08 20:02:26 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-08 20:02:26 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-08 20:02:26 - Password verified for user: admin@example.com
+2025-08-08 20:03:22 - Login attempt started
+2025-08-08 20:03:22 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-08 20:03:22 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-08 20:03:22 - Password verified for user: admin@example.com
+2025-08-08 20:03:34 - Login attempt started
+2025-08-08 20:03:34 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-08 20:03:34 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-08 20:03:34 - Password verified for user: passenger@example.com
+2025-08-12 16:50:02 - Login attempt started
+2025-08-12 16:50:02 - POST data: Array
+(
+    [email] => passenger@gmail.com
+    [password] => 1234
+)
+
+2025-08-12 16:50:02 - No matching regular user found, checking drivers
+2025-08-12 16:50:02 - No driver found with the provided phone and number plate
+2025-08-12 16:50:02 - Driver authentication failed for identifier: passenger@gmail.com
+2025-08-12 16:50:02 - Login failed for identifier: passenger@gmail.com
+2025-08-12 16:50:11 - Login attempt started
+2025-08-12 16:50:11 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-12 16:50:11 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-12 16:50:11 - Password verified for user: kipruto@gmail.com
+2025-08-12 16:50:16 - Login attempt started
+2025-08-12 16:50:16 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-12 16:50:16 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-12 16:50:16 - Password verified for user: admin@example.com
+2025-08-12 16:50:23 - Login attempt started
+2025-08-12 16:50:23 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-12 16:50:23 - No matching regular user found, checking drivers
+2025-08-12 16:50:23 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-12 16:50:23 - Driver login successful, redirecting to dashboard
+2025-08-12 16:50:54 - Login attempt started
+2025-08-12 16:50:54 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-12 16:50:54 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-12 16:50:54 - Password verified for user: kipruto@gmail.com
+2025-08-12 16:51:58 - Login attempt started
+2025-08-12 16:51:58 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-12 16:51:58 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-12 16:51:58 - Password verified for user: admin@example.com
+2025-08-12 16:53:01 - Login attempt started
+2025-08-12 16:53:01 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-12 16:53:01 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-12 16:53:01 - Password verified for user: kipruto@gmail.com
+2025-08-12 16:59:10 - Login attempt started
+2025-08-12 16:59:10 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-12 16:59:10 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-12 16:59:10 - Password verified for user: admin@example.com
+2025-08-12 16:59:15 - Login attempt started
+2025-08-12 16:59:15 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-12 16:59:15 - No matching regular user found, checking drivers
+2025-08-12 16:59:15 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-12 16:59:15 - Driver login successful, redirecting to dashboard
+2025-08-12 17:02:54 - Login attempt started
+2025-08-12 17:02:54 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-12 17:02:54 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-12 17:02:54 - Password verified for user: passenger@example.com
+2025-08-12 17:49:57 - Login attempt started
+2025-08-12 17:49:57 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-12 17:49:57 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-12 17:49:57 - Password verified for user: passenger@example.com
+2025-08-13 15:45:32 - Login attempt started
+2025-08-13 15:45:32 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-13 15:45:32 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-13 15:45:32 - Password verified for user: admin@example.com
+2025-08-13 15:46:08 - Login attempt started
+2025-08-13 15:46:08 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-13 15:46:08 - No matching regular user found, checking drivers
+2025-08-13 15:46:08 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-13 15:46:08 - Driver login successful, redirecting to dashboard
+2025-08-13 16:00:52 - Login attempt started
+2025-08-13 16:00:52 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-13 16:00:52 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-13 16:00:52 - Password verified for user: admin@example.com
+2025-08-13 16:00:59 - Login attempt started
+2025-08-13 16:00:59 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-13 16:00:59 - No matching regular user found, checking drivers
+2025-08-13 16:00:59 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-13 16:00:59 - Driver login successful, redirecting to dashboard
+2025-08-14 14:34:28 - Login attempt started
+2025-08-14 14:34:28 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-14 14:34:28 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-14 14:34:28 - Password verified for user: passenger@example.com
+2025-08-14 14:34:35 - Login attempt started
+2025-08-14 14:34:35 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-14 14:34:35 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-14 14:34:35 - Password verified for user: admin@example.com
+2025-08-14 14:34:42 - Login attempt started
+2025-08-14 14:34:42 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-14 14:34:42 - No matching regular user found, checking drivers
+2025-08-14 14:34:42 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-14 14:34:42 - Driver login successful, redirecting to dashboard
+2025-08-14 14:41:43 - Login attempt started
+2025-08-14 14:41:43 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-14 14:41:43 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-14 14:41:43 - Password verified for user: passenger@example.com
+2025-08-14 17:00:22 - Login attempt started
+2025-08-14 17:00:22 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-14 17:00:22 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-14 17:00:22 - Password verified for user: admin@example.com
+2025-08-15 11:48:48 - Login attempt started
+2025-08-15 11:48:48 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-15 11:48:48 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-15 11:48:48 - Password verified for user: passenger@example.com
+2025-08-15 11:48:51 - Login attempt started
+2025-08-15 11:48:51 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 11:48:51 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 11:48:51 - Password verified for user: admin@example.com
+2025-08-15 11:48:55 - Login attempt started
+2025-08-15 11:48:55 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 11:48:55 - No matching regular user found, checking drivers
+2025-08-15 11:48:55 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 11:48:55 - Driver login successful, redirecting to dashboard
+2025-08-15 11:49:56 - Login attempt started
+2025-08-15 11:49:56 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-15 11:49:56 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-15 11:49:56 - Password verified for user: passenger@example.com
+2025-08-15 11:50:58 - Login attempt started
+2025-08-15 11:50:58 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 11:50:58 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 11:50:58 - Password verified for user: admin@example.com
+2025-08-15 11:51:23 - Login attempt started
+2025-08-15 11:51:23 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-15 11:51:23 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-15 11:51:23 - Password verified for user: passenger@example.com
+2025-08-15 11:59:26 - Login attempt started
+2025-08-15 11:59:26 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 11:59:26 - No matching regular user found, checking drivers
+2025-08-15 11:59:26 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 11:59:26 - Driver login successful, redirecting to dashboard
+2025-08-15 12:19:05 - Login attempt started
+2025-08-15 12:19:05 - POST data: Array
+(
+    [email] => passenger@example.com
+    [password] => testpass
+)
+
+2025-08-15 12:19:05 - Found user: Array
+(
+    [id] => 45
+    [name] => Test Passenger
+    [email] => passenger@example.com
+    [phone] => 0711222333
+    [password] => 13d249f2cb4127b40cfa757866850278793f814ded3c587fe5889e889a7a9f6c
+    [role] => passenger
+)
+
+2025-08-15 12:19:05 - Password verified for user: passenger@example.com
+2025-08-15 12:22:50 - Login attempt started
+2025-08-15 12:22:50 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:22:50 - No matching regular user found, checking drivers
+2025-08-15 12:22:50 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 12:22:50 - Driver login successful, redirecting to dashboard
+2025-08-15 12:30:23 - Login attempt started
+2025-08-15 12:30:23 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 12:30:23 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 12:30:23 - Password verified for user: admin@example.com
+2025-08-15 12:30:49 - Login attempt started
+2025-08-15 12:30:49 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:30:49 - No matching regular user found, checking drivers
+2025-08-15 12:30:49 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 12:30:49 - Driver login successful, redirecting to dashboard
+2025-08-15 12:36:35 - Login attempt started
+2025-08-15 12:36:35 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 12:36:35 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 12:36:35 - Password verified for user: kipruto@gmail.com
+2025-08-15 12:37:19 - Login attempt started
+2025-08-15 12:37:19 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 12:37:19 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 12:37:19 - Password verified for user: admin@example.com
+2025-08-15 12:37:41 - Login attempt started
+2025-08-15 12:37:41 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:37:41 - No matching regular user found, checking drivers
+2025-08-15 12:37:41 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 12:37:41 - Driver login successful, redirecting to dashboard
+2025-08-15 12:38:05 - Login attempt started
+2025-08-15 12:38:05 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 12:38:05 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 12:38:05 - Password verified for user: admin@example.com
+2025-08-15 12:38:19 - Login attempt started
+2025-08-15 12:38:19 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:38:19 - No matching regular user found, checking drivers
+2025-08-15 12:38:19 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 12:38:19 - Driver login successful, redirecting to dashboard
+2025-08-15 12:38:48 - Login attempt started
+2025-08-15 12:38:48 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:38:48 - No matching regular user found, checking drivers
+2025-08-15 12:38:48 - No driver found with the provided phone and number plate
+2025-08-15 12:38:48 - Driver authentication failed for identifier: 0798365356
+2025-08-15 12:38:48 - Login failed for identifier: 0798365356
+2025-08-15 12:38:50 - Login attempt started
+2025-08-15 12:38:50 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:38:50 - No matching regular user found, checking drivers
+2025-08-15 12:38:50 - No driver found with the provided phone and number plate
+2025-08-15 12:38:50 - Driver authentication failed for identifier: 0798365356
+2025-08-15 12:38:50 - Login failed for identifier: 0798365356
+2025-08-15 12:39:41 - Login attempt started
+2025-08-15 12:39:41 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-15 12:39:41 - No matching regular user found, checking drivers
+2025-08-15 12:39:41 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-15 12:39:41 - Driver login successful, redirecting to dashboard
+2025-08-15 12:40:11 - Login attempt started
+2025-08-15 12:40:11 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 12:40:11 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 12:40:11 - Password verified for user: kipruto@gmail.com
+2025-08-15 12:40:41 - Login attempt started
+2025-08-15 12:40:41 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-15 12:40:41 - No matching regular user found, checking drivers
+2025-08-15 12:40:41 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-15 12:40:41 - Driver login successful, redirecting to dashboard
+2025-08-15 12:41:32 - Login attempt started
+2025-08-15 12:41:32 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 12:41:32 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 12:41:32 - Password verified for user: kipruto@gmail.com
+2025-08-15 12:41:49 - Login attempt started
+2025-08-15 12:41:49 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 12:41:49 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 12:41:49 - Password verified for user: admin@example.com
+2025-08-15 12:42:06 - Login attempt started
+2025-08-15 12:42:06 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-15 12:42:06 - No matching regular user found, checking drivers
+2025-08-15 12:42:06 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-15 12:42:06 - Driver login successful, redirecting to dashboard
+2025-08-15 12:42:17 - Login attempt started
+2025-08-15 12:42:17 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:42:17 - No matching regular user found, checking drivers
+2025-08-15 12:42:17 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 12:42:17 - Driver login successful, redirecting to dashboard
+2025-08-15 12:42:57 - Login attempt started
+2025-08-15 12:42:57 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 12:42:57 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 12:42:57 - Password verified for user: admin@example.com
+2025-08-15 12:52:04 - Login attempt started
+2025-08-15 12:52:04 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 12:52:04 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 12:52:04 - Password verified for user: kipruto@gmail.com
+2025-08-15 12:52:57 - Login attempt started
+2025-08-15 12:52:57 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 12:52:57 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 12:52:57 - Password verified for user: admin@example.com
+2025-08-15 12:53:12 - Login attempt started
+2025-08-15 12:53:12 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-15 12:53:12 - No matching regular user found, checking drivers
+2025-08-15 12:53:12 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-15 12:53:12 - Driver login successful, redirecting to dashboard
+2025-08-15 12:53:41 - Login attempt started
+2025-08-15 12:53:41 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 12:53:41 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 12:53:41 - Password verified for user: admin@example.com
+2025-08-15 12:54:04 - Login attempt started
+2025-08-15 12:54:04 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 12:54:04 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 12:54:04 - Password verified for user: kipruto@gmail.com
+2025-08-15 12:54:19 - Login attempt started
+2025-08-15 12:54:19 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 12:54:19 - No matching regular user found, checking drivers
+2025-08-15 12:54:19 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 12:54:19 - Driver login successful, redirecting to dashboard
+2025-08-15 12:54:30 - Login attempt started
+2025-08-15 12:54:30 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-15 12:54:30 - No matching regular user found, checking drivers
+2025-08-15 12:54:30 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-15 12:54:30 - Driver login successful, redirecting to dashboard
+2025-08-15 13:07:38 - Login attempt started
+2025-08-15 13:07:38 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 13:07:38 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 13:07:38 - Password verified for user: kipruto@gmail.com
+2025-08-15 13:08:17 - Login attempt started
+2025-08-15 13:08:17 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 13:08:17 - No matching regular user found, checking drivers
+2025-08-15 13:08:17 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 13:08:17 - Driver login successful, redirecting to dashboard
+2025-08-15 13:08:32 - Login attempt started
+2025-08-15 13:08:32 - POST data: Array
+(
+    [email] => driver@southrift.com
+    [password] => driver123
+)
+
+2025-08-15 13:08:32 - No matching regular user found, checking drivers
+2025-08-15 13:08:32 - No driver found with the provided phone and number plate
+2025-08-15 13:08:32 - Driver authentication failed for identifier: driver@southrift.com
+2025-08-15 13:08:32 - Login failed for identifier: driver@southrift.com
+2025-08-15 13:08:41 - Login attempt started
+2025-08-15 13:08:41 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 13:08:41 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 13:08:41 - Password verified for user: admin@example.com
+2025-08-15 13:15:26 - Login attempt started
+2025-08-15 13:15:26 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 13:15:26 - No matching regular user found, checking drivers
+2025-08-15 13:15:26 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 13:15:26 - Driver login successful, redirecting to dashboard
+2025-08-15 13:16:42 - Login attempt started
+2025-08-15 13:16:42 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 13:16:42 - No matching regular user found, checking drivers
+2025-08-15 13:16:42 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 13:16:42 - Driver login successful, redirecting to dashboard
+2025-08-15 13:16:57 - Login attempt started
+2025-08-15 13:16:57 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 13:16:57 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 13:16:57 - Password verified for user: kipruto@gmail.com
+2025-08-15 13:22:56 - Login attempt started
+2025-08-15 13:22:56 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 13:22:56 - No matching regular user found, checking drivers
+2025-08-15 13:22:56 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 13:22:56 - Driver login successful, redirecting to dashboard
+2025-08-15 13:23:53 - Login attempt started
+2025-08-15 13:23:53 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 13:23:53 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 13:23:53 - Password verified for user: kipruto@gmail.com
+2025-08-15 13:34:17 - Login attempt started
+2025-08-15 13:34:17 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 13:34:17 - No matching regular user found, checking drivers
+2025-08-15 13:34:17 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 13:34:17 - Driver login successful, redirecting to dashboard
+2025-08-15 13:34:31 - Login attempt started
+2025-08-15 13:34:31 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 13:34:31 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 13:34:31 - Password verified for user: kipruto@gmail.com
+2025-08-15 14:52:26 - Login attempt started
+2025-08-15 14:52:26 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 14:52:26 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 14:52:26 - Password verified for user: admin@example.com
+2025-08-15 14:52:37 - Login attempt started
+2025-08-15 14:52:37 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 14:52:37 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 14:52:37 - Password verified for user: kipruto@gmail.com
+2025-08-15 14:52:42 - Login attempt started
+2025-08-15 14:52:42 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 14:52:42 - No matching regular user found, checking drivers
+2025-08-15 14:52:42 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 14:52:42 - Driver login successful, redirecting to dashboard
+2025-08-15 14:56:08 - Login attempt started
+2025-08-15 14:56:08 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 14:56:08 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 14:56:08 - Password verified for user: kipruto@gmail.com
+2025-08-15 14:57:31 - Login attempt started
+2025-08-15 14:57:31 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 14:57:31 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 14:57:31 - Password verified for user: admin@example.com
+2025-08-15 14:57:39 - Login attempt started
+2025-08-15 14:57:39 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 14:57:39 - No matching regular user found, checking drivers
+2025-08-15 14:57:39 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 14:57:39 - Driver login successful, redirecting to dashboard
+2025-08-15 14:57:50 - Login attempt started
+2025-08-15 14:57:50 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 14:57:50 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 14:57:50 - Password verified for user: admin@example.com
+2025-08-15 14:58:06 - Login attempt started
+2025-08-15 14:58:06 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 14:58:06 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 14:58:06 - Password verified for user: admin@example.com
+2025-08-15 14:58:15 - Login attempt started
+2025-08-15 14:58:15 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 14:58:15 - No matching regular user found, checking drivers
+2025-08-15 14:58:15 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 14:58:15 - Driver login successful, redirecting to dashboard
+2025-08-15 14:59:05 - Login attempt started
+2025-08-15 14:59:05 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 14:59:05 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 14:59:05 - Password verified for user: admin@example.com
+2025-08-15 15:00:22 - Login attempt started
+2025-08-15 15:00:22 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 15:00:22 - No matching regular user found, checking drivers
+2025-08-15 15:00:22 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 15:00:22 - Driver login successful, redirecting to dashboard
+2025-08-15 15:00:25 - Login attempt started
+2025-08-15 15:00:25 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 15:00:25 - No matching regular user found, checking drivers
+2025-08-15 15:00:25 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 15:00:25 - Driver login successful, redirecting to dashboard
+2025-08-15 15:00:29 - Login attempt started
+2025-08-15 15:00:29 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 15:00:29 - No matching regular user found, checking drivers
+2025-08-15 15:00:29 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 15:00:29 - Driver login successful, redirecting to dashboard
+2025-08-15 15:00:36 - Login attempt started
+2025-08-15 15:00:36 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 15:00:36 - No matching regular user found, checking drivers
+2025-08-15 15:00:36 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 15:00:36 - Driver login successful, redirecting to dashboard
+2025-08-15 15:00:42 - Login attempt started
+2025-08-15 15:00:42 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 15:00:42 - No matching regular user found, checking drivers
+2025-08-15 15:00:42 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 15:00:42 - Driver login successful, redirecting to dashboard
+2025-08-15 15:00:46 - Login attempt started
+2025-08-15 15:00:46 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 15:00:46 - No matching regular user found, checking drivers
+2025-08-15 15:00:46 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 15:00:46 - Driver login successful, redirecting to dashboard
+2025-08-15 15:01:41 - Login attempt started
+2025-08-15 15:01:41 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 15:01:41 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 15:01:41 - Password verified for user: kipruto@gmail.com
+2025-08-15 15:02:26 - Login attempt started
+2025-08-15 15:02:26 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-15 15:02:26 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-15 15:02:26 - Password verified for user: admin@example.com
+2025-08-15 15:02:42 - Login attempt started
+2025-08-15 15:02:42 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-15 15:02:42 - No matching regular user found, checking drivers
+2025-08-15 15:02:42 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-15 15:02:42 - Driver login successful, redirecting to dashboard
+2025-08-15 15:06:28 - Login attempt started
+2025-08-15 15:06:28 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-15 15:06:28 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-15 15:06:28 - Password verified for user: kipruto@gmail.com
+2025-08-17 13:48:01 - Login attempt started
+2025-08-17 13:48:01 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 13:48:01 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 13:48:01 - Password verified for user: kipruto@gmail.com
+2025-08-17 13:48:11 - Login attempt started
+2025-08-17 13:48:11 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 13:48:11 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 13:48:11 - Password verified for user: admin@example.com
+2025-08-17 13:48:22 - Login attempt started
+2025-08-17 13:48:22 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 13:48:22 - No matching regular user found, checking drivers
+2025-08-17 13:48:22 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 13:48:22 - Driver login successful, redirecting to dashboard
+2025-08-17 13:49:18 - Login attempt started
+2025-08-17 13:49:18 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 13:49:18 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 13:49:18 - Password verified for user: admin@example.com
+2025-08-17 13:49:33 - Login attempt started
+2025-08-17 13:49:33 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 13:49:33 - No matching regular user found, checking drivers
+2025-08-17 13:49:33 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 13:49:33 - Driver login successful, redirecting to dashboard
+2025-08-17 13:57:06 - Login attempt started
+2025-08-17 13:57:06 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 13:57:06 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 13:57:06 - Password verified for user: kipruto@gmail.com
+2025-08-17 13:57:38 - Login attempt started
+2025-08-17 13:57:38 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 13:57:38 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 13:57:38 - Password verified for user: admin@example.com
+2025-08-17 13:58:02 - Login attempt started
+2025-08-17 13:58:02 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-17 13:58:02 - No matching regular user found, checking drivers
+2025-08-17 13:58:02 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-17 13:58:02 - Driver login successful, redirecting to dashboard
+2025-08-17 13:58:33 - Login attempt started
+2025-08-17 13:58:33 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 13:58:33 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 13:58:33 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:00:22 - Login attempt started
+2025-08-17 14:00:22 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:00:22 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:00:22 - Password verified for user: admin@example.com
+2025-08-17 14:01:45 - Login attempt started
+2025-08-17 14:01:45 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:01:45 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:01:45 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:01:56 - Login attempt started
+2025-08-17 14:01:56 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:01:56 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:01:56 - Password verified for user: admin@example.com
+2025-08-17 14:02:17 - Login attempt started
+2025-08-17 14:02:17 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-17 14:02:17 - No matching regular user found, checking drivers
+2025-08-17 14:02:17 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-17 14:02:17 - Driver login successful, redirecting to dashboard
+2025-08-17 14:02:45 - Login attempt started
+2025-08-17 14:02:45 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:02:45 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:02:45 - Password verified for user: admin@example.com
+2025-08-17 14:04:06 - Login attempt started
+2025-08-17 14:04:06 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:04:06 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:04:06 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:04:24 - Login attempt started
+2025-08-17 14:04:24 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-17 14:04:24 - No matching regular user found, checking drivers
+2025-08-17 14:04:24 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-17 14:04:24 - Driver login successful, redirecting to dashboard
+2025-08-17 14:04:31 - Login attempt started
+2025-08-17 14:04:31 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:04:31 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:04:31 - Password verified for user: admin@example.com
+2025-08-17 14:07:28 - Login attempt started
+2025-08-17 14:07:28 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:07:28 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:07:28 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:07:46 - Login attempt started
+2025-08-17 14:07:46 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:07:46 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:07:46 - Password verified for user: admin@example.com
+2025-08-17 14:08:45 - Login attempt started
+2025-08-17 14:08:45 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:08:45 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:08:45 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:09:26 - Login attempt started
+2025-08-17 14:09:26 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-17 14:09:26 - No matching regular user found, checking drivers
+2025-08-17 14:09:26 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-17 14:09:26 - Driver login successful, redirecting to dashboard
+2025-08-17 14:09:38 - Login attempt started
+2025-08-17 14:09:38 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:09:38 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:09:38 - Password verified for user: admin@example.com
+2025-08-17 14:09:51 - Login attempt started
+2025-08-17 14:09:51 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:09:51 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:09:51 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:12:33 - Login attempt started
+2025-08-17 14:12:33 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:12:33 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:12:33 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:12:41 - Login attempt started
+2025-08-17 14:12:41 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:12:41 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:12:41 - Password verified for user: admin@example.com
+2025-08-17 14:13:08 - Login attempt started
+2025-08-17 14:13:08 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 14:13:08 - No matching regular user found, checking drivers
+2025-08-17 14:13:08 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 14:13:08 - Driver login successful, redirecting to dashboard
+2025-08-17 14:15:30 - Login attempt started
+2025-08-17 14:15:30 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:15:30 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:15:30 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:16:28 - Login attempt started
+2025-08-17 14:16:28 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:16:28 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:16:28 - Password verified for user: admin@example.com
+2025-08-17 14:17:09 - Login attempt started
+2025-08-17 14:17:09 - POST data: Array
+(
+    [email] => kipruto@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:17:09 - Found user: Array
+(
+    [id] => 46
+    [name] => Emanuel Kipruto
+    [email] => kipruto@gmail.com
+    [phone] => 0795428218
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:17:09 - Password verified for user: kipruto@gmail.com
+2025-08-17 14:22:53 - Login attempt started
+2025-08-17 14:22:54 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:22:54 - Found user: Array
+(
+    [id] => 48
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 09348734535
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:22:54 - Password verified for user: chebet@gmail.com
+2025-08-17 14:24:48 - Login attempt started
+2025-08-17 14:24:48 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:24:48 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:24:48 - Password verified for user: admin@example.com
+2025-08-17 14:26:10 - Login attempt started
+2025-08-17 14:26:10 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:26:10 - Found user: Array
+(
+    [id] => 48
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 09348734535
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:26:10 - Password verified for user: chebet@gmail.com
+2025-08-17 14:26:48 - Login attempt started
+2025-08-17 14:26:48 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:26:48 - No matching regular user found, checking drivers
+2025-08-17 14:26:48 - No driver found with the provided phone and number plate
+2025-08-17 14:26:48 - Driver authentication failed for identifier: chebet@gmail.com
+2025-08-17 14:26:48 - Login failed for identifier: chebet@gmail.com
+2025-08-17 14:27:09 - Login attempt started
+2025-08-17 14:27:09 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:27:09 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:27:09 - Password verified for user: chebet@gmail.com
+2025-08-17 14:27:52 - Login attempt started
+2025-08-17 14:27:52 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:27:52 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:27:52 - Password verified for user: admin@example.com
+2025-08-17 14:29:34 - Login attempt started
+2025-08-17 14:29:34 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:29:34 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:29:34 - Password verified for user: chebet@gmail.com
+2025-08-17 14:29:48 - Login attempt started
+2025-08-17 14:29:48 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:29:48 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:29:48 - Password verified for user: admin@example.com
+2025-08-17 14:30:27 - Login attempt started
+2025-08-17 14:30:27 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:30:27 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:30:27 - Password verified for user: chebet@gmail.com
+2025-08-17 14:31:05 - Login attempt started
+2025-08-17 14:31:05 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 14:31:05 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 14:31:05 - Password verified for user: admin@example.com
+2025-08-17 14:31:25 - Login attempt started
+2025-08-17 14:31:25 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:31:25 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:31:25 - Password verified for user: chebet@gmail.com
+2025-08-17 14:31:37 - Login attempt started
+2025-08-17 14:31:37 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 14:31:37 - No matching regular user found, checking drivers
+2025-08-17 14:31:37 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 14:31:37 - Driver login successful, redirecting to dashboard
+2025-08-17 14:42:11 - Login attempt started
+2025-08-17 14:42:11 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:42:11 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:42:11 - Password verified for user: chebet@gmail.com
+2025-08-17 14:43:58 - Login attempt started
+2025-08-17 14:43:58 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 14:43:58 - No matching regular user found, checking drivers
+2025-08-17 14:43:58 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 14:43:58 - Driver login successful, redirecting to dashboard
+2025-08-17 14:48:00 - Login attempt started
+2025-08-17 14:48:00 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:48:00 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:48:00 - Password verified for user: chebet@gmail.com
+2025-08-17 14:52:17 - Login attempt started
+2025-08-17 14:52:17 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 14:52:17 - No matching regular user found, checking drivers
+2025-08-17 14:52:17 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 14:52:17 - Driver login successful, redirecting to dashboard
+2025-08-17 14:54:58 - Login attempt started
+2025-08-17 14:54:58 - POST data: Array
+(
+    [email] => 0798365356
+    [password] => KAL 567 F
+)
+
+2025-08-17 14:54:58 - No matching regular user found, checking drivers
+2025-08-17 14:54:58 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365356
+    [name] => Seediy buli
+    [number_plate] => KAL 567 F
+)
+
+2025-08-17 14:54:58 - Driver login successful, redirecting to dashboard
+2025-08-17 14:56:30 - Login attempt started
+2025-08-17 14:56:30 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 14:56:30 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 14:56:30 - Password verified for user: chebet@gmail.com
+2025-08-17 14:58:45 - Login attempt started
+2025-08-17 14:58:45 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 14:58:45 - No matching regular user found, checking drivers
+2025-08-17 14:58:45 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 14:58:45 - Driver login successful, redirecting to dashboard
+2025-08-17 15:30:56 - Login attempt started
+2025-08-17 15:30:56 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 15:30:56 - No matching regular user found, checking drivers
+2025-08-17 15:30:56 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 15:30:56 - Driver login successful, redirecting to dashboard
+2025-08-17 15:49:56 - Login attempt started
+2025-08-17 15:49:56 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 15:49:56 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 15:49:56 - Password verified for user: chebet@gmail.com
+2025-08-17 15:50:22 - Login attempt started
+2025-08-17 15:50:22 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 15:50:22 - No matching regular user found, checking drivers
+2025-08-17 15:50:22 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 15:50:22 - Driver login successful, redirecting to dashboard
+2025-08-17 15:52:57 - Login attempt started
+2025-08-17 15:52:57 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 15:52:57 - No matching regular user found, checking drivers
+2025-08-17 15:52:57 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 15:52:57 - Driver login successful, redirecting to dashboard
+2025-08-17 15:57:16 - Login attempt started
+2025-08-17 15:57:16 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 15:57:16 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 15:57:16 - Password verified for user: chebet@gmail.com
+2025-08-17 15:57:39 - Login attempt started
+2025-08-17 15:57:39 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 15:57:39 - No matching regular user found, checking drivers
+2025-08-17 15:57:39 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 15:57:39 - Driver login successful, redirecting to dashboard
+2025-08-17 19:34:16 - Login attempt started
+2025-08-17 19:34:16 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 19:34:16 - No matching regular user found, checking drivers
+2025-08-17 19:34:16 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 19:34:16 - Driver login successful, redirecting to dashboard
+2025-08-17 19:34:21 - Login attempt started
+2025-08-17 19:34:21 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 19:34:21 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 19:34:21 - Password verified for user: admin@example.com
+2025-08-17 19:35:00 - Login attempt started
+2025-08-17 19:35:00 - POST data: Array
+(
+    [email] => chebet
+    [password] => admin123
+)
+
+2025-08-17 19:35:00 - No matching regular user found, checking drivers
+2025-08-17 19:35:00 - No driver found with the provided phone and number plate
+2025-08-17 19:35:00 - Driver authentication failed for identifier: chebet
+2025-08-17 19:35:00 - Login failed for identifier: chebet
+2025-08-17 19:35:32 - Login attempt started
+2025-08-17 19:35:32 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 19:35:32 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 19:35:32 - Password verified for user: chebet@gmail.com
+2025-08-17 19:44:07 - Login attempt started
+2025-08-17 19:44:07 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 19:44:07 - No matching regular user found, checking drivers
+2025-08-17 19:44:07 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 19:44:07 - Driver login successful, redirecting to dashboard
+2025-08-17 20:04:54 - Login attempt started
+2025-08-17 20:04:54 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 20:04:54 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 20:04:54 - Password verified for user: chebet@gmail.com
+2025-08-17 20:30:00 - Login attempt started
+2025-08-17 20:30:00 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 20:30:00 - No matching regular user found, checking drivers
+2025-08-17 20:30:00 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 20:30:00 - Driver login successful, redirecting to dashboard
+2025-08-17 21:42:04 - Login attempt started
+2025-08-17 21:42:04 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 21:42:04 - No matching regular user found, checking drivers
+2025-08-17 21:42:04 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 21:42:04 - Driver login successful, redirecting to dashboard
+2025-08-17 21:57:38 - Login attempt started
+2025-08-17 21:57:38 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 21:57:38 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 21:57:38 - Password verified for user: admin@example.com
+2025-08-17 21:58:04 - Login attempt started
+2025-08-17 21:58:04 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 21:58:04 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 21:58:04 - Password verified for user: chebet@gmail.com
+2025-08-17 21:58:12 - Login attempt started
+2025-08-17 21:58:12 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 21:58:12 - No matching regular user found, checking drivers
+2025-08-17 21:58:12 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 21:58:12 - Driver login successful, redirecting to dashboard
+2025-08-17 22:02:23 - Login attempt started
+2025-08-17 22:02:23 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 22:02:23 - No matching regular user found, checking drivers
+2025-08-17 22:02:23 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 22:02:23 - Driver login successful, redirecting to dashboard
+2025-08-17 22:07:38 - Login attempt started
+2025-08-17 22:07:38 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-17 22:07:38 - No matching regular user found, checking drivers
+2025-08-17 22:07:38 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-17 22:07:38 - Driver login successful, redirecting to dashboard
+2025-08-17 22:14:39 - Login attempt started
+2025-08-17 22:14:39 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 22:14:39 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 22:14:39 - Password verified for user: admin@example.com
+2025-08-17 22:22:07 - Login attempt started
+2025-08-17 22:22:07 - POST data: Array
+(
+    [email] => 0789654876
+    [password] => KDZ 680 K
+)
+
+2025-08-17 22:22:07 - No matching regular user found, checking drivers
+2025-08-17 22:22:07 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0789654876
+    [name] => Deree Matri
+    [number_plate] => KDZ 680 K
+)
+
+2025-08-17 22:22:07 - Driver login successful, redirecting to dashboard
+2025-08-17 22:22:52 - Login attempt started
+2025-08-17 22:22:52 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-17 22:22:52 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-17 22:22:52 - Password verified for user: admin@example.com
+2025-08-17 22:23:40 - Login attempt started
+2025-08-17 22:23:40 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-17 22:23:40 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-17 22:23:40 - Password verified for user: chebet@gmail.com
+2025-08-18 10:28:48 - Login attempt started
+2025-08-18 10:28:48 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-18 10:28:48 - No matching regular user found, checking drivers
+2025-08-18 10:28:48 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-18 10:28:48 - Driver login successful, redirecting to dashboard
+2025-08-18 10:28:52 - Login attempt started
+2025-08-18 10:28:52 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-18 10:28:52 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-18 10:28:52 - Password verified for user: admin@example.com
+2025-08-18 10:29:04 - Login attempt started
+2025-08-18 10:29:04 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 10:29:04 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 10:29:04 - Password verified for user: chebet@gmail.com
+2025-08-18 10:30:29 - Login attempt started
+2025-08-18 10:30:29 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-18 10:30:29 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-18 10:30:29 - Password verified for user: admin@example.com
+2025-08-18 10:30:58 - Login attempt started
+2025-08-18 10:30:58 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 10:30:58 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 10:30:58 - Password verified for user: chebet@gmail.com
+2025-08-18 10:31:49 - Login attempt started
+2025-08-18 10:31:49 - POST data: Array
+(
+    [email] => 0798365350
+    [password] => KDK 547 L
+)
+
+2025-08-18 10:31:49 - No matching regular user found, checking drivers
+2025-08-18 10:31:49 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365350
+    [name] => Paul Rotich
+    [number_plate] => KDK 547 L
+)
+
+2025-08-18 10:31:49 - Driver login successful, redirecting to dashboard
+2025-08-18 10:37:40 - Login attempt started
+2025-08-18 10:37:40 - POST data: Array
+(
+    [email] => 0789654876
+    [password] => KDK 547 L
+)
+
+2025-08-18 10:37:40 - No matching regular user found, checking drivers
+2025-08-18 10:37:40 - No driver found with the provided phone and number plate
+2025-08-18 10:37:40 - Driver authentication failed for identifier: 0789654876
+2025-08-18 10:37:40 - Login failed for identifier: 0789654876
+2025-08-18 10:38:26 - Login attempt started
+2025-08-18 10:38:26 - POST data: Array
+(
+    [email] => 0789654876
+    [password] => KDZ 680 K
+)
+
+2025-08-18 10:38:26 - No matching regular user found, checking drivers
+2025-08-18 10:38:26 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0789654876
+    [name] => Deree Matri
+    [number_plate] => KDZ 680 K
+)
+
+2025-08-18 10:38:26 - Driver login successful, redirecting to dashboard
+2025-08-18 11:00:56 - Login attempt started
+2025-08-18 11:00:56 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 11:00:56 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 11:00:56 - Password verified for user: chebet@gmail.com
+2025-08-18 11:03:18 - Login attempt started
+2025-08-18 11:03:18 - POST data: Array
+(
+    [email] => 0789654876
+    [password] => KDZ 680 K
+)
+
+2025-08-18 11:03:18 - No matching regular user found, checking drivers
+2025-08-18 11:03:18 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0789654876
+    [name] => Deree Matri
+    [number_plate] => KDZ 680 K
+)
+
+2025-08-18 11:03:18 - Driver login successful, redirecting to dashboard
+2025-08-18 11:06:56 - Login attempt started
+2025-08-18 11:06:56 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 11:06:56 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 11:06:56 - Password verified for user: chebet@gmail.com
+2025-08-18 11:36:28 - Login attempt started
+2025-08-18 11:36:28 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-18 11:36:28 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-18 11:36:28 - Password verified for user: admin@example.com
+2025-08-18 11:36:46 - Login attempt started
+2025-08-18 11:36:46 - POST data: Array
+(
+    [email] => 0789654876
+    [password] => KDZ 680 K
+)
+
+2025-08-18 11:36:46 - No matching regular user found, checking drivers
+2025-08-18 11:36:46 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0789654876
+    [name] => Deree Matri
+    [number_plate] => KDZ 680 K
+)
+
+2025-08-18 11:36:46 - Driver login successful, redirecting to dashboard
+2025-08-18 11:43:23 - Login attempt started
+2025-08-18 11:43:23 - POST data: Array
+(
+    [email] => 0789654876
+    [password] => KDZ 680 K
+)
+
+2025-08-18 11:43:23 - No matching regular user found, checking drivers
+2025-08-18 11:43:23 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0789654876
+    [name] => Deree Matri
+    [number_plate] => KDZ 680 K
+)
+
+2025-08-18 11:43:23 - Driver login successful, redirecting to dashboard
+2025-08-18 11:44:14 - Login attempt started
+2025-08-18 11:44:14 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-18 11:44:14 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-18 11:44:14 - Password verified for user: admin@example.com
+2025-08-18 11:46:04 - Login attempt started
+2025-08-18 11:46:04 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 11:46:04 - No matching regular user found, checking drivers
+2025-08-18 11:46:04 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 11:46:04 - Driver login successful, redirecting to dashboard
+2025-08-18 11:46:15 - Login attempt started
+2025-08-18 11:46:15 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-18 11:46:15 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-18 11:46:15 - Password verified for user: admin@example.com
+2025-08-18 11:47:09 - Login attempt started
+2025-08-18 11:47:09 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 11:47:09 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 11:47:09 - Password verified for user: chebet@gmail.com
+2025-08-18 11:48:10 - Login attempt started
+2025-08-18 11:48:10 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 11:48:10 - No matching regular user found, checking drivers
+2025-08-18 11:48:10 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 11:48:10 - Driver login successful, redirecting to dashboard
+2025-08-18 12:07:07 - Login attempt started
+2025-08-18 12:07:07 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:07:07 - No matching regular user found, checking drivers
+2025-08-18 12:07:07 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:07:07 - Driver login successful, redirecting to dashboard
+2025-08-18 12:07:25 - Login attempt started
+2025-08-18 12:07:25 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:07:25 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:07:25 - Password verified for user: chebet@gmail.com
+2025-08-18 12:08:33 - Login attempt started
+2025-08-18 12:08:33 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:08:33 - No matching regular user found, checking drivers
+2025-08-18 12:08:33 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:08:33 - Driver login successful, redirecting to dashboard
+2025-08-18 12:14:01 - Login attempt started
+2025-08-18 12:14:01 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:14:01 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:14:01 - Password verified for user: chebet@gmail.com
+2025-08-18 12:14:38 - Login attempt started
+2025-08-18 12:14:38 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:14:38 - No matching regular user found, checking drivers
+2025-08-18 12:14:38 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:14:38 - Driver login successful, redirecting to dashboard
+2025-08-18 12:23:25 - Login attempt started
+2025-08-18 12:23:25 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:23:25 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:23:25 - Password verified for user: chebet@gmail.com
+2025-08-18 12:24:35 - Login attempt started
+2025-08-18 12:24:35 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:24:35 - No matching regular user found, checking drivers
+2025-08-18 12:24:35 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:24:35 - Driver login successful, redirecting to dashboard
+2025-08-18 12:24:56 - Login attempt started
+2025-08-18 12:24:56 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:24:56 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:24:56 - Password verified for user: chebet@gmail.com
+2025-08-18 12:30:40 - Login attempt started
+2025-08-18 12:30:40 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:30:40 - No matching regular user found, checking drivers
+2025-08-18 12:30:40 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:30:40 - Driver login successful, redirecting to dashboard
+2025-08-18 12:33:28 - Login attempt started
+2025-08-18 12:33:28 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:33:28 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:33:28 - Password verified for user: chebet@gmail.com
+2025-08-18 12:37:45 - Login attempt started
+2025-08-18 12:37:45 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:37:45 - No matching regular user found, checking drivers
+2025-08-18 12:37:45 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:37:45 - Driver login successful, redirecting to dashboard
+2025-08-18 12:38:03 - Login attempt started
+2025-08-18 12:38:03 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:38:03 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:38:03 - Password verified for user: chebet@gmail.com
+2025-08-18 12:49:56 - Login attempt started
+2025-08-18 12:49:56 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:49:56 - No matching regular user found, checking drivers
+2025-08-18 12:49:56 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:49:56 - Driver login successful, redirecting to dashboard
+2025-08-18 12:51:27 - Login attempt started
+2025-08-18 12:51:27 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:51:27 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:51:27 - Password verified for user: chebet@gmail.com
+2025-08-18 12:53:24 - Login attempt started
+2025-08-18 12:53:24 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:53:24 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:53:24 - Password verified for user: chebet@gmail.com
+2025-08-18 12:53:30 - Login attempt started
+2025-08-18 12:53:30 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:53:30 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:53:30 - Password verified for user: chebet@gmail.com
+2025-08-18 12:53:45 - Login attempt started
+2025-08-18 12:53:45 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:53:45 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:53:45 - Password verified for user: chebet@gmail.com
+2025-08-18 12:54:35 - Login attempt started
+2025-08-18 12:54:35 - POST data: Array
+(
+    [email] => admin@example.com
+    [password] => admin123
+)
+
+2025-08-18 12:54:35 - Found user: Array
+(
+    [id] => 47
+    [name] => Admin User
+    [email] => admin@example.com
+    [phone] => 0711000000
+    [password] => 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9
+    [role] => admin
+)
+
+2025-08-18 12:54:35 - Password verified for user: admin@example.com
+2025-08-18 12:54:47 - Login attempt started
+2025-08-18 12:54:47 - POST data: Array
+(
+    [email] => 0798365300
+    [password] => KZE 654 N
+)
+
+2025-08-18 12:54:47 - No matching regular user found, checking drivers
+2025-08-18 12:54:47 - Driver authenticated with phone and plate: Array
+(
+    [phone] => 0798365300
+    [name] => Driver central
+    [number_plate] => KZE 654 N
+)
+
+2025-08-18 12:54:47 - Driver login successful, redirecting to dashboard
+2025-08-18 12:55:33 - Login attempt started
+2025-08-18 12:55:33 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:55:33 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:55:33 - Password verified for user: chebet@gmail.com
+2025-08-18 12:55:48 - Login attempt started
+2025-08-18 12:55:48 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:55:48 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:55:48 - Password verified for user: chebet@gmail.com
+2025-08-18 12:56:09 - Login attempt started
+2025-08-18 12:56:09 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:56:09 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:56:09 - Password verified for user: chebet@gmail.com
+2025-08-18 12:56:30 - Login attempt started
+2025-08-18 12:56:30 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:56:30 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:56:30 - Password verified for user: chebet@gmail.com
+2025-08-18 12:59:39 - Login attempt started
+2025-08-18 12:59:39 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 12:59:39 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 12:59:39 - Password verified for user: chebet@gmail.com
+2025-08-18 13:05:23 - Login attempt started
+2025-08-18 13:05:23 - POST data: Array
+(
+    [email] => chebet@gmail.com
+    [password] => Kipruto
+)
+
+2025-08-18 13:05:23 - Found user: Array
+(
+    [id] => 49
+    [name] => Miriam Chebet
+    [email] => chebet@gmail.com
+    [phone] => 0795428210
+    [password] => bffadc9d04a519188c8e5d23302c0d88924de9aedfc839f175971a3c17dbeb82
+    [role] => passenger
+)
+
+2025-08-18 13:05:23 - Password verified for user: chebet@gmail.com

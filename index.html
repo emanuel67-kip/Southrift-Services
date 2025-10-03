@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Southrift Services SACCO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/responsive-framework.css">
+  <style>
+    :root {
+      --purple: #6A0DAD;
+      --purple-dark: #4e0b8a;
+      --purple-light: #8a4bff;
+      --accent: #00BFFF;
+      --accent-dark: #008FC7;
+      --light: #f8f9fa;
+      --dark: #2c3e50;
+      --success: #28a745;
+      --warning: #ffc107;
+      --info: #17a2b8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoGlow {
+      0% { text-shadow: 0 0 8px #fff, 0 0 12px #0ff; }
+      100% { text-shadow: 0 0 12px #fff, 0 0 20px #f0f; }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('images/webimages/nairobi1.jpg') center/cover no-repeat fixed;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      margin: 0 auto 20px;
+      animation: typing 4s steps(40, end) forwards,
+                 fadeIn 1s ease-out;
+      background: linear-gradient(to right, #00f0ff, #00ff88, #ff00cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .highlight-line {
+      background: rgba(106, 13, 173, 0.8);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 500;
+      padding: 15px 25px;
+      border-radius: 50px;
+      display: inline-block;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      margin: 20px 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: fadeInUp 1s ease-out 0.5s both;
+    }
+
+    .action-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding: 20px;
+      animation: fadeInUp 1s ease-out 1s both;
+    }
+
+    .tab {
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      color: white;
+      text-align: center;
+      padding: 30px 25px;
+      border-radius: 16px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      width: 260px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tab::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .tab:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .tab:hover::before {
+      transform: translateX(100%);
+    }
+
+    .tab-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Features Section */
+    .features {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 80px 20px;
+      color: var(--dark);
+      text-align: center;
+    }
+
+    .section-title {
+      color: var(--purple);
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--purple), var(--accent));
+      border-radius: 2px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(106, 13, 173, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--purple);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--purple-dark);
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      color: white;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 80px 20px;
+      color: var(--dark);
+      text-align: center;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--purple);
+    }
+
+    /* Call to Action */
+    .cta {
+      background: linear-gradient(rgba(106, 13, 173, 0.9), rgba(106, 13, 173, 0.9)), 
+                  url('images/webimages/nairobi1.jpg') center/cover no-repeat;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .cta-btn {
+      background: white;
+      color: var(--purple);
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      background: var(--light);
+    }
+
+    /* Custom responsive adjustments */
+    @media (max-width: 1200px) {
+      .hero {
+        padding: 60px 20px;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .highlight-line {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+      }
+      
+      .tab {
+        padding: 25px 20px;
+        font-size: 1rem;
+        width: 230px;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 50px 15px;
+        min-height: 70vh;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .highlight-line {
+        font-size: 1rem;
+        padding: 10px 15px;
+      }
+      
+      .action-tabs {
+        gap: 20px;
+        padding: 15px;
+        margin-top: 30px;
+      }
+      
+      .tab {
+        padding: 20px 15px;
+        font-size: 0.95rem;
+        width: 200px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero {
+        padding: 40px 10px;
+        min-height: 60vh;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .highlight-line {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        border-radius: 30px;
+      }
+      
+      .action-tabs {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 12px;
+        margin-top: 25px;
+      }
+      
+      .tab {
+        padding: 20px 15px;
+        font-size: 0.9rem;
+        width: 90%;
+        max-width: 250px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .features-grid,
+      .testimonial-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 30px 5px;
+        min-height: 50vh;
+      }
+      
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      
+      .highlight-line {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+      }
+      
+      .action-tabs {
+        gap: 12px;
+        padding: 10px;
+        margin-top: 20px;
+      }
+      
+      .tab {
+        padding: 18px 12px;
+        font-size: 0.85rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .cta h2 {
+        font-size: 2rem;
+      }
+      
+      .cta p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero {
+        padding: 25px 5px;
+        min-height: 45vh;
+      }
+      
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      
+      .highlight-line {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+      }
+      
+      .tab {
+        padding: 15px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">Southrift Services Limited</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT with Fade-in -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Southrift Services Limited</h1>
+        <p class="highlight-line">Your trusted partner in public transport across Nairobi, Southrift and western counties</p>
+      </div>
+      
+      <section class="action-tabs">
+        <a href="booking.html" class="tab">
+          <span class="tab-icon">🚌</span>
+          <span>Book a Seat</span>
+        </a>
+        <a href="routes.html" class="tab">
+          <span class="tab-icon">🗺️</span>
+          <span>Check Our Routes</span>
+        </a>
+        <a href="join.html" class="tab">
+          <span class="tab-icon">🤝</span>
+          <span>Become a Member</span>
+        </a>
+      </section>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Safety First</h3>
+          <p>Our vehicles undergo regular safety inspections and our drivers are professionally trained to ensure your safety.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>On-Time Service</h3>
+          <p>We value your time with punctual departures and arrivals on all our routes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Affordable Rates</h3>
+          <p>Competitive pricing without compromising on quality and comfort.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛣️</div>
+          <h3>Extensive Network</h3>
+          <p>Comprehensive coverage across Nairobi, Southrift and western counties.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">舒适的座椅</div>
+          <h3>Comfortable Rides</h3>
+          <p>Well-maintained vehicles with comfortable seating for a pleasant journey.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Easy Booking</h3>
+          <p>Simple online booking system to reserve your seat in advance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Vehicles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100K+</div>
+          <div class="stat-label">Happy Passengers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Routes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2 class="section-title">What Our Passengers Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Southrift Services has made my daily commute so much easier. Their buses are always on time and the staff is very friendly."</p>
+          <p class="testimonial-author">- Jane Mwangi, Nairobi</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"I've been using Southrift Services for over 3 years now. Their service is reliable and the prices are very reasonable."</p>
+          <p class="testimonial-author">- John Omondi, Kisumu</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The booking system is so convenient. I can reserve my seat from my phone and never worry about missing the bus."</p>
+          <p class="testimonial-author">- Mary Akinyi, Nakuru</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+      <div class="cta-content">
+        <h2>Ready to Book Your Ride?</h2>
+        <p>Join thousands of satisfied passengers who trust Southrift Services for their transportation needs.</p>
+        <a href="booking.html" class="cta-btn">Book Your Seat Now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Southrift Services Limited. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

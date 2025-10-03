@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nairobi - Nakuru Fleet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #6A0DAD;
+      --purple-dark: #4e0b8a;
+      --purple-light: #8A2BE2;
+      --accent: #FF6EC4;
+      --accent-secondary: #7873F5;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #28a745;
+      --warning: #ffc107;
+      --info: #17a2b8;
+      --gradient-primary: linear-gradient(135deg, var(--purple), var(--purple-light));
+      --gradient-secondary: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      --shadow: 0 10px 20px rgba(0,0,0,0.1);
+      --shadow-hover: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoGlow {
+      0% { text-shadow: 0 0 8px #fff, 0 0 12px #0ff; }
+      100% { text-shadow: 0 0 12px #fff, 0 0 20px #f0f; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Header Styles */
+    header {
+  background-color: var(--purple);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  position: relative;
+  color: paleturquoise;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+    /* Hero Section */
+    .hero {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      transform: rotate(30deg);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .stat-item:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .stat-item:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Fleet Container */
+    .fleet-container {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      animation: fadeIn 0.8s ease-in-out;
+      flex: 1;
+      padding-bottom: 100px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--purple);
+      margin: 2rem 0;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-secondary);
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    /* Fleet Card Enhancement */
+    .fleet-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .fleet-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--gradient-secondary);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .fleet-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .fleet-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .fleet-details {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fleet-details h3 {
+      margin-bottom: 15px;
+      color: var(--purple);
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rating {
+      color: var(--warning);
+      font-size: 0.9rem;
+    }
+
+    .fleet-info ul {
+      padding-left: 0;
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    .fleet-info li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .fleet-info li:last-child {
+      border-bottom: none;
+    }
+
+    .icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .feature-text {
+      font-weight: 500;
+    }
+
+    .feature-value {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .price-tag {
+      background: var(--gradient-secondary);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Book Button Enhancement */
+    .book-btn {
+      margin-top: 1rem;
+      background: var(--gradient-primary);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(106, 13, 173, 0.3);
+      align-self: flex-end;
+    }
+
+    .book-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(106, 13, 173, 0.4);
+      background: var(--gradient-secondary);
+    }
+
+    .book-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Features Section */
+    .features {
+      background: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      border-radius: 15px;
+      background: #f8f9ff;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      color: var(--purple-dark);
+    }
+
+    /* Footer */
+    footer {
+  background: var(--purple);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  flex-shrink: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .stats {
+        gap: 1rem;
+      }
+      
+      .stat-item {
+        padding: 0.8rem 1.5rem;
+      }
+      
+      .stat-value {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      nav {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+      }
+      
+      nav a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .hero {
+        padding: 2rem 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .fleet-container {
+        padding: 1rem 0.5rem;
+        gap: 1.5rem;
+        padding-bottom: 120px;
+      }
+      
+      .fleet-card img {
+        height: 180px;
+      }
+      
+      .fleet-details {
+        padding: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .fleet-container {
+        padding: 0.8rem 0.3rem;
+        gap: 1.2rem;
+        padding-bottom: 140px;
+      }
+      
+      .fleet-card img {
+        height: 160px;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.3rem;
+      }
+      
+      nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .hero {
+        padding: 1.5rem 0.8rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      
+      .fleet-container {
+        padding: 0.6rem 0.2rem;
+        gap: 1rem;
+        padding-bottom: 150px;
+      }
+      
+      .fleet-card img {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Southrift Services Limited</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="logout.php">Logout</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Nairobi - Nakuru Premium Fleet</h1>
+    <p>Experience comfortable and reliable transportation with our premium matatus. All vehicles are regularly maintained and equipped with modern amenities.</p>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-value">10+</div>
+        <div class="stat-label">Vehicles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">14</div>
+        <div class="stat-label">Passenger Capacity</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">★ 4.7</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title">Our Premium Vehicles</h2>
+
+  <main class="fleet-container">
+    <!-- Vehicle 1 -->
+    <div class="fleet-card">
+      <div class="card-badge">Premium</div>
+      <img src="images/fleet/fleet1.jpeg" alt="Matatu N001">
+      <div class="fleet-details">
+        <h3>Matatu N001 <span class="rating">★★★★★</span></h3>
+        <div class="fleet-info">
+          <ul>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-user'></i>
+              </div>
+              <div>
+                <span class="feature-text">Capacity:</span>
+                <span class="feature-value">14 Passengers</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-map'></i>
+              </div>
+              <div>
+                <span class="feature-text">Route:</span>
+                <span class="feature-value">Nairobi - Nakuru</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-car'></i>
+              </div>
+              <div>
+                <span class="feature-text">Plate Number:</span>
+                <span class="feature-value">KDK 800N</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-id-card'></i>
+              </div>
+              <div>
+                <span class="feature-text">Driver:</span>
+                <span class="feature-value">Wanjala</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-phone'></i>
+              </div>
+              <div>
+                <span class="feature-text">Contact:</span>
+                <span class="feature-value">0712345651</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-money'></i>
+              </div>
+              <div>
+                <span class="feature-text">Price:</span>
+                <span class="feature-value">KES 900 <span class="price-tag">One Way</span></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="booking.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Vehicle 2 -->
+    <div class="fleet-card">
+      <div class="card-badge">Popular</div>
+      <img src="images/fleet/fleet2.jpeg" alt="Matatu N002">
+      <div class="fleet-details">
+        <h3>Matatu N002 <span class="rating">★★★★☆</span></h3>
+        <div class="fleet-info">
+          <ul>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-user'></i>
+              </div>
+              <div>
+                <span class="feature-text">Capacity:</span>
+                <span class="feature-value">14 Passengers</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-map'></i>
+              </div>
+              <div>
+                <span class="feature-text">Route:</span>
+                <span class="feature-value">Nairobi - Nakuru</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-car'></i>
+              </div>
+              <div>
+                <span class="feature-text">Plate Number:</span>
+                <span class="feature-value">KDK 801N</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-id-card'></i>
+              </div>
+              <div>
+                <span class="feature-text">Driver:</span>
+                <span class="feature-value">Ochieng</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-phone'></i>
+              </div>
+              <div>
+                <span class="feature-text">Contact:</span>
+                <span class="feature-value">0712345652</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-money'></i>
+              </div>
+              <div>
+                <span class="feature-text">Price:</span>
+                <span class="feature-value">KES 900 <span class="price-tag">One Way</span></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="booking.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Vehicle 3 -->
+    <div class="fleet-card">
+      <div class="card-badge">New</div>
+      <img src="images/fleet/fleet1.jpeg" alt="Matatu N003">
+      <div class="fleet-details">
+        <h3>Matatu N003 <span class="rating">★★★★★</span></h3>
+        <div class="fleet-info">
+          <ul>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-user'></i>
+              </div>
+              <div>
+                <span class="feature-text">Capacity:</span>
+                <span class="feature-value">14 Passengers</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-map'></i>
+              </div>
+              <div>
+                <span class="feature-text">Route:</span>
+                <span class="feature-value">Nairobi - Nakuru</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-car'></i>
+              </div>
+              <div>
+                <span class="feature-text">Plate Number:</span>
+                <span class="feature-value">KDK 802N</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-id-card'></i>
+              </div>
+              <div>
+                <span class="feature-text">Driver:</span>
+                <span class="feature-value">Kipkemoi</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-phone'></i>
+              </div>
+              <div>
+                <span class="feature-text">Contact:</span>
+                <span class="feature-value">0712345653</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-money'></i>
+              </div>
+              <div>
+                <span class="feature-text">Price:</span>
+                <span class="feature-value">KES 900 <span class="price-tag">One Way</span></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="booking.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Vehicle 4 -->
+    <div class="fleet-card">
+      <div class="card-badge">Top Rated</div>
+      <img src="images/fleet/fleet2.jpeg" alt="Matatu N004">
+      <div class="fleet-details">
+        <h3>Matatu N004 <span class="rating">★★★★★</span></h3>
+        <div class="fleet-info">
+          <ul>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-user'></i>
+              </div>
+              <div>
+                <span class="feature-text">Capacity:</span>
+                <span class="feature-value">14 Passengers</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-map'></i>
+              </div>
+              <div>
+                <span class="feature-text">Route:</span>
+                <span class="feature-value">Nairobi - Nakuru</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-car'></i>
+              </div>
+              <div>
+                <span class="feature-text">Plate Number:</span>
+                <span class="feature-value">KDK 803N</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-id-card'></i>
+              </div>
+              <div>
+                <span class="feature-text">Driver:</span>
+                <span class="feature-value">Kiprono</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-phone'></i>
+              </div>
+              <div>
+                <span class="feature-text">Contact:</span>
+                <span class="feature-value">0712345654</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-money'></i>
+              </div>
+              <div>
+                <span class="feature-text">Price:</span>
+                <span class="feature-value">KES 900 <span class="price-tag">One Way</span></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="booking.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Vehicle 5 -->
+    <div class="fleet-card">
+      <div class="card-badge">Premium</div>
+      <img src="images/fleet/fleet1.jpeg" alt="Matatu N005">
+      <div class="fleet-details">
+        <h3>Matatu N005 <span class="rating">★★★★☆</span></h3>
+        <div class="fleet-info">
+          <ul>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-user'></i>
+              </div>
+              <div>
+                <span class="feature-text">Capacity:</span>
+                <span class="feature-value">14 Passengers</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-map'></i>
+              </div>
+              <div>
+                <span class="feature-text">Route:</span>
+                <span class="feature-value">Nairobi - Nakuru</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-car'></i>
+              </div>
+              <div>
+                <span class="feature-text">Plate Number:</span>
+                <span class="feature-value">KDK 804N</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-id-card'></i>
+              </div>
+              <div>
+                <span class="feature-text">Driver:</span>
+                <span class="feature-value">Maina</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-phone'></i>
+              </div>
+              <div>
+                <span class="feature-text">Contact:</span>
+                <span class="feature-value">0712345655</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-money'></i>
+              </div>
+              <div>
+                <span class="feature-text">Price:</span>
+                <span class="feature-value">KES 900 <span class="price-tag">One Way</span></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="booking.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Vehicle 6 -->
+    <div class="fleet-card">
+      <div class="card-badge">Popular</div>
+      <img src="images/fleet/fleet2.jpeg" alt="Matatu N006">
+      <div class="fleet-details">
+        <h3>Matatu N006 <span class="rating">★★★★★</span></h3>
+        <div class="fleet-info">
+          <ul>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-user'></i>
+              </div>
+              <div>
+                <span class="feature-text">Capacity:</span>
+                <span class="feature-value">14 Passengers</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-map'></i>
+              </div>
+              <div>
+                <span class="feature-text">Route:</span>
+                <span class="feature-value">Nairobi - Nakuru</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-car'></i>
+              </div>
+              <div>
+                <span class="feature-text">Plate Number:</span>
+                <span class="feature-value">KDK 805N</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-id-card'></i>
+              </div>
+              <div>
+                <span class="feature-text">Driver:</span>
+                <span class="feature-value">Nyamu</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bxs-phone'></i>
+              </div>
+              <div>
+                <span class="feature-text">Contact:</span>
+                <span class="feature-value">0712345656</span>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle">
+                <i class='bx bx-money'></i>
+              </div>
+              <div>
+                <span class="feature-text">Price:</span>
+                <span class="feature-value">KES 900 <span class="price-tag">One Way</span></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="booking.html" class="book-btn">Book Now</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="features">
+    <h2 class="section-title">Why Choose Our Fleet</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-check-circle'></i>
+        </div>
+        <h3>Reliable Service</h3>
+        <p>Punctual departures and arrivals with real-time tracking</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-shield'></i>
+        </div>
+        <h3>Safety First</h3>
+        <p>All vehicles undergo regular safety inspections</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-happy'></i>
+        </div>
+        <h3>Comfortable Rides</h3>
+        <p>Well-maintained vehicles with comfortable seating</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class='bx bx-support'></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Dedicated customer support team ready to assist you</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Southrift Services Limited. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

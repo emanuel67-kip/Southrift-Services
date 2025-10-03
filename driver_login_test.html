@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Login Test - Southrift Services</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .test-form { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .test-form h3 { color: #6A0DAD; margin-top: 0; }
+        .form-group { margin: 15px 0; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn { background: #6A0DAD; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: #4e0b8a; }
+        .success { background: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .error { background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .info { background: #cce5ff; color: #004085; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #f0f0f0; }
+        .driver-credentials { background: #e7f3ff; padding: 15px; border-radius: 8px; margin: 10px 0; }
+        .driver-credentials strong { color: #0066cc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 Driver Login Test System</h1>
+        <p>Test the driver login functionality using phone number and number plate.</p>
+
+        <?php
+        require_once 'db.php';
+
+        // Get existing drivers for testing
+        $drivers = [];
+        $result = $conn->query("SELECT * FROM drivers ORDER BY id LIMIT 5");
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $drivers[] = $row;
+            }
+        }
+
+        // Handle login test
+        if (isset($_POST['test_driver_login'])) {
+            $phone = trim($_POST['phone']);
+            $plate = trim($_POST['plate']);
+        } elseif (isset($_POST['use_driver'])) {
+            // Pre-fill form with selected driver
+            $phone = trim($_POST['phone']);
+            $plate = trim($_POST['plate']);
+        } else {
+            $phone = '';
+            $plate = '';
+        }
+        
+        if (isset($_POST['test_driver_login']) && !empty($phone) && !empty($plate)) {
+                // Test the exact login logic from login.php
+                $stmt = $conn->prepare("SELECT * FROM drivers WHERE driver_phone = ? AND number_plate = ?");
+                $plateUpper = strtoupper($plate);
+                $stmt->bind_param("ss", $phone, $plateUpper);
+                $stmt->execute();
+                $driver_result = $stmt->get_result();
+                
+                if ($driver = $driver_result->fetch_assoc()) {
+                    echo "<div class='success'>";
+                    echo "<h4>✅ Driver Login Successful!</h4>";
+                    echo "<p><strong>Driver Name:</strong> " . htmlspecialchars($driver['name'] ?? $driver['driver_name'] ?? 'Unknown') . "</p>";
+                    echo "<p><strong>Phone:</strong> " . htmlspecialchars($driver['driver_phone']) . "</p>";
+                    echo "<p><strong>Number Plate:</strong> " . htmlspecialchars($driver['number_plate']) . "</p>";
+                    echo "<p><strong>Redirect URL:</strong> <a href='Driver/index.php' target='_blank'>Driver/index.php</a></p>";
+                    echo "</div>";
+                } else {
+                    echo "<div class='error'>";
+                    echo "<h4>❌ Driver Login Failed</h4>";
+                    echo "<p>No driver found with phone '$phone' and number plate '$plateUpper'</p>";
+                    echo "<p>Make sure the phone number and number plate are exactly as stored in the database.</p>";
+                    echo "</div>";
+                }
+            }
+
+        // Show existing drivers
+        if (!empty($drivers)) {
+            echo "<div class='info'>";
+            echo "<h3>📋 Available Drivers for Testing</h3>";
+            echo "<table>";
+            echo "<tr><th>Name</th><th>Phone (Username)</th><th>Number Plate (Password)</th><th>Actions</th></tr>";
+            
+            foreach ($drivers as $driver) {
+                $name = htmlspecialchars($driver['name'] ?? $driver['driver_name'] ?? 'Unknown');
+                $phone = htmlspecialchars($driver['driver_phone']);
+                $plate = htmlspecialchars($driver['number_plate']);
+                
+                echo "<tr>";
+                echo "<td>$name</td>";
+                echo "<td><strong>$phone</strong></td>";
+                echo "<td><strong>$plate</strong></td>";
+                echo "<td><form method='POST' style='display:inline;'><input type='hidden' name='phone' value='$phone'><input type='hidden' name='plate' value='$plate'><button type='submit' name='use_driver' class='btn' style='font-size: 12px; padding: 5px 10px;'>Use These</button></form></td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+            echo "</div>";
+        } else {
+            echo "<div class='error'>No drivers found in database. Please add vehicles with drivers through the Admin panel first.</div>";
+        }
+        ?>
+
+        <div class="test-form">
+            <h3>🧪 Test Driver Login</h3>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="phone">Phone Number (Username):</label>
+                    <input type="text" id="phone" name="phone" placeholder="e.g., 0798365356" value="<?= htmlspecialchars($phone) ?>">
+                </div>
+                
+                <div class="form-group">
+                    <label for="plate">Number Plate (Password):</label>
+                    <input type="text" id="plate" name="plate" placeholder="e.g., KDK 547 L" value="<?= htmlspecialchars($plate) ?>">
+                </div>
+                
+                <button type="submit" name="test_driver_login" class="btn">🔐 Test Driver Login</button>
+            </form>
+        </div>
+
+        <div class="driver-credentials">
+            <h3>📝 Driver Login Instructions</h3>
+            <ul>
+                <li><strong>Username:</strong> Driver's phone number (exactly as stored)</li>
+                <li><strong>Password:</strong> Vehicle's number plate (will be converted to uppercase)</li>
+                <li><strong>Login URL:</strong> <a href="login.html" target="_blank">login.html</a></li>
+                <li><strong>After Login:</strong> Redirects to <a href="Driver/index.php" target="_blank">Driver Dashboard</a></li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h4>🔧 How Driver Login Works:</h4>
+            <ol>
+                <li>Driver enters phone number as username</li>
+                <li>Driver enters number plate as password</li>
+                <li>System queries: <code>SELECT * FROM drivers WHERE driver_phone = ? AND number_plate = ?</code></li>
+                <li>Number plate is automatically converted to uppercase for matching</li>
+                <li>If match found, session is created with role='driver'</li>
+                <li>Driver is redirected to Driver/index.php</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="login.html" class="btn">Go to Login Page</a>
+            <a href="Admin/add_vehicle.php" class="btn" style="background: #28a745;">Add New Driver</a>
+        </div>
+    </div>
+
+    <script>
+        function fillForm(phone, plate) {
+            document.getElementById('phone').value = phone;
+            document.getElementById('plate').value = plate;
+        }
+    </script>
+</body>
+</html>

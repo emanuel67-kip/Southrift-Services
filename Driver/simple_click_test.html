@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Click Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .test-card {
+            background: #6A0DAD;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .test-card {
+                padding: 18px;
+                margin: 18px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .test-card {
+                padding: 16px;
+                margin: 16px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .test-card {
+                padding: 15px;
+                margin: 15px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            p {
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .test-card {
+                padding: 12px;
+                margin: 12px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            h2 {
+                font-size: 1.1rem;
+            }
+            
+            p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .test-card {
+                padding: 10px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 1.2rem;
+            }
+            
+            h2 {
+                font-size: 1rem;
+            }
+            
+            p {
+                font-size: 0.85rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .test-card {
+                padding: 8px;
+                margin: 8px;
+            }
+            
+            h1 {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 0.95rem;
+            }
+            
+            p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Click Test</h1>
+    
+    <div id="testCard" class="test-card">
+        <h2>Click Me!</h2>
+        <p>This should show an alert when clicked</p>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.getElementById('testCard');
+            if (card) {
+                card.addEventListener('click', function() {
+                    alert('Card clicked successfully!');
+                });
+                console.log('Click handler added to test card');
+            } else {
+                console.log('Test card not found');
+            }
+        });
+    </script>
+</body>
+</html>

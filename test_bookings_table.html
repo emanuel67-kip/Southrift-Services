@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Bookings Table</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #6A0DAD;
+      --purple-dark: #4e0b8a;
+      --accent: #00BFFF;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      color: var(--purple);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* Table Styles */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      background: rgba(106, 13, 173, 0.05);
+    }
+
+    .booking-status {
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .status-confirmed {
+      background: rgba(40, 167, 69, 0.1);
+      color: #28a745;
+    }
+
+    .status-completed {
+      background: rgba(255, 193, 7, 0.1);
+      color: #ffc107;
+    }
+
+    .status-upcoming {
+      background: rgba(13, 110, 253, 0.1);
+      color: #0d6efd;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      th, td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      th, td {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+      }
+      
+      .table-responsive {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      th, td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
+      
+      .table-responsive {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="section-title">Test Bookings Table</h2>
+    
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Route</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Seats</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#B12345</td>
+            <td>Nairobi → Kisumu</td>
+            <td>Oct 15, 2025</td>
+            <td>9:00 AM</td>
+            <td>2</td>
+            <td><span class="booking-status status-upcoming">Upcoming</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+          <tr>
+            <td>#B12346</td>
+            <td>Nairobi → Nakuru</td>
+            <td>Oct 10, 2025</td>
+            <td>6:00 AM</td>
+            <td>1</td>
+            <td><span class="booking-status status-completed">Completed</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+          <tr>
+            <td>#B12347</td>
+            <td>Nairobi → Bomet</td>
+            <td>Sep 28, 2025</td>
+            <td>12:00 PM</td>
+            <td>3</td>
+            <td><span class="booking-status status-completed">Completed</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+          <tr>
+            <td>#B12348</td>
+            <td>Nairobi → Mombasa</td>
+            <td>Oct 20, 2025</td>
+            <td>7:30 AM</td>
+            <td>1</td>
+            <td><span class="booking-status status-confirmed">Today</span></td>
+            <td><button class="btn">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

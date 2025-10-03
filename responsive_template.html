@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Template - Southrift Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/responsive-framework.css">
+  <style>
+    /* Custom styles can be added here */
+    :root {
+      --purple: #6A0DAD;
+      --purple-dark: #4e0b8a;
+    }
+    
+    body {
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">Southrift Services Limited</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="profile.html" class="active">Profile</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="fade-in">
+    <div class="container">
+      <!-- Section with title -->
+      <div class="section">
+        <h2 class="section-title">Page Title</h2>
+        <p>This is a sample section using the responsive framework.</p>
+      </div>
+      
+      <!-- Card Grid -->
+      <div class="section">
+        <h2 class="section-title">Card Grid Example</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Card 1</h3>
+            <p>This is a sample card that will adapt to different screen sizes.</p>
+            <button class="btn">Action</button>
+          </div>
+          <div class="card">
+            <h3>Card 2</h3>
+            <p>This is a sample card that will adapt to different screen sizes.</p>
+            <button class="btn">Action</button>
+          </div>
+          <div class="card">
+            <h3>Card 3</h3>
+            <p>This is a sample card that will adapt to different screen sizes.</p>
+            <button class="btn">Action</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Form Example -->
+      <div class="section">
+        <h2 class="section-title">Form Example</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" rows="4" placeholder="Enter your message"></textarea>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+      
+      <!-- Table Example -->
+      <div class="section">
+        <h2 class="section-title">Table Example</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Doe</td>
+                <td>john@example.com</td>
+                <td>+254 712 345 678</td>
+                <td>
+                  <button class="btn btn-secondary">Edit</button>
+                  <button class="btn">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Jane Smith</td>
+                <td>jane@example.com</td>
+                <td>+254 712 345 679</td>
+                <td>
+                  <button class="btn btn-secondary">Edit</button>
+                  <button class="btn">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Southrift Services Limited | All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
