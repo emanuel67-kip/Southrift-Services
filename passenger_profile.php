@@ -1,12 +1,66 @@
 <?php
-// Start session
-session_start();
+// Configure session to match the login system
+if (session_status() === PHP_SESSION_NONE) {
+    // Set secure session parameters to match login.php
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.cookie_secure', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
+    ini_set('session.use_only_cookies', 1);
+    
+    // Set the same session name as login system
+    session_name('southrift_admin');
+    
+    // Set enhanced session cookie parameters
+    $lifetime = 60 * 60; // 1 hour for passengers
+    $path = '/';
+    $domain = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+    $httponly = true;
+    $samesite = 'Lax';
+    
+    session_set_cookie_params([
+        'lifetime' => $lifetime,
+        'path' => $path,
+        'domain' => $domain,
+        'secure' => $secure,
+        'httponly' => $httponly,
+        'samesite' => $samesite
+    ]);
+    
+    // Start the session
+    session_start();
+} else {
+    session_start();
+}
+
+// Enhanced cache control to prevent back button issues
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+header('X-Content-Type-Options: nosniff');
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     // Redirect to login page
     header('Location: login.html');
     exit;
+}
+
+// Check if session has expired for passengers
+if (isset($_SESSION['role']) && $_SESSION['role'] === 'passenger') {
+    // Check if expires_at is set and has passed
+    if (isset($_SESSION['expires_at']) && time() > $_SESSION['expires_at']) {
+        // Session expired, destroy session and redirect to login
+        session_unset();
+        session_destroy();
+        header('Location: login.html?expired=1');
+        exit;
+    }
+    
+    // Update last activity
+    $_SESSION['last_activity'] = time();
+    
+    // Extend session lifetime on activity
+    $_SESSION['expires_at'] = time() + 1800; // Extend by 30 minutes
 }
 
 // Set the content type

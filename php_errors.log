@@ -1,0 +1,56 @@
+[30-Jul-2025 00:38:38 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:38:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:38:40 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:38:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:02 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:03 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:04 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:17 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:18 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:50 Europe/Berlin] PHP Warning:  require_once(../db.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[30-Jul-2025 00:40:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../db.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Southrift Services\profile.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Southrift Services\profile.php on line 31
+[06-Aug-2025 21:52:19 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:52:23 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:52:49 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:53:01 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:53:34 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:53:42 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:57:20 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:57:22 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:57:29 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[06-Aug-2025 21:57:41 Europe/Berlin] Error in assigned_vehicle.php: Invalid booking ID
+[25-Aug-2025 21:56:54 Europe/Berlin] === New Request ===
+[25-Aug-2025 21:56:54 Europe/Berlin] Request method: GET
+[25-Aug-2025 21:56:54 Europe/Berlin] Request data: Array
+(
+)
+

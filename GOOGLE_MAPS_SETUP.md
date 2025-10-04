@@ -36,7 +36,8 @@ Edit `view_driver_location.php` and replace the demo key with your real key.
 
 ### 4. Test the Setup
 1. Open the driver location page in your browser
-2. Check browser console for any API errors
+2. Check browser console for any API er
+rors
 3. Verify that the map loads correctly
 
 ## Troubleshooting

@@ -53,6 +53,16 @@ try {
         $created_at = new DateTime($row['created_at']);
         $row['formatted_created_at'] = $created_at->format('M j, Y g:i A');
         
+        // Handle departure time - if it's already in 12-hour format with AM/PM, keep as-is
+        if (isset($row['departure_time']) && preg_match('/^(1[0-2]|0?[1-9]):[0-5][0-9] (am|pm)$/i', $row['departure_time'])) {
+            // Already in correct 12-hour format, keep as-is
+            $row['departure_time'] = $row['departure_time'];
+        } else if (isset($row['departure_time'])) {
+            // Try to format it as a time
+            $time = new DateTime($row['departure_time']);
+            $row['departure_time'] = $time->format('g:i A');
+        }
+        
         // Determine status based on travel date (completed 24 hours after travel date)
         $today = new DateTime();
         $completionTime = clone $travel_date;

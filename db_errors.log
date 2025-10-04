@@ -10,3 +10,78 @@
 [03-Oct-2025 19:21:44 Europe/Berlin] Successfully connected to database: southrift
 [03-Oct-2025 19:21:44 Europe/Berlin] Attempting to connect to database: southrift on localhost
 [03-Oct-2025 19:21:44 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:46:20 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:46:20 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'southrift' in C:\xampp\htdocs\Southrift Services\db.php on line 17
+[04-Oct-2025 10:46:20 Europe/Berlin] Database connection failed: Unknown database 'southrift'
+[04-Oct-2025 10:49:11 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:49:11 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:49:33 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:49:33 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:49:33 Europe/Berlin] Login error: Invalid username or password
+[04-Oct-2025 10:49:42 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:49:42 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:49:42 Europe/Berlin] Login error: Invalid username or password
+[04-Oct-2025 10:50:27 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:50:27 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:50:28 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:50:28 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:51:07 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:51:07 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:51:07 Europe/Berlin] Login error: Invalid username or password
+[04-Oct-2025 10:51:21 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:51:21 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:51:21 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:51:21 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:51:21 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:51:21 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 10:59:45 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 10:59:45 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:24:40 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:24:40 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:24:40 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:24:40 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:24:45 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:24:45 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:26:06 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:26:06 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:27:02 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:27:02 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:27:02 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:27:02 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:27:06 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:27:06 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:30:27 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:30:27 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:31:15 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:31:15 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:31:15 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:31:15 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:31:18 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:31:18 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:40:55 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:40:55 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:42:10 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:42:10 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:42:10 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:42:10 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:45:01 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:45:01 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:45:08 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:45:08 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:45:34 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:45:34 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:46:00 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:46:00 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:48:02 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:48:02 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:48:19 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:48:19 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:48:38 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:48:38 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:49:31 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:49:31 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:49:40 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:49:40 Europe/Berlin] Successfully connected to database: southrift
+[04-Oct-2025 11:49:40 Europe/Berlin] PHP Warning:  Undefined variable $google_maps_link in C:\xampp\htdocs\Southrift Services\track_my_driver.php on line 590
+[04-Oct-2025 11:49:43 Europe/Berlin] Attempting to connect to database: southrift on localhost
+[04-Oct-2025 11:49:43 Europe/Berlin] Successfully connected to database: southrift

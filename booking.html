@@ -316,6 +316,16 @@
           <div class="form-row">
             <div class="form-col">
               <div class="form-group">
+                <label class="form-label">Departure Time</label>
+                <select class="form-control" id="departureTime">
+                  <option value="">Select departure time</option>
+                  <!-- Options will be populated dynamically based on route selection -->
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-col">
+              <div class="form-group">
                 <label class="form-label">Number of Seats</label>
                 <select class="form-control" id="seats">
                   <option value="1">1 Seat</option>
@@ -326,13 +336,11 @@
                 </select>
               </div>
             </div>
-            
-            <div class="form-col">
-              <div class="form-group">
-                <label class="form-label">Boarding Point</label>
-                <input type="text" class="form-control" id="boardingPoint" placeholder="Enter your boarding point">
-              </div>
-            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Boarding Point</label>
+            <input type="text" class="form-control" id="boardingPoint" placeholder="Enter your boarding point">
           </div>
           
           <div class="form-group">
@@ -502,7 +510,37 @@
       'nakuru-nairobi': 500,
       'bomet-nairobi': 1200
     };
-    
+
+    // Departure times based on routes page
+    const routeTimes = {
+      'nairobi-bomet': ['10:00 pm', '5:00 am', '8:00 am', '11:00 am', '2:00 pm', '5:00 pm'],
+      'nairobi-kisumu': ['10:00 pm', '5:00 am', '8:00 am', '11:00 am', '2:00 pm', '5:00 pm'],
+      'nairobi-nakuru': ['10:00 pm', '5:00 am', '8:00 am', '11:00 am', '2:00 pm', '5:00 pm'],
+      'litein-nairobi': ['10:00 pm', '5:00 am', '8:00 am', '11:00 am', '2:00 pm', '5:00 pm'],
+      'kisumu-nairobi': ['10:00 pm', '5:00 am', '8:00 am', '11:00 am', '2:00 pm', '5:00 pm'],
+      'nakuru-nairobi': ['10:00 pm', '5:00 am', '8:00 am', '11:00 am', '2:00 pm', '5:00 pm'],
+      'bomet-nairobi': ['10:00 pm', '5:00 am', '8:00 am', '11:00 am', '2:00 pm', '5:00 pm']
+    };
+
+    // Update departure times when route is selected
+    document.getElementById('route').addEventListener('change', function() {
+      const route = this.value;
+      const timeSelect = document.getElementById('departureTime');
+      
+      // Clear existing options
+      timeSelect.innerHTML = '<option value="">Select departure time</option>';
+      
+      // Populate with times for selected route
+      if (route && routeTimes[route]) {
+        routeTimes[route].forEach(time => {
+          const option = document.createElement('option');
+          option.value = time;
+          option.textContent = time;
+          timeSelect.appendChild(option);
+        });
+      }
+    });
+
     // Step navigation
     function showStep(stepNumber) {
       // Hide all steps
@@ -527,15 +565,184 @@
       });
     }
     
+    function prevStep(currentStep) {
+      showStep(currentStep - 1);
+    }
+    
+    function selectPayment(element, method) {
+      // Remove selected class from all options
+      document.querySelectorAll('.payment-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked option
+      element.classList.add('selected');
+      element.dataset.method = method;
+      
+      // Show/hide payment details
+      document.getElementById('mpesa-details').style.display = method === 'mpesa' ? 'block' : 'none';
+    }
+    
+    function updateSummary() {
+      // Get values
+      const routeSelect = document.getElementById('route');
+      const routeValue = routeSelect.value;
+      const routeText = routeSelect.options[routeSelect.selectedIndex].text;
+      const travelDate = document.getElementById('travelDate').value;
+      const departureTime = document.getElementById('departureTime').value;
+      const seats = document.getElementById('seats').value;
+      const boardingPoint = document.getElementById('boardingPoint').value;
+      
+      // Format date
+      const formattedDate = new Date(travelDate).toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+      
+      // Calculate amount based on route fares
+      const farePerSeat = routeFares[routeValue] || 600; // Default to 600 if route not found
+      const amount = seats * farePerSeat;
+      
+      // Update summary
+      document.getElementById('summaryRoute').textContent = routeText;
+      document.getElementById('summaryDate').textContent = `${formattedDate} at ${departureTime}`;
+      document.getElementById('summarySeats').textContent = seats;
+      document.getElementById('summaryBoarding').textContent = boardingPoint;
+      document.getElementById('totalAmount').textContent = `KSh ${amount.toLocaleString()}`;
+      document.getElementById('amount').textContent = amount.toLocaleString();
+    }
+    
+    function updateConfirmation() {
+      // Get values
+      const routeSelect = document.getElementById('route');
+      const routeValue = routeSelect.value;
+      const routeText = routeSelect.options[routeSelect.selectedIndex].text;
+      const travelDate = document.getElementById('travelDate').value;
+      const departureTime = document.getElementById('departureTime').value;
+      const seats = document.getElementById('seats').value;
+      const boardingPoint = document.getElementById('boardingPoint').value;
+      const fullName = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      
+      // Format date
+      const dateObj = new Date(travelDate);
+      const formattedDate = dateObj.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+      
+      // Calculate amount based on route fares
+      const farePerSeat = routeFares[routeValue] || 600; // Default to 600 if route not found
+      const amount = seats * farePerSeat;
+      
+      // Update confirmation
+      document.getElementById('confirmRoute').textContent = routeText;
+      document.getElementById('confirmDateTime').textContent = `${formattedDate} at ${departureTime}`;
+      document.getElementById('confirmSeats').textContent = seats;
+      document.getElementById('confirmBoarding').textContent = boardingPoint;
+      document.getElementById('confirmPassenger').textContent = fullName;
+      document.getElementById('confirmAmount').textContent = `KSh ${amount.toLocaleString()}`;
+      
+      // Generate random booking ID
+      const bookingId = 'B' + Math.floor(10000 + Math.random() * 90000);
+      document.getElementById('bookingId').textContent = '#' + bookingId;
+    }
+    
+    // Submit booking to server
+    function submitBooking() {
+      // Get form values
+      const route = document.getElementById('route').value;
+      const travelDate = document.getElementById('travelDate').value;
+      const departureTime = document.getElementById('departureTime').value;
+      const seats = document.getElementById('seats').value;
+      const boardingPoint = document.getElementById('boardingPoint').value;
+      const fullName = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const requests = document.getElementById('requests').value;
+      
+      // Get selected payment method
+      const paymentMethodElement = document.querySelector('.payment-option.selected');
+      let paymentMethod = 'pay-onboarding'; // Default
+      if (paymentMethodElement) {
+        paymentMethod = paymentMethodElement.dataset.method === 'mpesa' ? 'mpesa' : 
+                       paymentMethodElement.dataset.method === 'card' ? 'card' : 'pay-onboarding';
+      }
+      
+      // Create form data (send departure time as-is in 12-hour format)
+      const formData = new FormData();
+      formData.append('fullname', fullName);
+      formData.append('phone', phone);
+      formData.append('route', route);
+      formData.append('boarding_point', boardingPoint);
+      formData.append('travel_date', travelDate);
+      formData.append('departure_time', departureTime); // Send as 12-hour format with AM/PM
+      formData.append('seats', seats);
+      formData.append('payment_method', paymentMethod);
+      
+      // Show loading state
+      const submitButton = document.querySelector('#step3 .btn:last-child');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Processing...';
+      submitButton.disabled = true;
+      
+      // Send data to server
+      fetch('book.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Update confirmation
+          updateConfirmation();
+          showStep(4);
+        } else {
+          alert('Booking failed: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while processing your booking. Please try again.');
+      })
+      .finally(() => {
+        // Restore button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      });
+    }
+    
+    // Convert 12-hour time format to 24-hour format (HH:MM:SS)
+    function convertTo24Hour(time12h) {
+      if (!time12h) return '08:00:00'; // Default to 8:00 AM
+      
+      const [time, modifier] = time12h.split(' ');
+      let [hours, minutes] = time.split(':');
+      
+      if (hours === '12') {
+        hours = '00';
+      }
+      
+      if (modifier === 'PM') {
+        hours = parseInt(hours, 10) + 12;
+      }
+      
+      return `${hours.toString().padStart(2, '0')}:${minutes}:00`;
+    }
+    
     function nextStep(currentStep) {
       if (currentStep === 1) {
         // Validate step 1
         const route = document.getElementById('route').value;
         const travelDate = document.getElementById('travelDate').value;
+        const departureTime = document.getElementById('departureTime').value;
         const seats = document.getElementById('seats').value;
         const boardingPoint = document.getElementById('boardingPoint').value;
         
-        if (!route || !travelDate || !seats || !boardingPoint) {
+        if (!route || !travelDate || !departureTime || !seats || !boardingPoint) {
           alert('Please fill in all fields');
           return;
         }
@@ -574,154 +781,6 @@
         updateConfirmation();
         showStep(4);
       }
-    }
-    
-    function prevStep(currentStep) {
-      showStep(currentStep - 1);
-    }
-    
-    function selectPayment(element, method) {
-      // Remove selected class from all options
-      document.querySelectorAll('.payment-option').forEach(option => {
-        option.classList.remove('selected');
-      });
-      
-      // Add selected class to clicked option
-      element.classList.add('selected');
-      element.dataset.method = method;
-      
-      // Show/hide payment details
-      document.getElementById('mpesa-details').style.display = method === 'mpesa' ? 'block' : 'none';
-    }
-    
-    function updateSummary() {
-      // Get values
-      const routeSelect = document.getElementById('route');
-      const routeValue = routeSelect.value;
-      const routeText = routeSelect.options[routeSelect.selectedIndex].text;
-      const travelDate = document.getElementById('travelDate').value;
-      const seats = document.getElementById('seats').value;
-      const boardingPoint = document.getElementById('boardingPoint').value;
-      
-      // Format date
-      const formattedDate = new Date(travelDate).toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric'
-      });
-      
-      // Calculate amount based on route fares
-      const farePerSeat = routeFares[routeValue] || 600; // Default to 600 if route not found
-      const amount = seats * farePerSeat;
-      
-      // Update summary
-      document.getElementById('summaryRoute').textContent = routeText;
-      document.getElementById('summaryDate').textContent = formattedDate;
-      document.getElementById('summarySeats').textContent = seats;
-      document.getElementById('summaryBoarding').textContent = boardingPoint;
-      document.getElementById('totalAmount').textContent = `KSh ${amount.toLocaleString()}`;
-      document.getElementById('amount').textContent = amount.toLocaleString();
-    }
-    
-    function updateConfirmation() {
-      // Get values
-      const routeSelect = document.getElementById('route');
-      const routeValue = routeSelect.value;
-      const routeText = routeSelect.options[routeSelect.selectedIndex].text;
-      const travelDate = document.getElementById('travelDate').value;
-      const seats = document.getElementById('seats').value;
-      const boardingPoint = document.getElementById('boardingPoint').value;
-      const fullName = document.getElementById('fullName').value;
-      const phone = document.getElementById('phone').value;
-      const email = document.getElementById('email').value;
-      
-      // Format date and time
-      const dateObj = new Date(travelDate);
-      const formattedDate = dateObj.toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric'
-      });
-      const formattedTime = "8:00 AM"; // Sample time
-      
-      // Calculate amount based on route fares
-      const farePerSeat = routeFares[routeValue] || 600; // Default to 600 if route not found
-      const amount = seats * farePerSeat;
-      
-      // Update confirmation
-      document.getElementById('confirmRoute').textContent = routeText;
-      document.getElementById('confirmDateTime').textContent = `${formattedDate} at ${formattedTime}`;
-      document.getElementById('confirmSeats').textContent = seats;
-      document.getElementById('confirmBoarding').textContent = boardingPoint;
-      document.getElementById('confirmPassenger').textContent = fullName;
-      document.getElementById('confirmAmount').textContent = `KSh ${amount.toLocaleString()}`;
-      
-      // Generate random booking ID
-      const bookingId = 'B' + Math.floor(10000 + Math.random() * 90000);
-      document.getElementById('bookingId').textContent = '#' + bookingId;
-    }
-    
-    // Submit booking to server
-    function submitBooking() {
-      // Get form values
-      const route = document.getElementById('route').value;
-      const travelDate = document.getElementById('travelDate').value;
-      const seats = document.getElementById('seats').value;
-      const boardingPoint = document.getElementById('boardingPoint').value;
-      const fullName = document.getElementById('fullName').value;
-      const phone = document.getElementById('phone').value;
-      const email = document.getElementById('email').value;
-      const requests = document.getElementById('requests').value;
-      
-      // Get selected payment method
-      const paymentMethodElement = document.querySelector('.payment-option.selected');
-      let paymentMethod = 'pay-onboarding'; // Default
-      if (paymentMethodElement) {
-        paymentMethod = paymentMethodElement.dataset.method === 'mpesa' ? 'mpesa' : 
-                       paymentMethodElement.dataset.method === 'card' ? 'card' : 'pay-onboarding';
-      }
-      
-      // Create form data
-      const formData = new FormData();
-      formData.append('fullname', fullName);
-      formData.append('phone', phone);
-      formData.append('route', route);
-      formData.append('boarding_point', boardingPoint);
-      formData.append('travel_date', travelDate);
-      formData.append('departure_time', '8:00 AM'); // Sample time
-      formData.append('seats', seats);
-      formData.append('payment_method', paymentMethod);
-      
-      // Show loading state
-      const submitButton = document.querySelector('#step3 .btn:last-child');
-      const originalText = submitButton.textContent;
-      submitButton.textContent = 'Processing...';
-      submitButton.disabled = true;
-      
-      // Send data to server
-      fetch('book.php', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          // Update confirmation
-          updateConfirmation();
-          showStep(4);
-        } else {
-          alert('Booking failed: ' + data.message);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred while processing your booking. Please try again.');
-      })
-      .finally(() => {
-        // Restore button state
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-      });
     }
     
     // Set min date to today

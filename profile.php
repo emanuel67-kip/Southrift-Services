@@ -1,4 +1,9 @@
 <?php
+// Enhanced cache control
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
 // Configure session to match the login system
 if (session_status() === PHP_SESSION_NONE) {
     // Set secure session parameters to match login.php
@@ -9,14 +14,22 @@ if (session_status() === PHP_SESSION_NONE) {
     // Set the same session name as login system
     session_name('southrift_admin');
     
-    // Set session cookie parameters
+    // Set enhanced session cookie parameters
     $lifetime = 60 * 60; // 1 hour for passengers
     $path = '/';
     $domain = $_SERVER['HTTP_HOST'] ?? 'localhost';
     $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
     $httponly = true;
+    $samesite = 'Lax';
     
-    session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+    session_set_cookie_params([
+        'lifetime' => $lifetime,
+        'path' => $path,
+        'domain' => $domain,
+        'secure' => $secure,
+        'httponly' => $httponly,
+        'samesite' => $samesite
+    ]);
     
     // Start the session
     session_start();
@@ -25,9 +38,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 header('Content-Type: application/json');
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 
-// Debug: Check session state
+// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     echo json_encode([
         'error' => 'Unauthorized - Please log in', 
@@ -35,6 +47,24 @@ if (!isset($_SESSION['user_id'])) {
         'session_data' => isset($_SESSION) ? array_keys($_SESSION) : 'No session'
     ]);
     exit;
+}
+
+// Check if session has expired for passengers
+if (isset($_SESSION['role']) && $_SESSION['role'] === 'passenger') {
+    // Check if expires_at is set and has passed
+    if (isset($_SESSION['expires_at']) && time() > $_SESSION['expires_at']) {
+        // Session expired, destroy session
+        session_unset();
+        session_destroy();
+        echo json_encode([
+            'error' => 'Session expired - Please log in again'
+        ]);
+        exit;
+    }
+    
+    // Update last activity and extend session
+    $_SESSION['last_activity'] = time();
+    $_SESSION['expires_at'] = time() + 1800; // Extend by 30 minutes
 }
 
 // Additional validation for passenger role
@@ -206,8 +236,16 @@ try {
             
             // Format time for display
             if (isset($row['departure_time'])) {
-                $time = new DateTime($row['departure_time']);
-                $row['departure_time'] = $time->format('g:i A');
+                // If the departure_time is already in 12-hour format with AM/PM, use it as-is
+                // Otherwise, format it properly
+                if (preg_match('/^(1[0-2]|0?[1-9]):[0-5][0-9] (am|pm)$/i', $row['departure_time'])) {
+                    // Already in correct format, keep as-is
+                    $row['departure_time'] = $row['departure_time'];
+                } else {
+                    // Try to format it as a time
+                    $time = new DateTime($row['departure_time']);
+                    $row['departure_time'] = $time->format('g:i A');
+                }
             }
             
             // Calculate amount based on route and seats

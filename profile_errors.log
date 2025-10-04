@@ -1,0 +1,74 @@
+[25-Aug-2025 21:53:23 Europe/Berlin] === Starting profile.php ===
+[25-Aug-2025 21:53:23 Europe/Berlin] Session data: Array
+(
+    [user_id] => 3
+    [username] => Emanuel Kipruto
+    [role] => passenger
+    [expires_at] => 1756152764
+)
+
+[25-Aug-2025 21:53:23 Europe/Berlin] Including db.php from: C:\xampp\htdocs\Southrift Services/db.php
+[25-Aug-2025 21:53:34 Europe/Berlin] === Starting profile.php ===
+[25-Aug-2025 21:53:34 Europe/Berlin] Session data: Array
+(
+    [user_id] => 3
+    [username] => Emanuel Kipruto
+    [role] => passenger
+    [expires_at] => 1756152764
+)
+
+[25-Aug-2025 21:53:34 Europe/Berlin] Including db.php from: C:\xampp\htdocs\Southrift Services/db.php
+[25-Aug-2025 21:53:35 Europe/Berlin] === Starting profile.php ===
+[25-Aug-2025 21:53:35 Europe/Berlin] Session data: Array
+(
+    [user_id] => 3
+    [username] => Emanuel Kipruto
+    [role] => passenger
+    [expires_at] => 1756152764
+)
+
+[25-Aug-2025 21:53:35 Europe/Berlin] Including db.php from: C:\xampp\htdocs\Southrift Services/db.php
+[25-Aug-2025 21:53:36 Europe/Berlin] === Starting profile.php ===
+[25-Aug-2025 21:53:36 Europe/Berlin] Session data: Array
+(
+    [user_id] => 3
+    [username] => Emanuel Kipruto
+    [role] => passenger
+    [expires_at] => 1756152764
+)
+
+[25-Aug-2025 21:53:36 Europe/Berlin] Including db.php from: C:\xampp\htdocs\Southrift Services/db.php
+[2025-08-26 10:57:09] Profile Error: Unknown column 'b.pickup_location' in 'field list'
+[2025-08-26 11:23:08] Profile Error: Unknown column 'b.pickup_location' in 'field list'
+[2025-08-26 11:33:00] Error: Unknown column 'pickup_location' in 'field list'
+=== Starting profile.php ===
+Session data: Array
+(
+    [user_id] => 3
+    [username] => Emanuel Kipruto
+    [role] => passenger
+)
+
+Database connection successful
+User ID: 3
+Checking users table...
+User details fetched successfully
+Checking bookings table...
+Fetching bookings with simple query...
+Error: Unknown column 'pickup_location' in 'field list'
+[2025-08-26 11:35:01] Error: Unknown column 'pickup_location' in 'field list'
+=== Starting profile.php ===
+Session data: Array
+(
+    [user_id] => 3
+    [username] => Emanuel Kipruto
+    [role] => passenger
+)
+
+Database connection successful
+User ID: 3
+Checking users table...
+User details fetched successfully
+Checking bookings table...
+Fetching bookings with simple query...
+Error: Unknown column 'pickup_location' in 'field list'

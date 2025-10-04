@@ -6,6 +6,11 @@ ini_set('display_errors', 1);
 // Set content type to JSON
 header('Content-Type: application/json');
 
+// Enhanced cache control
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
 // Initialize response array
 $response = [
     'success' => false,
@@ -25,6 +30,66 @@ try {
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
+    // Configure session to match the login system
+    if (session_status() === PHP_SESSION_NONE) {
+        // Set secure session parameters to match login.php
+        ini_set('session.cookie_httponly', 1);
+        ini_set('session.cookie_secure', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
+        ini_set('session.use_only_cookies', 1);
+        
+        // Set the same session name as login system
+        session_name('southrift_admin');
+        
+        // Set enhanced session cookie parameters
+        $lifetime = 60 * 60; // 1 hour for passengers
+        $path = '/';
+        $domain = $_SERVER['HTTP_HOST'] ?? 'localhost';
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        $httponly = true;
+        $samesite = 'Lax';
+        
+        session_set_cookie_params([
+            'lifetime' => $lifetime,
+            'path' => $path,
+            'domain' => $domain,
+            'secure' => $secure,
+            'httponly' => $httponly,
+            'samesite' => $samesite
+        ]);
+        
+        // Start the session
+        session_start();
+    } else {
+        session_start();
+    }
+    
+    // Check if user is logged in
+    if (!isset($_SESSION['user_id'])) {
+        throw new Exception('User not logged in. Please log in to make a booking.');
+    }
+    
+    // Check if session has expired for passengers
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'passenger') {
+        // Check if expires_at is set and has passed
+        if (isset($_SESSION['expires_at']) && time() > $_SESSION['expires_at']) {
+            // Session expired, destroy session
+            session_unset();
+            session_destroy();
+            throw new Exception('Session expired. Please log in again.');
+        }
+        
+        // Update last activity and extend session
+        $_SESSION['last_activity'] = time();
+        $_SESSION['expires_at'] = time() + 1800; // Extend by 30 minutes
+    }
+    
+    // Additional validation for passenger role
+    if (isset($_SESSION['role']) && $_SESSION['role'] !== 'passenger') {
+        throw new Exception('Access denied - Booking is only available for passengers.');
+    }
+    
+    $user_id = $_SESSION['user_id'];
+    
     // Collect and validate inputs
     $fullname = $_POST['fullname'] ?? '';
     $phone = $_POST['phone'] ?? '';
@@ -39,6 +104,19 @@ try {
     if (empty($fullname) || empty($phone) || empty($route) || empty($boarding_point) || 
         empty($travel_date) || empty($departure_time) || empty($seats) || empty($payment_method)) {
         throw new Exception('Please fill in all fields.');
+    }
+
+    // Validate travel date format
+    $date = DateTime::createFromFormat('Y-m-d', $travel_date);
+    if (!$date || $date->format('Y-m-d') !== $travel_date) {
+        throw new Exception('Invalid travel date format.');
+    }
+
+    // Validate departure time format (should be in H:MM am/pm format)
+    // We'll accept the time as-is without conversion since we're storing it in the same format
+    if (!preg_match('/^(1[0-2]|0?[1-9]):[0-5][0-9] (am|pm)$/i', $departure_time)) {
+        // If format is invalid, default to 8:00 am
+        $departure_time = '8:00 am';
     }
 
     // Calculate amount based on route and seats
@@ -59,42 +137,6 @@ try {
     
     $amount = 'KSh ' . number_format($farePerSeat * (int)$seats);
 
-    // Insert booking into the database
-    // Configure session to match the login system
-    if (session_status() === PHP_SESSION_NONE) {
-        // Set secure session parameters to match login.php
-        ini_set('session.cookie_httponly', 1);
-        ini_set('session.cookie_secure', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
-        ini_set('session.use_only_cookies', 1);
-        
-        // Set the same session name as login system
-        session_name('southrift_admin');
-        
-        // Set session cookie parameters
-        $lifetime = 60 * 60; // 1 hour for passengers
-        $path = '/';
-        $domain = $_SERVER['HTTP_HOST'] ?? 'localhost';
-        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
-        $httponly = true;
-        
-        session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
-        
-        // Start the session
-        session_start();
-    } else {
-        session_start();
-    }
-    if (!isset($_SESSION['user_id'])) {
-        throw new Exception('User not logged in. Please log in to make a booking.');
-    }
-    
-    // Additional validation for passenger role
-    if (isset($_SESSION['role']) && $_SESSION['role'] !== 'passenger') {
-        throw new Exception('Access denied - Booking is only available for passengers.');
-    }
-    
-    $user_id = $_SESSION['user_id'];
-    
     // Check what columns actually exist in the bookings table
     $table_check = $conn->query("SHOW COLUMNS FROM bookings");
     $available_columns = [];
@@ -136,7 +178,7 @@ try {
         'route' => $route,
         'boarding_point' => $boarding_point,
         'travel_date' => $travel_date,
-        'departure_time' => $departure_time,
+        'departure_time' => $departure_time, // Store as 12-hour format with AM/PM
         'num_seats' => $seats,
         'seats' => $seats,
         'payment_method' => $payment_method,
@@ -165,20 +207,27 @@ try {
     $sql = "INSERT INTO bookings (" . implode(', ', $insert_columns) . ") VALUES (" . implode(', ', $insert_values) . ")";
     
     $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        throw new Exception('Failed to prepare statement: ' . $conn->error);
+    }
+    
     $stmt->bind_param($bind_types, ...$bind_params);
 
     if ($stmt->execute()) {
         $response['success'] = true;
         $response['message'] = 'Booking successful!';
     } else {
-        throw new Exception('Failed to save booking: ' . $conn->error);
+        throw new Exception('Failed to save booking: ' . $stmt->error);
     }
 
     // Close connection
+    $stmt->close();
     $conn->close();
 
 } catch (Exception $e) {
     $response['message'] = $e->getMessage();
+    // Log the error for debugging
+    error_log("Booking error: " . $e->getMessage());
 }
 
 // Return JSON response

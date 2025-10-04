@@ -5,7 +5,12 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/login_errors.log');
 
-// Start session with same configuration as admin
+// Enhanced cache control
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+// Start session with enhanced security
 if (session_status() === PHP_SESSION_NONE) {
     // Set secure session parameters
     ini_set('session.cookie_httponly', 1);
@@ -15,16 +20,26 @@ if (session_status() === PHP_SESSION_NONE) {
     // Set the same session name as admin system
     session_name('southrift_admin');
     
-    // Set session cookie parameters
+    // Set enhanced session cookie parameters
     $lifetime = 60 * 60; // 1 hour
     $path = '/';
     $domain = $_SERVER['HTTP_HOST'] ?? 'localhost';
     $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
     $httponly = true;
+    $samesite = 'Lax'; // Helps with back button issues
     
-    session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+    session_set_cookie_params([
+        'lifetime' => $lifetime,
+        'path' => $path,
+        'domain' => $domain,
+        'secure' => $secure,
+        'httponly' => $httponly,
+        'samesite' => $samesite
+    ]);
     
     // Start the session
+    session_start();
+} else {
     session_start();
 }
 
@@ -65,6 +80,9 @@ try {
             // Clear any existing session data
             $_SESSION = [];
             
+            // Regenerate session ID for security
+            session_regenerate_id(true);
+            
             // Set session variables
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['name'];
@@ -74,7 +92,7 @@ try {
             $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
             $_SESSION['last_activity'] = time();
             
-            // Set expiry for passenger sessions (30 minutes)
+            // Set expiry for passenger sessions (30 minutes) and auto-extend on activity
             if ($user['role'] === 'passenger') {
                 $_SESSION['expires_at'] = time() + 1800;
             }
@@ -117,6 +135,9 @@ try {
     if ($driver = $driver_result->fetch_assoc()) {
         // Clear any existing session data
         $_SESSION = [];
+        
+        // Regenerate session ID for security
+        session_regenerate_id(true);
         
         // Set driver session variables
         $_SESSION['user_id'] = $driver['id'];
