@@ -804,6 +804,9 @@
       let bookingsHTML = '';
       
       bookings.forEach(booking => {
+        // Check if this is a booking for today
+        const isToday = isBookingForToday(booking.travel_date);
+        
         bookingsHTML += `
           <tr>
             <td>${booking.route || 'Route not specified'}</td>
@@ -814,9 +817,14 @@
             <td>${booking.amount || 'Not specified'}</td>
             <td>${booking.boarding_point || 'Not specified'}</td>
             <td>
-              <div style="display: flex; gap: 5px;">
-                <button class="btn btn-secondary" onclick="trackRide('${booking.booking_id}')">Track ride</button>
-                <button class="btn" onclick="viewDetails('${booking.booking_id}')">Check ride</button>
+              <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                ${isToday && booking.assigned_vehicle ? 
+                  `<a href="track_my_driver.php?booking_id=${booking.booking_id}" class="btn btn-secondary" style="white-space: nowrap;">Track ride</a>` : 
+                  (isToday ? 
+                    `<button class="btn btn-secondary" disabled style="opacity: 0.5; cursor: not-allowed;">Track ride</button>` : 
+                    ``)
+                }
+                <button class="btn" onclick="viewDetails('${booking.booking_id}')" style="white-space: nowrap;">Check ride</button>
               </div>
             </td>
           </tr>
@@ -826,12 +834,41 @@
       tableBody.innerHTML = bookingsHTML;
     }
 
+    // Helper function to check if a booking is for today
+    function isBookingForToday(bookingDateStr) {
+      if (!bookingDateStr) return false;
+      
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      // Parse the travel date (expected format: "M j, Y" e.g. "Oct 15, 2025")
+      const dateParts = bookingDateStr.split(' ');
+      if (dateParts.length === 3) {
+        const month = dateParts[0];
+        const day = parseInt(dateParts[1].replace(',', ''));
+        const year = parseInt(dateParts[2]);
+        
+        // Convert month name to month index (0-11)
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const monthIndex = months.indexOf(month.substring(0, 3));
+        
+        if (monthIndex !== -1 && !isNaN(day) && !isNaN(year)) {
+          const travelDate = new Date(year, monthIndex, day);
+          travelDate.setHours(0, 0, 0, 0);
+          
+          return travelDate.getTime() === today.getTime();
+        }
+      }
+      
+      return false;
+    }
+
     // Check if there's a booking for today and update the Track My Ride link
     function updateTrackRideLink(bookings) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       
-      let hasTodayBooking = false;
+      let todaysBookings = [];
       
       if (bookings && bookings.length > 0) {
         for (const booking of bookings) {
@@ -852,8 +889,7 @@
                 travelDate.setHours(0, 0, 0, 0);
                 
                 if (travelDate.getTime() === today.getTime()) {
-                  hasTodayBooking = true;
-                  break;
+                  todaysBookings.push(booking);
                 }
               }
             }
@@ -864,8 +900,14 @@
       // Update the Track My Ride link
       const trackRideLink = document.querySelector('a[href="track_my_driver.php"]');
       if (trackRideLink) {
-        if (hasTodayBooking) {
-          trackRideLink.href = "track_my_driver.php";
+        if (todaysBookings.length > 0) {
+          // If there's only one booking, go directly to it
+          // If there are multiple bookings, go to the tracking page which will show the selector
+          if (todaysBookings.length === 1) {
+            trackRideLink.href = "track_my_driver.php?booking_id=" + todaysBookings[0].booking_id;
+          } else {
+            trackRideLink.href = "track_my_driver.php";
+          }
           trackRideLink.classList.remove("disabled");
           trackRideLink.style.opacity = "1";
           trackRideLink.style.cursor = "pointer";

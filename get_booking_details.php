@@ -172,6 +172,9 @@ try {
         $booking['status_class'] = 'status-confirmed';
     }
     
+    // Add booking_id to the response for tracking purposes
+    $booking['booking_id'] = $booking_id;
+    
     echo json_encode([
         'success' => true,
         'booking' => $booking

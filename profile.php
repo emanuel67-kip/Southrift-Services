@@ -195,6 +195,8 @@ try {
         // Always include created_at and status
         $select_fields[] = 'created_at';
         $select_fields[] = "'active' AS status";
+        // Include assigned_vehicle for tracking functionality
+        $select_fields[] = 'assigned_vehicle';
         
         $select_sql = implode(', ', $select_fields);
         
@@ -215,6 +217,7 @@ try {
         
         $book_result = $book_stmt->get_result();
         $bookings = [];
+        $todays_bookings = [];
         
         // Define route fares (matching the fares from routes.html)
         $routeFares = [
@@ -232,6 +235,16 @@ try {
             if (isset($row['travel_date'])) {
                 $date = new DateTime($row['travel_date']);
                 $row['travel_date'] = $date->format('M j, Y');
+                
+                // Check if this is a booking for today
+                $today = new DateTime();
+                $today->setTime(0, 0, 0);
+                $travelDate = new DateTime($row['travel_date']);
+                $travelDate->setTime(0, 0, 0);
+                
+                if ($today == $travelDate) {
+                    $todays_bookings[] = $row;
+                }
             }
             
             // Format time for display
@@ -265,7 +278,7 @@ try {
         'success' => true,
         'user' => $user,
         'bookings' => $bookings,
-        'todays_bookings' => $todays_bookings ?? []
+        'todays_bookings' => $todays_bookings
     ];
     
 } catch (Exception $e) {

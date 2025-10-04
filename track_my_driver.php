@@ -35,8 +35,10 @@ $user_id = $_SESSION['user_id'];
 $message = '';
 $driver_location = null;
 $driver_info = null;
+$todays_bookings = [];
+$selected_booking = null;
 
-// Get user's active booking with assigned vehicle
+// Get all user's bookings for today with assigned vehicles
 $booking_stmt = $conn->prepare("
     SELECT b.*, v.driver_phone, v.driver_name, v.number_plate, v.type as vehicle_type, v.color
     FROM bookings b
@@ -46,14 +48,35 @@ $booking_stmt = $conn->prepare("
     AND b.assigned_vehicle != ''
     AND DATE(b.travel_date) = CURDATE()
     ORDER BY b.created_at DESC
-    LIMIT 1
 ");
 $booking_stmt->bind_param('i', $user_id);
 $booking_stmt->execute();
 $booking_result = $booking_stmt->get_result();
-$booking = $booking_result->fetch_assoc();
 
-if ($booking) {
+// Store all today's bookings
+while ($row = $booking_result->fetch_assoc()) {
+    $todays_bookings[] = $row;
+}
+
+// If there's a specific booking ID in the query parameter, use that one
+// Otherwise, use the first booking (for backward compatibility)
+$booking_id = isset($_GET['booking_id']) ? intval($_GET['booking_id']) : 0;
+if ($booking_id > 0) {
+    foreach ($todays_bookings as $booking) {
+        if ($booking['booking_id'] == $booking_id) {
+            $selected_booking = $booking;
+            break;
+        }
+    }
+} else if (!empty($todays_bookings)) {
+    // Default to the first booking for backward compatibility
+    $selected_booking = $todays_bookings[0];
+}
+
+// If we have a selected booking, get its location data
+if ($selected_booking) {
+    $booking = $selected_booking;
+    
     // Check if this booking has a direct Google Maps link attached by the driver
     if (!empty($booking['google_maps_link']) && isset($_GET['redirect']) && $_GET['redirect'] === 'true') {
         // Redirect directly to the Google Maps link if redirect parameter is set
@@ -444,7 +467,44 @@ if (empty($_SESSION['csrf_token'])) {
         </div>
         
         <div class="content">
-            <?php if (!$booking): ?>
+            <?php if (empty($todays_bookings)): ?>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    You don't have any active bookings with assigned vehicles for today. <a href="book.php">Make a booking</a> to track your ride.
+                </div>
+            <?php elseif (count($todays_bookings) > 1): ?>
+                <!-- Multiple bookings selector -->
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>You have multiple bookings for today.</strong> Select the booking you want to track:
+                </div>
+                
+                <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px solid #dee2e6;">
+                    <form method="GET" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                        <label for="booking_id" style="font-weight: 600;">Select Booking:</label>
+                        <select name="booking_id" id="booking_id" onchange="this.form.submit()" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ced4da;">
+                            <?php foreach ($todays_bookings as $booking_item): ?>
+                                <option value="<?= $booking_item['booking_id'] ?>" <?= ($selected_booking && $selected_booking['booking_id'] == $booking_item['booking_id']) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($booking_item['route']) ?> - <?= htmlspecialchars($booking_item['number_plate']) ?> (<?= date('g:i A', strtotime($booking_item['departure_time'])) ?>)
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <noscript>
+                            <button type="submit" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Switch Booking</button>
+                        </noscript>
+                    </form>
+                </div>
+                
+                <?php if ($selected_booking): ?>
+                    <div style="margin-bottom: 20px; padding: 15px; background: #e9f7ef; border-radius: 8px; border-left: 4px solid #28a745;">
+                        <strong>Tracking:</strong> <?= htmlspecialchars($selected_booking['route']) ?> 
+                        (<?= date('g:i A', strtotime($selected_booking['departure_time'])) ?>) 
+                        - Vehicle: <?= htmlspecialchars($selected_booking['number_plate']) ?>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+            
+            <?php if (!$selected_booking): ?>
                 <div class="alert alert-info">
                     <i class="fas fa-info-circle"></i>
                     You don't have any active bookings with assigned vehicles for today. <a href="book.php">Make a booking</a> to track your ride.
