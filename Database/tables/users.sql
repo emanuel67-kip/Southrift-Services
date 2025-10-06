@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `phone` VARCHAR(20) UNIQUE NOT NULL,
     `password` VARCHAR(255) NOT NULL,
     `role` ENUM('admin', 'driver', 'user', 'passenger') NOT NULL DEFAULT 'passenger',
+    `station` VARCHAR(100) DEFAULT NULL,
     `status` ENUM('active', 'inactive', 'suspended') DEFAULT 'active',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

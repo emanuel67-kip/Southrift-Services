@@ -139,6 +139,13 @@ $assignedVehicleField = in_array('assigned_vehicle', $bookingsColumns) ? 'assign
                        (in_array('vehicle_assigned', $bookingsColumns) ? 'vehicle_assigned' : null)));
 
 // Build dynamic query - only include assigned_vehicle if the column exists
+// Add station filtering based on admin's station (extracted from route)
+$stationFilter = "";
+if (!empty($_SESSION['admin_station'])) {
+    // Extract the starting station from the route (e.g., 'litein-nairobi' -> 'litein')
+    $stationFilter = " AND SUBSTRING_INDEX($routeField, '-', 1) = '" . $conn->real_escape_string(strtolower($_SESSION['admin_station'])) . "'";
+}
+
 if ($assignedVehicleField) {
     $query = "SELECT $idField as id, $fullnameField as fullname, $phoneField as phone, 
               $routeField as route, $boardingField as boarding_point, $travelDateField as travel_date, 
@@ -146,6 +153,7 @@ if ($assignedVehicleField) {
               $createdField as created_at, $assignedVehicleField as assigned_vehicle
               FROM bookings 
               WHERE DATE($createdField) = CURDATE() 
+              $stationFilter
               ORDER BY $idField DESC";
 } else {
     // Fallback query without assigned_vehicle field
@@ -155,6 +163,7 @@ if ($assignedVehicleField) {
               $createdField as created_at, '' as assigned_vehicle
               FROM bookings 
               WHERE DATE($createdField) = CURDATE() 
+              $stationFilter
               ORDER BY $idField DESC";
 }
 
@@ -738,7 +747,7 @@ $result = $stmt->get_result();
           <th>Full Name</th>
           <th>Phone</th>
           <th>Route</th>
-          <th>Boarding Point</th>
+          <th>Starting Station</th>
           <th>Travel Date</th>
           <th>Departure</th>
           <th>Seats</th>
@@ -758,7 +767,7 @@ $result = $stmt->get_result();
             </a>
           </td>
           <td><?= htmlspecialchars($row['route']) ?></td>
-          <td><?= htmlspecialchars($row['boarding_point'] ?? '') ?></td>
+          <td><?= htmlspecialchars(ucfirst(substr($row['route'], 0, strpos($row['route'], '-') !== false ? strpos($row['route'], '-') : strlen($row['route'])))) ?></td>
           <td><?= htmlspecialchars($row['travel_date']) ?></td>
           <td><?= htmlspecialchars($row['departure_time']) ?></td>
           <td><?= htmlspecialchars($row['seats']) ?></td>

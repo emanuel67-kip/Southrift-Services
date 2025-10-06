@@ -75,3 +75,21 @@ if (isset($_SESSION['user_agent']) && $_SESSION['user_agent'] !== $_SERVER['HTTP
 }
 
 // If we got here, the user is properly authenticated as an admin
+// Fetch admin station information and store in session
+require_once dirname(__DIR__) . '/db.php';
+
+if (!isset($_SESSION['admin_station'])) {
+    $stmt = $conn->prepare("SELECT station FROM users WHERE id = ?");
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $_SESSION['admin_station'] = $row['station'];
+        } else {
+            $_SESSION['admin_station'] = null;
+        }
+    } else {
+        $_SESSION['admin_station'] = null;
+    }
+    $stmt->close();
+}

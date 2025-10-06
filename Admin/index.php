@@ -266,6 +266,7 @@ footer{background:var(--purple);color:#fff;text-align:center;padding:1rem;positi
     <a class="card" href="existing_vehicles.php"><h2><i class="fa fa-bus"></i></h2><p>Existing Vehicles</p></a>
     <a class="card" href="today_bookings.php"><h2><i class="fa fa-calendar-day"></i></h2><p>Today's Bookings</p></a>
     <a class="card" href="vehicle_waiting.php"><h2><i class="fa fa-hourglass-half"></i></h2><p>Vehicles in Waiting</p></a>
+    <a class="card" href="manage_admin_stations.php"><h2><i class="fa fa-map-marker-alt"></i></h2><p>Manage Stations</p></a>
   </div>
 
   <?php if(isset($_GET['status'])): 
