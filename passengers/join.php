@@ -38,7 +38,7 @@ if (!$stmt) {
 
 $stmt->bind_param("sssss", $fullname, $email, $phone, $role, $message);
 if ($stmt->execute()) {
-    echo "<script>alert('Thank you! Your application has been submitted successfully.'); window.location.href='index.html';</script>";
+    echo "<script>alert('Thank you! Your application has been submitted successfully.'); window.location.href='../index.php';</script>";
 } else {
     echo "<script>alert('Submission failed. Please try again.'); window.history.back();</script>";
 }

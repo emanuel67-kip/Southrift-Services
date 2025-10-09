@@ -11,7 +11,7 @@ $driver_name = '';
 $location_link = '';
 
 if (empty($token)) {
-    header('Location: index.html');
+    header('Location: ../index.php');
     exit();
 }
 
@@ -186,7 +186,7 @@ if ($result->num_rows > 0) {
                         </ul>
                     </div>
                     
-                    <a href="index.html" class="btn">
+                    <a href="../index.php" class="btn">
                         <i class="fas fa-home"></i> Back to Home
                     </a>
                 <?php endif; ?>

@@ -52,24 +52,99 @@
 
     body {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                  url('images/webimages/nairobi1.jpg') center/cover no-repeat fixed;
+                  url('../images/webimages/nairobi1.jpg') center/cover no-repeat fixed;
       color: white;
       font-family: 'Poppins', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: var(--purple);
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      animation: logoGlow 2s ease-in-out infinite alternate;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      position: relative;
+      color: paleturquoise;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #00ffff;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .hero {
       padding: 80px 20px;
       text-align: center;
-      margin: 0 auto;
-      max-width: 1200px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 80vh;
+      width: 100%;
     }
 
     .hero-content {
@@ -528,7 +603,7 @@
   <header>
     <div class="logo">Southrift Services Limited</div>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="fleet.html">Fleet</a>
       <a href="join.html">Join</a>
       <a href="contact.html">Contact</a>

@@ -31,7 +31,19 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require_once 'db.php';
+// Include database connection with error handling
+if (!file_exists('../db.php')) {
+    echo json_encode(['success' => false, 'error' => 'Database connection file not found']);
+    exit;
+}
+
+require_once '../db.php';
+
+// Check if $conn is properly initialized
+if (!isset($conn) || !$conn) {
+    echo json_encode(['success' => false, 'error' => 'Database connection failed']);
+    exit;
+}
 
 // Get booking ID from request
 $booking_id = isset($_GET['booking_id']) ? intval($_GET['booking_id']) : 0;
@@ -43,71 +55,40 @@ if ($booking_id <= 0) {
 
 $user_id = $_SESSION['user_id'];
 
+// Add debugging
+error_log("Fetching booking details for booking_id: $booking_id, user_id: $user_id");
+
 try {
-    // First, check what columns exist in the bookings table
-    $columns_result = $conn->query("SHOW COLUMNS FROM bookings");
-    $booking_columns = [];
-    while ($col = $columns_result->fetch_assoc()) {
-        $booking_columns[] = $col['Field'];
-    }
-    
-    // Build the SELECT query dynamically based on available columns
-    $select_fields = [
-        "b.booking_id",
-        "b.fullname",
-        "b.phone",
-        "b.route",
-        "b.boarding_point",
-        "b.travel_date",
-        "b.departure_time",
-        "b.seats",
-        "b.payment_method",
-        "b.assigned_vehicle",
-        "b.created_at",
-        "b.google_maps_link",
-        "b.shared_location_updated",
-        "u.name as passenger_name",
-        "u.email as passenger_email"
-    ];
-    
-    // Add amount column only if it exists
-    if (in_array('amount', $booking_columns)) {
-        $select_fields[] = "b.amount";
-    }
-    
-    // Add vehicle join only if assigned_vehicle column exists
-    $join_vehicle = "";
-    if (in_array('assigned_vehicle', $booking_columns)) {
-        $select_fields = array_merge($select_fields, [
-            "v.number_plate",
-            "v.type as vehicle_type",
-            "v.color as vehicle_color",
-            "v.driver_name",
-            "v.driver_phone",
-            "v.image_path"
-        ]);
-        $join_vehicle = "LEFT JOIN vehicles v ON b.assigned_vehicle = v.number_plate";
-    }
-    
-    $select_sql = implode(", ", $select_fields);
-    
-    // Fetch detailed booking information with vehicle details
+    // Fetch detailed booking information
     $sql = "SELECT 
-        $select_sql
+        b.booking_id,
+        b.user_id,
+        b.fullname,
+        b.phone,
+        b.route,
+        b.boarding_point,
+        b.travel_date,
+        b.departure_time,
+        b.seats,
+        b.payment_method,
+        b.assigned_vehicle,
+        b.created_at,
+        b.google_maps_link,
+        b.shared_location_updated
         FROM bookings b
-        JOIN users u ON b.user_id = u.id
-        $join_vehicle
         WHERE b.booking_id = ? AND b.user_id = ?";
     
     $stmt = $conn->prepare($sql);
     
     if (!$stmt) {
+        error_log("Prepare failed: " . $conn->error);
         throw new Exception("Prepare failed: " . $conn->error);
     }
     
     $stmt->bind_param("ii", $booking_id, $user_id);
     
     if (!$stmt->execute()) {
+        error_log("Execute failed: " . $stmt->error);
         throw new Exception("Execute failed: " . $stmt->error);
     }
     
@@ -115,9 +96,12 @@ try {
     $booking = $result->fetch_assoc();
     
     if (!$booking) {
+        error_log("Booking not found or access denied for booking_id: $booking_id, user_id: $user_id");
         echo json_encode(['success' => false, 'error' => 'Booking not found or access denied']);
         exit;
     }
+    
+    error_log("Booking found: " . print_r($booking, true));
     
     // Format the data for display
     $travel_date = new DateTime($booking['travel_date']);
@@ -131,30 +115,25 @@ try {
         $booking['formatted_shared_updated'] = $shared_updated->format('F j, Y g:i A');
     }
     
-    // Handle amount - use from database if exists, otherwise calculate
-    if (isset($booking['amount']) && !empty($booking['amount'])) {
-        $booking['amount'] = $booking['amount'];
-    } else {
-        // Define route fares (matching the fares from routes.html)
-        $routeFares = [
-            'nairobi-bomet' => 1200,
-            'nairobi-kisumu' => 2000,
-            'nairobi-nakuru' => 500,
-            'litein-nairobi' => 1200,
-            'kisumu-nairobi' => 2000,
-            'nakuru-nairobi' => 500,
-            'bomet-nairobi' => 1200
-        ];
-        
-        // Calculate amount based on route and seats
-        $farePerSeat = 600; // Default fare
-        if (isset($booking['route']) && isset($routeFares[$booking['route']])) {
-            $farePerSeat = $routeFares[$booking['route']];
-        }
-        
-        $seats = isset($booking['seats']) ? (int)$booking['seats'] : 1;
-        $booking['amount'] = 'KSh ' . number_format($farePerSeat * $seats);
+    // Define route fares (matching the fares from routes.html)
+    $routeFares = [
+        'nairobi-bomet' => 1200,
+        'nairobi-kisumu' => 2000,
+        'nairobi-nakuru' => 500,
+        'litein-nairobi' => 1200,
+        'kisumu-nairobi' => 2000,
+        'nakuru-nairobi' => 500,
+        'bomet-nairobi' => 1200
+    ];
+    
+    // Calculate amount based on route and seats
+    $farePerSeat = 600; // Default fare
+    if (isset($booking['route']) && isset($routeFares[$booking['route']])) {
+        $farePerSeat = $routeFares[$booking['route']];
     }
+    
+    $seats = isset($booking['seats']) ? (int)$booking['seats'] : 1;
+    $booking['amount'] = 'KSh ' . number_format($farePerSeat * $seats);
     
     // Determine status (completed 24 hours after travel date)
     $today = new DateTime();
@@ -175,12 +154,43 @@ try {
     // Add booking_id to the response for tracking purposes
     $booking['booking_id'] = $booking_id;
     
+    // Get vehicle details if assigned
+    if (!empty($booking['assigned_vehicle'])) {
+        error_log("Fetching vehicle details for: " . $booking['assigned_vehicle']);
+        $vehicle_sql = "SELECT number_plate, type as vehicle_type, color as vehicle_color, driver_name, driver_phone FROM vehicles WHERE number_plate = ?";
+        $vehicle_stmt = $conn->prepare($vehicle_sql);
+        
+        if ($vehicle_stmt) {
+            $vehicle_stmt->bind_param("s", $booking['assigned_vehicle']);
+            if ($vehicle_stmt->execute()) {
+                $vehicle_result = $vehicle_stmt->get_result();
+                $vehicle = $vehicle_result->fetch_assoc();
+                if ($vehicle) {
+                    error_log("Vehicle found: " . print_r($vehicle, true));
+                    $booking = array_merge($booking, $vehicle);
+                } else {
+                    error_log("No vehicle found with plate: " . $booking['assigned_vehicle']);
+                }
+            } else {
+                error_log("Vehicle query execute failed: " . $vehicle_stmt->error);
+            }
+            $vehicle_stmt->close();
+        } else {
+            error_log("Vehicle query prepare failed: " . $conn->error);
+        }
+    } else {
+        error_log("No assigned vehicle for this booking");
+    }
+    
+    error_log("Final booking data: " . print_r($booking, true));
+    
     echo json_encode([
         'success' => true,
         'booking' => $booking
     ]);
     
 } catch (Exception $e) {
+    error_log("Exception in get_booking_details.php: " . $e->getMessage());
     echo json_encode([
         'success' => false,
         'error' => $e->getMessage()

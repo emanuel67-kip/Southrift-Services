@@ -23,11 +23,17 @@ if (session_status() === PHP_SESSION_NONE) {
 } else {
     session_start();
 }
-require_once 'db.php';
+
+// Include database connection with error handling
+if (!file_exists('../db.php')) {
+    die('Database connection file not found');
+}
+
+require_once '../db.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: ../login.html');
     exit();
 }
 
@@ -49,8 +55,15 @@ $booking_stmt = $conn->prepare("
     AND DATE(b.travel_date) = CURDATE()
     ORDER BY b.created_at DESC
 ");
+if (!$booking_stmt) {
+    die('Database prepare error: ' . $conn->error);
+}
+
 $booking_stmt->bind_param('i', $user_id);
-$booking_stmt->execute();
+if (!$booking_stmt->execute()) {
+    die('Database execute error: ' . $booking_stmt->error);
+}
+
 $booking_result = $booking_stmt->get_result();
 
 // Store all today's bookings
@@ -102,16 +115,22 @@ if ($selected_booking) {
         ORDER BY dl.last_updated DESC
         LIMIT 1
     ");
-    $gmaps_stmt->bind_param('s', $booking['driver_phone']);
-    $gmaps_stmt->execute();
-    $gmaps_result = $gmaps_stmt->get_result();
-    $gmaps_data = $gmaps_result->fetch_assoc();
+    if ($gmaps_stmt) {
+        $gmaps_stmt->bind_param('s', $booking['driver_phone']);
+        if ($gmaps_stmt->execute()) {
+            $gmaps_result = $gmaps_stmt->get_result();
+            $gmaps_data = $gmaps_result->fetch_assoc();
+            
+            if ($gmaps_data && !empty($gmaps_data['google_maps_link'])) {
+                // Driver is sharing Google Maps link
+                $google_maps_link = $gmaps_data['google_maps_link'];
+            }
+        }
+        $gmaps_stmt->close();
+    }
     
-    if ($gmaps_data && !empty($gmaps_data['google_maps_link'])) {
-        // Driver is sharing Google Maps link
-        $google_maps_link = $gmaps_data['google_maps_link'];
-    } else {
-        // Fallback: Check for GPS location sharing (existing system)
+    // Fallback: Check for GPS location sharing (existing system)
+    if (!$google_maps_link) {
         $location_stmt = $conn->prepare("
             SELECT dl.latitude, dl.longitude, dl.status, dl.last_updated, dl.accuracy, dl.speed,
                    d.name as driver_name, d.driver_phone
@@ -123,10 +142,14 @@ if ($selected_booking) {
             ORDER BY dl.last_updated DESC
             LIMIT 1
         ");
-        $location_stmt->bind_param('s', $booking['driver_phone']);
-        $location_stmt->execute();
-        $location_result = $location_stmt->get_result();
-        $driver_location = $location_result->fetch_assoc();
+        if ($location_stmt) {
+            $location_stmt->bind_param('s', $booking['driver_phone']);
+            if ($location_stmt->execute()) {
+                $location_result = $location_stmt->get_result();
+                $driver_location = $location_result->fetch_assoc();
+            }
+            $location_stmt->close();
+        }
     }
     
     $driver_info = [
@@ -136,6 +159,9 @@ if ($selected_booking) {
         'vehicle_type' => $booking['vehicle_type'],
         'vehicle_color' => $booking['color'] ?? 'N/A'
     ];
+} else if ($booking_id > 0) {
+    // If a specific booking ID was requested but not found, show an error
+    $message = "The requested booking was not found or is not available for tracking today.";
 }
 
 // Generate CSRF token

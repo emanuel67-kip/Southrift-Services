@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
     ini_set('session.cookie_secure', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
     ini_set('session.use_only_cookies', 1);
     
-    // Set the same session name as login system
+    // Set the correct session name (same as login system)
     session_name('southrift_admin');
     
     // Set session cookie parameters
@@ -54,6 +54,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 // Redirect to login page
-header("Location: login.html?logout=success");
+header("Location: ../login.html?logout=success");
 exit();
 ?>

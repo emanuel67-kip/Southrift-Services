@@ -84,16 +84,16 @@ if (isset($_COOKIE['remember_token']) && isset($_COOKIE['user_id'])) {
 function redirectToDashboard($role) {
     switch ($role) {
         case 'admin':
-            header("Location: admin/index.php");
+            header("Location: ../Admin/index.php");
             break;
         case 'passenger':
             header("Location: index.html");
             break;
         case 'driver':
-            header("Location: driver/index.php");
+            header("Location: ../Driver/index.php");
             break;
         default:
-            header("Location: login.html");
+            header("Location: ../login.html");
     }
     exit();
 }

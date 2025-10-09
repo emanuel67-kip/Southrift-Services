@@ -431,7 +431,7 @@
     .then(data => {
       if (data.success) {
         // Redirect on success
-        window.location.href = data.redirect || 'index.html';
+        window.location.href = data.redirect || 'passengers/index.html';
       } else {
         // Show error message
         errorDiv.textContent = data.message || 'Login failed. Please try again.';

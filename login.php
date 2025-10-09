@@ -115,7 +115,7 @@ try {
             if ($user['role'] === 'admin') {
                 $response['redirect'] = './Admin/index.php';
             } else {
-                $response['redirect'] = './index.html';
+                $response['redirect'] = './passengers/index.html';
             }
             
             echo json_encode($response);

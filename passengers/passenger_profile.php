@@ -1,13 +1,77 @@
+<?php
+// Configure session to match the login system
+if (session_status() === PHP_SESSION_NONE) {
+    // Set secure session parameters to match login.php
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.cookie_secure', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
+    ini_set('session.use_only_cookies', 1);
+    
+    // Set the same session name as login system
+    session_name('southrift_admin');
+    
+    // Set enhanced session cookie parameters
+    $lifetime = 60 * 60; // 1 hour for passengers
+    $path = '/';
+    $domain = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+    $httponly = true;
+    $samesite = 'Lax';
+    
+    session_set_cookie_params([
+        'lifetime' => $lifetime,
+        'path' => $path,
+        'domain' => $domain,
+        'secure' => $secure,
+        'httponly' => $httponly,
+        'samesite' => $samesite
+    ]);
+    
+    // Start the session
+    session_start();
+} else {
+    session_start();
+}
+
+// Enhanced cache control to prevent back button issues
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+header('X-Content-Type-Options: nosniff');
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page
+    header('Location: login.html');
+    exit;
+}
+
+// Check if session has expired for passengers
+if (isset($_SESSION['role']) && $_SESSION['role'] === 'passenger') {
+    // Check if expires_at is set and has passed
+    if (isset($_SESSION['expires_at']) && time() > $_SESSION['expires_at']) {
+        // Session expired, destroy session and redirect to login
+        session_unset();
+        session_destroy();
+        header('Location: login.html?expired=1');
+        exit;
+    }
+    
+    // Update last activity
+    $_SESSION['last_activity'] = time();
+    
+    // Extend session lifetime on activity
+    $_SESSION['expires_at'] = time() + 1800; // Extend by 30 minutes
+}
+
+// Set the content type
+header('Content-Type: text/html; charset=utf-8');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Profile - Southrift Services Limited</title>
-  <!-- Enhanced cache control meta tags to prevent back button issues -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/responsive-framework.css">
   <style>
@@ -32,14 +96,49 @@
       0% { text-shadow: 0 0 8px #fff, 0 0 12px #0ff; }
       100% { text-shadow: 0 0 12px #fff, 0 0 20px #f0f; }
     }
+    
+    @keyframes sparkle {
+      0% { opacity: 0; transform: scale(0); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
+    /* Header Styles */
+    header {
+      background-color: var(--purple);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      /* 👇 Fix header at top */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    /* 👇 Prevent content from hiding under header */
     body {
-      background: #f5f5f5;
-      color: #333;
       font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+      color: #333;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+
+      padding-top: 80px; /* adjust to match header height */
     }
 
     .hero-banner {
@@ -195,6 +294,16 @@
       min-width: 250px;
     }
 
+    .booking-info h3 {
+      color: var(--purple);
+      margin-bottom: 0.5rem;
+    }
+
+    .booking-info p {
+      margin: 0.3rem 0;
+      color: #555;
+    }
+
     .booking-status {
       padding: 0.5rem 1rem;
       border-radius: 50px;
@@ -210,6 +319,11 @@
     .status-completed {
       background: rgba(255, 193, 7, 0.1);
       color: #ffc107;
+    }
+
+    .status-upcoming {
+      background: rgba(13, 110, 253, 0.1);
+      color: #0d6efd;
     }
 
     .booking-actions {
@@ -276,7 +390,7 @@
     .close-btn {
       font-size: 2.5rem;
       font-weight: bold;
-      color: white;
+      color: #aaa;
       cursor: pointer;
       background: none;
       border: none;
@@ -287,12 +401,11 @@
       justify-content: center;
       border-radius: 50%;
       transition: all 0.3s ease;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
     .close-btn:hover {
-      background: rgba(255,255,255,0.2);
-      color: #fff;
+      background: #f5f5f5;
+      color: #333;
       transform: scale(1.1) rotate(90deg);
     }
 
@@ -329,8 +442,7 @@
 
     .detail-label {
       font-weight: 600;
-      color: #555;
-      flex: 1;
+      color: #666;
       font-size: 1.1rem;
       position: relative;
       padding-left: 20px;
@@ -350,8 +462,6 @@
       font-weight: 500;
       color: #333;
       text-align: right;
-      flex: 1;
-      font-size: 1.1rem;
       padding: 0.7rem 1rem;
       border-radius: 10px;
       background: white;
@@ -365,27 +475,7 @@
       transform: translateY(-2px);
     }
 
-    .driver-info {
-      background: linear-gradient(135deg, rgba(106, 13, 173, 0.15), rgba(78, 11, 138, 0.15));
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-left: 5px solid var(--purple);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .driver-info::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--purple), var(--accent));
-    }
-
+    /* Vehicle Info Styles */
     .vehicle-info {
       background: linear-gradient(135deg, rgba(0, 191, 255, 0.2), rgba(0, 150, 200, 0.2));
       border-radius: 15px;
@@ -405,16 +495,6 @@
       width: 100%;
       height: 4px;
       background: linear-gradient(90deg, var(--accent), var(--purple));
-    }
-
-    .info-title {
-      font-weight: 600;
-      color: var(--purple);
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-      text-align: center;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px dashed #ccc;
     }
 
     /* Color coding for specific values */
@@ -474,27 +554,6 @@
       font-size: 1.1rem;
     }
 
-    /* Add sparkle effect */
-    .sparkle {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: white;
-      border-radius: 50%;
-      animation: sparkle 2s infinite;
-    }
-
-    @keyframes sparkle {
-      0% { opacity: 0; transform: scale(0); }
-      50% { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(0); }
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-banner {
@@ -532,6 +591,17 @@
       .booking-actions {
         justify-content: center;
       }
+      
+      /* Table responsive adjustments */
+      th, td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+      
+      /* Adjust padding for fixed header on mobile */
+      body {
+        padding-top: 80px;
+      }
     }
 
     @media (max-width: 576px) {
@@ -557,6 +627,30 @@
       .btn {
         width: 100%;
       }
+      
+      .detail-item {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .detail-value {
+        text-align: left;
+      }
+      
+      /* Table responsive adjustments */
+      th, td {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+      }
+      
+      .table-responsive {
+        font-size: 0.9rem;
+      }
+      
+      /* Adjust padding for fixed header on small mobile */
+      body {
+        padding-top: 80px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -571,6 +665,21 @@
       .stat-number {
         font-size: 2rem;
       }
+      
+      /* Table responsive adjustments */
+      th, td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
+      
+      .table-responsive {
+        font-size: 0.85rem;
+      }
+      
+      /* Adjust padding for fixed header on extra small devices */
+      body {
+        padding-top: 80px;
+      }
     }
   </style>
 </head>
@@ -578,12 +687,12 @@
   <header>
     <div class="logo">Southrift Services Limited</div>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="../index.php">Home</a>
       <a href="fleet.html">Fleet</a>
       <a href="join.html">Join</a>
       <a href="contact.html">Contact</a>
       <a href="about.html">About</a>
-      <a href="logout.php">Logout</a>
+      <a href="passenger_profile.php" class="active">Profile</a>
     </nav>
   </header>
 
@@ -592,92 +701,76 @@
     <p>Manage your account, bookings, and preferences all in one place</p>
   </div>
 
-  <div class="container">
-    <!-- Profile Header -->
-    <div class="section">
-      <div class="profile-header">
-        <div class="profile-avatar">👤</div>
-        <div class="profile-info">
-          <h2 id="user-name">Loading...</h2>
-          <p><strong>Member Since:</strong> <span id="member-since">-</span></p>
-          <p><strong>Email:</strong> <span id="user-email">-</span></p>
-          <p><strong>Phone:</strong> <span id="user-phone">-</span></p>
+  <main>
+    <div class="container">
+      <!-- Profile Header -->
+      <div class="section">
+        <div class="profile-header">
+          <div class="profile-avatar">👤</div>
+          <div class="profile-info">
+            <h2 id="user-name">Loading...</h2>
+            <p><strong>Member Since:</strong> <span id="member-since">-</span></p>
+            <p><strong>Email:</strong> <span id="user-email">-</span></p>
+            <p><strong>Phone:</strong> <span id="user-phone">-</span></p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="total-bookings">0</div>
+            <div class="stat-label">Total Bookings</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="completed-rides">0</div>
+            <div class="stat-label">Completed Rides</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="upcoming-rides">0</div>
+            <div class="stat-label">Upcoming Rides</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="avg-rating">0.0</div>
+            <div class="stat-label">Avg. Rating</div>
+          </div>
         </div>
       </div>
 
-      <!-- Stats -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number" id="total-bookings">0</div>
-          <div class="stat-label">Total Bookings</div>
+      <!-- Quick Actions -->
+      <div class="section">
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="quick-actions">
+          <a href="track_my_driver.php" class="action-card">
+            <div class="action-icon">📍</div>
+            <h3>Track My Ride</h3>
+            <p>Real-time location tracking</p>
+          </a>
+          <a href="booking.html" class="action-card">
+            <div class="action-icon">🎫</div>
+            <h3>Book a Seat</h3>
+            <p>Reserve your next journey</p>
+          </a>
+          <a href="routes.html" class="action-card">
+            <div class="action-icon">🗺️</div>
+            <h3>View Routes</h3>
+            <p>Explore our destinations</p>
+          </a>
         </div>
-        <div class="stat-card">
-          <div class="stat-number" id="completed-rides">0</div>
-          <div class="stat-label">Completed Rides</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="upcoming-rides">0</div>
-          <div class="stat-label">Upcoming Rides</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="avg-rating">0.0</div>
-          <div class="stat-label">Avg. Rating</div>
+      </div>
+
+      <!-- Booking History -->
+      <div class="section booking-history">
+        <h2 class="section-title">My Bookings</h2>
+        <div id="bookings-container">
+          <div class="no-bookings">Loading bookings...</div>
         </div>
       </div>
     </div>
+  </main>
 
-    <!-- Quick Actions -->
-    <div class="section">
-      <h2 class="section-title">Quick Actions</h2>
-      <div class="quick-actions">
-        <a href="track_my_driver.php" class="action-card">
-          <div class="action-icon">📍</div>
-          <h3>Track My Ride</h3>
-          <p>Real-time location tracking</p>
-        </a>
-        <a href="booking.html" class="action-card">
-          <div class="action-icon">🎫</div>
-          <h3>Book a Seat</h3>
-          <p>Reserve your next journey</p>
-        </a>
-        <a href="routes.html" class="action-card">
-          <div class="action-icon">🗺️</div>
-          <h3>View Routes</h3>
-          <p>Explore our destinations</p>
-        </a>
-      </div>
-    </div>
-
-    <!-- Booking History -->
-    <div class="section booking-history">
-      <h2 class="section-title">My Bookings</h2>
-      
-      <div class="table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th>Route</th>
-              <th>Travel Date</th>
-              <th>Departure Time</th>
-              <th>Seats</th>
-              <th>Payment</th>
-              <th>Amount</th>
-              <th>Boarding Point</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="bookings-table-body">
-            <tr>
-              <td colspan="8" class="text-center">Loading bookings...</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="text-center mt-2">
-      <a href="logout.php" class="btn btn-secondary">Logout</a>
-    </div>
+  <!-- Logout Button - Moved outside container but before footer -->
+  <div class="text-center" style="padding: 20px; background: #f8f9fa; margin: 20px auto; max-width: 1200px;">
+    <a href="passenger_logout.php" class="btn btn-secondary">Logout</a>
   </div>
 
   <!-- Modal for Booking Details -->
@@ -685,7 +778,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2>My Ride</h2>
-        <button class="close-btn">&times;</button>
+        <button class="close-btn" onclick="document.getElementById('bookingModal').style.display='none'">&times;</button>
       </div>
       <div class="modal-body" id="modalContent">
         <!-- Booking details will be loaded here -->
@@ -697,15 +790,7 @@
     <p>&copy; 2025 Southrift Services Limited. All rights reserved.</p>
   </footer>
 
-  <!-- Session Manager to prevent back button issues -->
-  <script src="js/session-manager.js"></script>
-
   <script>
-    // Fetch user profile data when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      fetchUserProfile();
-    });
-
     // Fetch user profile data
     function fetchUserProfile() {
       fetch('profile.php')
@@ -713,19 +798,38 @@
         .then(data => {
           if (data.success) {
             // Update user info
-            document.getElementById('user-name').textContent = data.user.name || 'User';
-            document.getElementById('user-email').textContent = data.user.email || 'Not provided';
-            document.getElementById('user-phone').textContent = data.user.phone || 'Not provided';
+            document.getElementById('user-name').textContent = data.user.name;
+            document.getElementById('user-email').textContent = data.user.email;
+            document.getElementById('user-phone').textContent = data.user.phone;
             
             // Format member since date
-            if (data.user.created_at) {
-              document.getElementById('member-since').textContent = data.user.created_at;
-            } else {
-              document.getElementById('member-since').textContent = 'Unknown';
-            }
+            const createdAt = new Date(data.user.created_at);
+            document.getElementById('member-since').textContent = createdAt.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
             
             // Update stats
-            updateStats(data.bookings);
+            document.getElementById('total-bookings').textContent = data.bookings.length;
+            
+            // Calculate ride stats
+            let completedRides = 0;
+            let upcomingRides = 0;
+            
+            data.bookings.forEach(booking => {
+              const travelDate = new Date(booking.travel_date);
+              const today = new Date();
+              
+              if (travelDate < today) {
+                completedRides++;
+              } else {
+                upcomingRides++;
+              }
+            });
+            
+            document.getElementById('completed-rides').textContent = completedRides;
+            document.getElementById('upcoming-rides').textContent = upcomingRides;
             
             // Display bookings
             displayBookings(data.bookings);
@@ -735,132 +839,12 @@
           } else {
             console.error('Error fetching profile:', data.error);
             document.getElementById('user-name').textContent = 'Error loading profile';
-            document.getElementById('bookings-table-body').innerHTML = '<tr><td colspan="8" class="text-center">Error loading bookings</td></tr>';
           }
         })
         .catch(error => {
           console.error('Error:', error);
           document.getElementById('user-name').textContent = 'Error loading profile';
-          document.getElementById('bookings-table-body').innerHTML = '<tr><td colspan="8" class="text-center">Error loading bookings</td></tr>';
         });
-    }
-
-    // Update statistics
-    function updateStats(bookings) {
-      // Total bookings
-      document.getElementById('total-bookings').textContent = bookings.length;
-      
-      // Calculate ride stats
-      let completedRides = 0;
-      let upcomingRides = 0;
-      
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      
-      bookings.forEach(booking => {
-        if (booking.travel_date) {
-          // Parse the travel date (expected format: "M j, Y" e.g. "Oct 15, 2025")
-          const dateParts = booking.travel_date.split(' ');
-          if (dateParts.length === 3) {
-            const month = dateParts[0];
-            const day = parseInt(dateParts[1].replace(',', ''));
-            const year = parseInt(dateParts[2]);
-            
-            // Convert month name to month index (0-11)
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            const monthIndex = months.indexOf(month.substring(0, 3));
-            
-            if (monthIndex !== -1 && !isNaN(day) && !isNaN(year)) {
-              const travelDate = new Date(year, monthIndex, day);
-              travelDate.setHours(0, 0, 0, 0);
-              
-              if (travelDate < today) {
-                completedRides++;
-              } else {
-                upcomingRides++;
-              }
-            }
-          }
-        }
-      });
-      
-      document.getElementById('completed-rides').textContent = completedRides;
-      document.getElementById('upcoming-rides').textContent = upcomingRides;
-      
-      // For average rating, we'll keep the placeholder value since it's not in the current data model
-      // In a real implementation, this would come from a reviews/ratings table
-      document.getElementById('avg-rating').textContent = '4.8';
-    }
-
-    // Display bookings in the table
-    function displayBookings(bookings) {
-      const tableBody = document.getElementById('bookings-table-body');
-      
-      if (!bookings || bookings.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="8" class="text-center">You have no bookings yet. <a href="booking.html">Book a seat now</a></td></tr>';
-        return;
-      }
-      
-      let bookingsHTML = '';
-      
-      bookings.forEach(booking => {
-        // Check if this is a booking for today
-        const isToday = isBookingForToday(booking.travel_date);
-        
-        bookingsHTML += `
-          <tr>
-            <td>${booking.route || 'Route not specified'}</td>
-            <td>${booking.travel_date || 'Not specified'}</td>
-            <td>${booking.departure_time || 'Not specified'}</td>
-            <td>${booking.seats || 1}</td>
-            <td>${booking.payment_method ? booking.payment_method.replace('pay-onboarding', 'Pay on Boarding') : 'Not specified'}</td>
-            <td>${booking.amount || 'Not specified'}</td>
-            <td>${booking.boarding_point || 'Not specified'}</td>
-            <td>
-              <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-                ${isToday && booking.assigned_vehicle ? 
-                  `<a href="track_my_driver.php?booking_id=${booking.booking_id}" class="btn btn-secondary" style="white-space: nowrap;">Track ride</a>` : 
-                  (isToday ? 
-                    `<button class="btn btn-secondary" disabled style="opacity: 0.5; cursor: not-allowed;">Track ride</button>` : 
-                    ``)
-                }
-                <button class="btn" onclick="viewDetails('${booking.booking_id}')" style="white-space: nowrap;">Check ride</button>
-              </div>
-            </td>
-          </tr>
-        `;
-      });
-      
-      tableBody.innerHTML = bookingsHTML;
-    }
-
-    // Helper function to check if a booking is for today
-    function isBookingForToday(bookingDateStr) {
-      if (!bookingDateStr) return false;
-      
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      
-      // Parse the travel date (expected format: "M j, Y" e.g. "Oct 15, 2025")
-      const dateParts = bookingDateStr.split(' ');
-      if (dateParts.length === 3) {
-        const month = dateParts[0];
-        const day = parseInt(dateParts[1].replace(',', ''));
-        const year = parseInt(dateParts[2]);
-        
-        // Convert month name to month index (0-11)
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const monthIndex = months.indexOf(month.substring(0, 3));
-        
-        if (monthIndex !== -1 && !isNaN(day) && !isNaN(year)) {
-          const travelDate = new Date(year, monthIndex, day);
-          travelDate.setHours(0, 0, 0, 0);
-          
-          return travelDate.getTime() === today.getTime();
-        }
-      }
-      
-      return false;
     }
 
     // Check if there's a booking for today and update the Track My Ride link
@@ -868,30 +852,17 @@
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       
-      let todaysBookings = [];
+      let hasTodayBooking = false;
       
       if (bookings && bookings.length > 0) {
         for (const booking of bookings) {
           if (booking.travel_date) {
-            // Parse the travel date (expected format: "M j, Y" e.g. "Oct 15, 2025")
-            const dateParts = booking.travel_date.split(' ');
-            if (dateParts.length === 3) {
-              const month = dateParts[0];
-              const day = parseInt(dateParts[1].replace(',', ''));
-              const year = parseInt(dateParts[2]);
-              
-              // Convert month name to month index (0-11)
-              const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-              const monthIndex = months.indexOf(month.substring(0, 3));
-              
-              if (monthIndex !== -1 && !isNaN(day) && !isNaN(year)) {
-                const travelDate = new Date(year, monthIndex, day);
-                travelDate.setHours(0, 0, 0, 0);
-                
-                if (travelDate.getTime() === today.getTime()) {
-                  todaysBookings.push(booking);
-                }
-              }
+            const travelDate = new Date(booking.travel_date);
+            travelDate.setHours(0, 0, 0, 0);
+            
+            if (travelDate.getTime() === today.getTime()) {
+              hasTodayBooking = true;
+              break;
             }
           }
         }
@@ -900,14 +871,8 @@
       // Update the Track My Ride link
       const trackRideLink = document.querySelector('a[href="track_my_driver.php"]');
       if (trackRideLink) {
-        if (todaysBookings.length > 0) {
-          // If there's only one booking, go directly to it
-          // If there are multiple bookings, go to the tracking page which will show the selector
-          if (todaysBookings.length === 1) {
-            trackRideLink.href = "track_my_driver.php?booking_id=" + todaysBookings[0].booking_id;
-          } else {
-            trackRideLink.href = "track_my_driver.php";
-          }
+        if (hasTodayBooking) {
+          trackRideLink.href = "track_my_driver.php";
           trackRideLink.classList.remove("disabled");
           trackRideLink.style.opacity = "1";
           trackRideLink.style.cursor = "pointer";
@@ -924,29 +889,88 @@
       }
     }
 
-    // Modal functionality
-    const modal = document.getElementById("bookingModal");
-    const closeBtn = document.querySelector(".close-btn");
-
-    closeBtn.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-
-    function viewDetails(bookingId) {
-      // Debug: Log the booking ID
-      console.log('Fetching details for booking ID:', bookingId);
+    // Display bookings in the UI
+    function displayBookings(bookings) {
+      const container = document.getElementById('bookings-container');
       
-      // Fetch detailed booking information from the server
+      if (!bookings || bookings.length === 0) {
+        container.innerHTML = '<div class="no-bookings">You have no bookings yet. <a href="booking.html">Book a seat now</a></div>';
+        return;
+      }
+      
+      // Create table HTML
+      let tableHTML = `
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Route</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Seats</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+      
+      bookings.forEach(booking => {
+        // Format travel date
+        const travelDate = new Date(booking.travel_date);
+        const formattedDate = travelDate.toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric'
+        });
+        
+        // Determine status
+        const today = new Date();
+        let statusText = 'Upcoming';
+        let statusClass = 'status-upcoming';
+        
+        if (travelDate < today) {
+          statusText = 'Completed';
+          statusClass = 'status-completed';
+        } else if (travelDate.toDateString() === today.toDateString()) {
+          statusText = 'Today';
+          statusClass = 'status-confirmed';
+        }
+        
+        tableHTML += `
+          <tr>
+            <td>#${booking.booking_id}</td>
+            <td>${booking.route || 'Route not specified'}</td>
+            <td>${formattedDate}</td>
+            <td>${booking.departure_time || 'Not specified'}</td>
+            <td>${booking.seats || 1}</td>
+            <td><span class="booking-status ${statusClass}">${statusText}</span></td>
+            <td>
+              <div style="display: flex; gap: 5px;">
+                <button class="btn btn-secondary" onclick="trackRide(${booking.booking_id})">Track ride</button>
+                <button class="btn" onclick="viewBookingDetails(${booking.booking_id})">Check ride</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+      
+      tableHTML += `
+            </tbody>
+          </table>
+        </div>
+      `;
+      
+      container.innerHTML = tableHTML;
+    }
+
+    // View booking details
+    function viewBookingDetails(bookingId) {
+      // Fetch detailed booking information
       fetch('get_booking_details.php?booking_id=' + bookingId)
         .then(response => response.json())
         .then(data => {
-          console.log('Response from server:', data);
           if (data.success) {
             const booking = data.booking;
             const modalContent = document.getElementById("modalContent");
@@ -1013,7 +1037,7 @@
         })
         .catch(error => {
           console.error('Error:', error);
-          alert('Error loading booking details: ' + error.message);
+          alert('Error loading booking details');
         });
     }
     
@@ -1069,13 +1093,16 @@
       });
     }
     
-
-    
     // Track ride function - redirects to tracking page
     function trackRide(bookingId) {
       // Redirect to the tracking page with the booking ID
       window.location.href = 'track_my_driver.php?booking_id=' + bookingId;
     }
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+      fetchUserProfile();
+    });
   </script>
 </body>
 </html>
