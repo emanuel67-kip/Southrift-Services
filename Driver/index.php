@@ -76,7 +76,9 @@ body {
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
-    padding-bottom: 2rem;
+    padding-bottom: 6rem;
+    position: relative;
+    background-attachment: fixed;
 }
 
 /* Header & Navigation */
@@ -144,18 +146,20 @@ body {
 /* Main Content */
 .container {
     max-width: 1400px;
-    margin: 2rem auto;
+    margin: 2.5rem auto 6rem auto;
     padding: 0 2rem;
 }
 
 .page-title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 800;
     color: var(--primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .page-title i {
@@ -163,14 +167,15 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    font-size: 2.2rem;
 }
 
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 /* Cards */
@@ -182,6 +187,7 @@ body {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .card::before {
@@ -190,57 +196,69 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 5px;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .card-icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3);
+    transition: var(--transition);
+}
+
+.card:hover .card-icon {
+    transform: scale(1.1);
 }
 
 .card-icon i {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: white;
 }
 
 .card-title {
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
 }
 
 .card-text {
     color: var(--gray);
-    margin-bottom: 1.2rem;
-    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.7;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 0.7rem 1.5rem;
+    padding: 0.9rem 1.8rem;
     border-radius: 30px;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
 }
 
 .btn-primary {
@@ -250,8 +268,8 @@ body {
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(106, 13, 173, 0.4);
 }
 
 .btn-outline {
@@ -261,8 +279,10 @@ body {
 }
 
 .btn-outline:hover {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(106, 13, 173, 0.4);
 }
 
 /* Driver Info Section */
@@ -339,8 +359,9 @@ body {
 
 /* Location Sharing Card */
 .location-sharing-card {
-    background: linear-gradient(135deg, #6A0DAD, #8A2BE2);
-    color: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: var(--dark);
+    border: 1px solid rgba(76, 175, 80, 0.2);
 }
 
 .location-sharing-card::before {
@@ -348,93 +369,158 @@ body {
 }
 
 .location-sharing-card .card-icon {
-    background: rgba(255,255,255,0.2);
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.location-sharing-card:hover .card-icon {
+    transform: scale(1.1);
 }
 
 .location-sharing-card .card-title {
-    color: white;
+    color: var(--dark);
+    font-weight: 700;
 }
 
 .location-sharing-card .card-text {
-    color: rgba(255,255,255,0.85);
+    color: var(--gray);
+    font-weight: 500;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
 }
 
 .sharing-form {
-    background: rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.15) 100%);
     border-radius: var(--border-radius);
-    padding: 1.5rem;
-    margin-top: 1rem;
+    padding: 1.8rem;
+    margin-top: 1.5rem;
     display: none;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-description {
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin: 0;
+    line-height: 1.5;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .form-control {
     width: 100%;
-    padding: 0.8rem 1rem;
+    padding: 1rem 1.2rem;
     border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: rgba(255,255,255,0.1);
-    color: white;
+    border: 2px solid rgba(76, 175, 80, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark);
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
 }
 
 .form-control::placeholder {
-    color: rgba(255,255,255,0.6);
+    color: var(--gray);
 }
 
 .form-control:focus {
     outline: none;
-    border-color: white;
-    background: rgba(255,255,255,0.15);
+    border-color: #4CAF50;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-top: 0.5rem;
+    font-style: italic;
+    padding-left: 2px;
 }
 
 .btn-group {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.btn-group .btn {
+    flex: 1;
+    min-width: 120px;
 }
 
 .sharing-status {
-    background: rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(139, 195, 74, 0.2) 100%);
     border-radius: var(--border-radius);
-    padding: 1.5rem;
-    margin-top: 1rem;
+    padding: 1.8rem;
+    margin-top: 1.5rem;
     display: none;
+    border: 1px solid rgba(76, 175, 80, 0.4);
 }
 
 .blinking-dot {
     display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: var(--accent);
+    width: 14px;
+    height: 14px;
+    background-color: #4CAF50;
     border-radius: 50%;
-    margin-right: 8px;
-    animation: blink 1.5s infinite;
+    margin-right: 10px;
+    animation: blink 1.2s infinite;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
 @keyframes blink {
-    0% { opacity: 0.2; }
-    50% { opacity: 1; }
-    100% { opacity: 0.2; }
+    0% { opacity: 0.3; }
+    50% { opacity: 1; box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); }
+    100% { opacity: 0.3; }
 }
 
 .link-preview {
-    background: rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
-    padding: 0.8rem;
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    padding: 1rem;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
     word-break: break-all;
+    color: var(--dark);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    font-weight: 500;
 }
 
 /* Footer */
@@ -442,10 +528,14 @@ footer {
   background: var(--primary);
   color: #fff;
   text-align: center;
-  padding: 1rem;
-  margin-top: 40px;
-  position: relative;
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
 }
 
 /* Animations */
@@ -600,6 +690,27 @@ footer {
         width: 100%;
         justify-content: center;
     }
+    
+    .sharing-form, .sharing-status {
+        padding: 1.2rem;
+    }
+    
+    .form-control {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .link-preview {
+        font-size: 0.85rem;
+    }
+    
+    .form-title {
+        font-size: 1.2rem;
+    }
+    
+    .form-description {
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 400px) {
@@ -613,6 +724,31 @@ footer {
     
     .nav-link i {
         margin-right: 0;
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .sharing-form, .sharing-status {
+        padding: 1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    
+    .form-title {
+        font-size: 1.1rem;
+    }
+    
+    .form-description {
+        font-size: 0.8rem;
     }
 }
 </style>
@@ -678,16 +814,27 @@ footer {
                 
                 <!-- Google Maps Link Input Form -->
                 <div class="sharing-form" id="linkInputForm">
+                    <div class="form-header">
+                        <h3 class="form-title">
+                            <i class="fas fa-link"></i>
+                            Share Your Location
+                        </h3>
+                        <p class="form-description">Paste your Google Maps link to share your live location with passengers</p>
+                    </div>
                     <div class="form-group">
-                        <label for="googleMapsLink">Paste Google Maps Link:</label>
+                        <label for="googleMapsLink">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Google Maps Link
+                        </label>
                         <input type="text" id="googleMapsLink" class="form-control" placeholder="https://maps.app.goo.gl/...">
+                        <div class="form-hint">Tip: Open Google Maps on your phone, tap share, and copy the link</div>
                     </div>
                     <div class="btn-group">
                         <button id="shareLocationBtn" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i>
                             Share with Passengers
                         </button>
-                        <button id="cancelShareBtn" class="btn" style="background: rgba(255,255,255,0.2); color: white;">
+                        <button id="cancelShareBtn" class="btn" style="background: linear-gradient(135deg, #95a5a6, #7f8c8d); color: white; border: none;">
                             <i class="fas fa-times"></i>
                             Cancel
                         </button>
@@ -696,13 +843,13 @@ footer {
                 
                 <!-- Sharing Status -->
                 <div class="sharing-status" id="locationStatusIndicator">
-                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem; padding: 0.5rem; background: rgba(255, 255, 255, 0.3); border-radius: 20px; justify-content: center;">
                         <span class="blinking-dot"></span>
                         <span id="statusText">Google Maps location is being shared</span>
                     </div>
                     <div class="link-preview" id="sharedLinkPreview"></div>
                     <div style="margin-top: 1rem;">
-                        <button id="stopSharingBtn" class="btn" style="background: var(--danger); color: white;">
+                        <button id="stopSharingBtn" class="btn" style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; border: none;">
                             <i class="fas fa-stop"></i>
                             Stop Sharing
                         </button>
@@ -766,7 +913,7 @@ footer {
     </div>
     
     <footer>
-        &copy; <?php echo date('Y'); ?> Southrift Services Limited | All Rights Reserved
+        <p>&copy; <?php echo date('Y'); ?> Southrift Services Limited. All rights reserved.</p>
     </footer>
     
     <meta name="csrf-token" content="<?= $_SESSION['csrf_token'] ?? '' ?>">

@@ -70,6 +70,10 @@ if (!empty($vehicles)) {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+
     }
 
     .fade-in {
@@ -123,6 +127,7 @@ if (!empty($vehicles)) {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
+      flex: 1;
     }
 
     .page-header {
@@ -262,14 +267,8 @@ if (!empty($vehicles)) {
       margin-top: 0.5rem;
     }
 
-    /* Contact Actions */
-    .contact-actions {
-      display: flex;
-      gap: 0.5rem;
-    }
-
     .contact-btn {
-      background: #25D366;
+      background: #007BFF;
       color: white;
       border: none;
       padding: 0.4rem 0.8rem;
@@ -280,10 +279,7 @@ if (!empty($vehicles)) {
       align-items: center;
       gap: 0.3rem;
       transition: all 0.3s ease;
-    }
-
-    .contact-btn.call {
-      background: #007BFF;
+      white-space: nowrap;
     }
 
     .contact-btn:hover {
@@ -309,6 +305,18 @@ if (!empty($vehicles)) {
       border-radius: 12px;
       font-weight: 600;
       font-size: 0.8rem;
+    }
+
+    footer {
+      background: var(--purple);
+      color: #fff;
+      text-align: center;
+      padding: 0.05rem;
+      margin-top: auto;
+      border-radius: 8px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      font-size: 0.9rem;
+      
     }
 
     @media (max-width: 768px) {
@@ -400,16 +408,10 @@ if (!empty($vehicles)) {
                   </div>
                 </td>
                 <td>
-                  <div style="margin-bottom: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                     <strong><?= htmlspecialchars($booking['phone']) ?></strong>
-                  </div>
-                  <div class="contact-actions">
                     <a href="tel:<?= htmlspecialchars($booking['phone']) ?>" class="contact-btn call">
                       <i class="fas fa-phone"></i> Call
-                    </a>
-                    <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $booking['phone']) ?>" 
-                       class="contact-btn" target="_blank">
-                      <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                   </div>
                 </td>
@@ -451,6 +453,10 @@ if (!empty($vehicles)) {
       </div>
     <?php endif; ?>
   </div>
+  
+  <footer>
+    <p>&copy; <?php echo date('Y'); ?> Southrift Services Limited. All rights reserved.</p>
+  </footer>
 
   <script>
     // Add any necessary JavaScript here
