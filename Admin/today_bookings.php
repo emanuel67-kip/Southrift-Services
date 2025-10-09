@@ -170,68 +170,74 @@ if ($assignedVehicleField) {
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $result = $stmt->get_result();
+
+// Get booking statistics
+$totalBookings = $result->num_rows;
+$assignedBookings = 0;
+$unassignedBookings = 0;
+
+// Reset result pointer to calculate stats
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+    if (!empty($row['assigned_vehicle'])) {
+        $assignedBookings++;
+    } else {
+        $unassignedBookings++;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bookings Made Today – Southrift Admin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's Bookings – Southrift Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin-styles.css">
   <style>
     :root {
-      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --purple: #6A0DAD;
-      --purple-dark: #58009c;
-      --accent: #ff6b6b;
-      --success: #51cf66;
-      --warning: #ffd43b;
-      --info: #74c0fc;
-      --bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      --card-hover: 0 15px 40px rgba(0,0,0,0.15);
+      --primary: #6A0DAD;
+      --primary-dark: #58009c;
+      --primary-light: #8a2be2;
+      --secondary: #FF6B6B;
+      --success: #4CAF50;
+      --warning: #FFC107;
+      --danger: #F44336;
+      --info: #2196F3;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --border: #dee2e6;
+      --card-bg: #ffffff;
+      --body-bg: #f5f7fb;
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      animation: fadeIn 0.8s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: var(--bg);
+      background-color: var(--body-bg);
+      color: var(--dark);
+      line-height: 1.6;
+      display: flex;
       min-height: 100vh;
-      display: flex;
       flex-direction: column;
-      overflow-x: hidden;
+      padding-top: 80px;
+      padding-bottom: 0;
     }
 
-    /* Enhanced Navigation */
-    nav {
-      background: var(--purple);
-      padding: 1rem 2rem;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      animation: logoGlow 2s ease-in-out infinite alternate;
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes logoGlow {
@@ -239,338 +245,381 @@ $result = $stmt->get_result();
       100% { text-shadow: 0 0 12px #fff, 0 0 20px #f0f; }
     }
 
-    .nav-right {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .nav-right a {
-      position: relative;
-      color: paleturquoise;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 8px 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-right a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    /* Container */
+    .container {
       width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, #ff6ec4, #7873f5);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.4s ease-in-out;
-    }
-
-    .nav-right a:hover {
-      color: #00ffff;
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
-    }
-
-    .nav-right a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    /* Main Content Container */
-    main {
       max-width: 1200px;
-      margin: 40px auto;
-      background: rgba(255,255,255,0.95);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: var(--card-shadow);
-      backdrop-filter: blur(10px);
-      transition: box-shadow 0.3s ease;
+      margin: 0 auto;
+      padding: 0 20px;
       flex: 1;
-      display: flex;
-      flex-direction: column;
     }
 
-    main:hover {
-      box-shadow: var(--card-hover);
-    }
-
-    /* Header Section */
+    /* Page Header */
     .page-header {
-      background: var(--primary-gradient);
-      color: white;
-      padding: 30px;
-      border-radius: 15px;
-      margin-bottom: 30px;
+      margin: 20px 0 30px 0;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .page-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(180deg); }
-    }
-
-    .page-header h2 {
-      margin: 0;
+    .page-header h1 {
       font-size: 2.2rem;
       font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 1;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
     }
 
-    .page-subtitle {
-      margin-top: 10px;
+    .page-header p {
+      color: var(--gray);
       font-size: 1.1rem;
-      opacity: 0.9;
-      position: relative;
-      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    /* Stats Cards */
-    .stats-container {
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: var(--gray);
+    }
+
+    /* Stats Overview */
+    .stats-overview {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
       margin-bottom: 30px;
     }
 
     .stat-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
 
     .stat-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
     }
 
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
+    .stat-card .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 1.5rem;
+      color: white;
     }
 
-    .stat-label {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .stat-card .icon.purple {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
     }
 
-    /* Enhanced Alerts */
+    .stat-card .icon.green {
+      background: linear-gradient(135deg, var(--success), #81c784);
+    }
+
+    .stat-card .icon.orange {
+      background: linear-gradient(135deg, var(--warning), #ffd54f);
+    }
+
+    .stat-card .icon.blue {
+      background: linear-gradient(135deg, var(--info), #64b5f6);
+    }
+
+    .stat-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+
+    .stat-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Alerts */
     .alert {
-      margin: 15px 0;
       padding: 15px 20px;
-      border-radius: 12px;
-      border: none;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-weight: 500;
-      position: relative;
+    }
+
+    .alert.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #c8e6c9;
+    }
+
+    .alert.error {
+      background: #ffebee;
+      color: #c62828;
+      border: 1px solid #ffcdd2;
+    }
+
+    .alert.info {
+      background: #e3f2fd;
+      color: #1565c0;
+      border: 1px solid #bbdefb;
+    }
+
+    /* Table Section */
+    .table-container {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
       overflow: hidden;
-      animation: slideIn 0.5s ease-out;
+      position: relative;
     }
 
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .alert::before {
+    .table-container::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 4px;
-      height: 100%;
-      background: currentColor;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
     }
 
-    .alert.success {
-      background: linear-gradient(135deg, #e7f9ef 0%, #d4edda 100%);
-      color: #0f7b3f;
-      border-left: 4px solid var(--success);
-    }
-
-    .alert.error {
-      background: linear-gradient(135deg, #fdecea 0%, #f8d7da 100%);
-      color: #b00020;
-      border-left: 4px solid var(--accent);
-    }
-
-    .alert.info {
-      background: linear-gradient(135deg, #e7f0ff 0%, #cce7ff 100%);
-      color: #0b4db3;
-      border-left: 4px solid var(--info);
-    }
-
-    /* Enhanced Table */
-    .table-container {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      overflow-x: auto;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      margin-top: 25px;
-      flex: 1;
+    .table-header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .table-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin: 0;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .table-header h2::before {
+      content: '\f073';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 300px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 15px 12px 40px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s;
+      background: #fafafa;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.15);
+      background: white;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      flex: 1;
       min-width: 1000px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    th {
-      background: var(--primary-gradient);
+    thead th {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
-      padding: 12px 8px;
+      padding: 16px 15px;
       text-align: left;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.75rem;
+      font-size: 0.95rem;
+      border-bottom: none;
       position: sticky;
       top: 0;
-      z-index: 10;
     }
 
-    th:last-child {
-      width: 180px;
-      min-width: 180px;
-      max-width: 180px;
+    thead th:first-child {
+      border-top-left-radius: 10px;
     }
 
-    td {
-      padding: 10px 8px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      vertical-align: middle;
-      transition: background-color 0.2s ease;
-      font-size: 0.85rem;
+    thead th:last-child {
+      border-top-right-radius: 10px;
     }
 
-    td:last-child {
-      width: 180px;
-      min-width: 180px;
-      max-width: 180px;
-      padding: 8px 4px;
+    tbody td {
+      padding: 14px 15px;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+      color: var(--dark);
     }
 
     tbody tr {
-      transition: all 0.2s ease;
-    }
-
-    tbody tr:nth-child(even) {
-      background: rgba(102, 126, 234, 0.02);
+      transition: background-color 0.2s, transform 0.2s;
     }
 
     tbody tr:hover {
-      background: rgba(102, 126, 234, 0.08);
-      transform: scale(1.001);
+      background-color: #f8f9ff;
+      transform: scale(1.01);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    tbody tr:nth-child(even):hover {
+      background-color: #f0f2ff;
     }
 
     /* Enhanced Forms and Buttons */
     .assign-form {
       display: flex;
-      gap: 4px;
+      gap: 8px;
       align-items: center;
       flex-wrap: wrap;
-      max-width: 180px;
+      max-width: 200px;
     }
 
     .assign-form select {
-      padding: 6px 8px;
+      padding: 8px 10px;
       border-radius: 6px;
-      border: 1px solid rgba(102, 126, 234, 0.2);
+      border: 1px solid var(--border);
       background: white;
-      font-size: 0.8rem;
-      min-width: 120px;
-      max-width: 120px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      min-width: 130px;
       transition: all 0.2s ease;
     }
 
     .assign-form select:focus {
       outline: none;
-      border-color: var(--purple);
+      border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
     }
 
     .assign-form button {
-      padding: 6px 10px;
+      padding: 8px 12px;
       border-radius: 6px;
       border: none;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.75rem;
-      transition: all 0.2s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-
-    .assign-form button[name="assign"] {
-      background: linear-gradient(135deg, var(--success) 0%, #40c057 100%);
-      color: white;
-    }
-
-    .assign-form button[name="assign"]:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(81, 207, 102, 0.3);
-    }
-
-    .assign-form .undo-btn {
-      background: linear-gradient(135deg, var(--accent) 0%, #ff5252 100%);
-      color: white;
-    }
-
-    .assign-form .undo-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-    }
-
-    /* Phone Button Styling */
-    .btn-info {
-      background: linear-gradient(135deg, var(--info) 0%, #339af0 100%);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.85rem;
       font-weight: 500;
+      cursor: pointer;
+      font-size: 0.9rem;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 5px;
     }
 
-    .btn-info:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(116, 192, 252, 0.3);
-      text-decoration: none;
+    .assign-form button[name="assign"] {
+      background: var(--success);
       color: white;
+    }
+
+    .assign-form button[name="assign"]:hover {
+      background: #43a047;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+    }
+
+    .assign-form .undo-btn {
+      background: var(--danger);
+      color: white;
+    }
+
+    .assign-form .undo-btn:hover {
+      background: #e53935;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+    }
+
+    /* Phone Number Styling */
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+      color: var(--gray);
+      transition: all 0.2s ease;
+      font-size: 0.8rem;
+    }
+
+    .copy-btn:hover {
+      background: var(--light);
+      color: var(--dark);
+      border-color: var(--dark);
+    }
+
+    .copy-btn.copied {
+      background: var(--success);
+      color: white;
+      border-color: var(--success);
     }
 
     /* Vehicle Status Indicators */
@@ -584,13 +633,46 @@ $result = $stmt->get_result();
     }
 
     .vehicle-assigned {
-      background: linear-gradient(135deg, var(--success) 0%, #40c057 100%);
+      background: linear-gradient(135deg, var(--success), #40c057);
       color: white;
     }
 
     .vehicle-unassigned {
-      background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+      background: linear-gradient(135deg, #e9ecef, #dee2e6);
       color: #6c757d;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: var(--light-gray);
+    }
+
+    .empty-state h3 {
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .empty-state p {
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+
+    .empty-state .info-box {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 500px;
     }
 
     /* Back Button */
@@ -600,234 +682,335 @@ $result = $stmt->get_result();
       gap: 10px;
       margin-top: 30px;
       padding: 12px 25px;
-      background: var(--primary-gradient);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      border-radius: 25px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       transition: all 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .back-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 6px 12px rgba(106, 13, 173, 0.3);
       text-decoration: none;
       color: white;
     }
 
-    /* Footer */
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .table-container {
+        padding: 25px;
+      }
+      
+      .stats-overview {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      
+      .page-header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+        padding-bottom: 0;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+      
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .table-container {
+        padding: 20px;
+      }
+      
+      .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .search-box {
+        max-width: 100%;
+        width: 100%;
+      }
+      
+      .assign-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        max-width: 100%;
+      }
+      
+      .assign-form select,
+      .assign-form button {
+        width: 100%;
+      }
+      
+      .stats-overview {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      body {
+        padding-top: 70px;
+        padding-bottom: 0;
+        min-height: 100vh;
+      }
+      
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
+      
+      thead th, tbody td {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+      }
+      
+      .stat-card {
+        padding: 15px;
+      }
+      
+      .stat-card h3 {
+        font-size: 1.5rem;
+      }
+      
+      .container {
+        padding: 0 10px;
+      }
+    }
+
+    /* Footer styling */
     footer {
       background: var(--purple);
       color: #fff;
       text-align: center;
       padding: 1rem;
-      margin-top: auto;
+      margin-top: 40px;
+      position: relative;
+      z-index: 100;
+      width: 100%;
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
-      main {
-        margin: 20px;
-        padding: 25px;
-        min-height: calc(100vh - 160px);
-      }
-
-      .page-header h2 {
-        font-size: 1.8rem;
-      }
-
-      .stats-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-
-      .table-container {
-        overflow-x: auto;
-        margin: 20px -25px;
-        border-radius: 0;
-      }
-
-      table {
-        min-width: 1200px;
-      }
-
-      .assign-form {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 3px;
-        max-width: 150px;
-      }
-
-      .assign-form select,
-      .assign-form button {
-        width: 100%;
-        font-size: 0.7rem;
-        padding: 4px 6px;
+      footer {
+        margin-top: 30px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
       }
     }
 
-    @media (max-width: 600px) {
-      .nav-right {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-end;
+    @media (max-width: 576px) {
+      footer {
+        margin-top: 20px;
+        padding: 0.7rem;
+        font-size: 0.8rem;
       }
-    }
-
-    @media (max-width: 480px) {
-      main {
-        margin: 10px;
-        padding: 20px;
-      }
-
-      .page-header {
-        padding: 20px;
-      }
-
-      .page-header h2 {
-        font-size: 1.5rem;
-      }
-
-      .stats-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat-card {
-        padding: 20px;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-    }
-
-    @media (max-width: 360px) {
-      main {
-        padding: 15px;
-      }
-    }
-
-    /* Loading Animation */
-    .loading {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(255,255,255,.3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 1s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">Southrift Services Limited</div>
-  <div class="nav-right">
-    <a href="index.php"><i class="fa fa-home"></i> Dashboard</a>
-    <a href="#"><i class="fa fa-user-shield"></i> Super Admin</a>
-    <a href="logout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
+<?php include 'includes/navbar.php'; ?>
+
+  
+  <div class="page-header">
+    <h1>Today's Bookings</h1>
+    <p>Manage all bookings made today - <?php echo date('F j, Y'); ?></p>
   </div>
-</nav>
 
-<main>
-  <h2>📅 Bookings Made Today (<?= date('F j, Y') ?>)</h2>
-  <?= $message ?>
+  <!-- Stats Overview -->
+  <div class="stats-overview">
+    <div class="stat-card">
+      <div class="icon purple">
+        <i class="fas fa-calendar-day"></i>
+      </div>
+      <h3><?php echo $totalBookings; ?></h3>
+      <p>Total Bookings</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon green">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3><?php echo $assignedBookings; ?></h3>
+      <p>Assigned</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon orange">
+        <i class="fas fa-clock"></i>
+      </div>
+      <h3><?php echo $unassignedBookings; ?></h3>
+      <p>Pending</p>
+    </div>
+  </div>
 
-  <?php if ($result->num_rows): ?>
-    <table>
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Phone</th>
-          <th>Route</th>
-          <th>Starting Station</th>
-          <th>Travel Date</th>
-          <th>Departure</th>
-          <th>Seats</th>
-          <th>Payment</th>
-          <th>Booked At</th>
-          <th>Assigned Car</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php while($row = $result->fetch_assoc()): ?>
-        <tr>
-          <td><?= htmlspecialchars($row['fullname']) ?></td>
-          <td>
-            <a href="passenger_profile.php?phone=<?= urlencode($row['phone']) ?>" class="btn btn-sm btn-info">
-              <i class="fas fa-user"></i> <?= htmlspecialchars($row['phone']) ?>
-            </a>
-          </td>
-          <td><?= htmlspecialchars($row['route']) ?></td>
-          <td><?= htmlspecialchars(ucfirst(substr($row['route'], 0, strpos($row['route'], '-') !== false ? strpos($row['route'], '-') : strlen($row['route'])))) ?></td>
-          <td><?= htmlspecialchars($row['travel_date']) ?></td>
-          <td><?= htmlspecialchars($row['departure_time']) ?></td>
-          <td><?= htmlspecialchars($row['seats']) ?></td>
-          <td><?= htmlspecialchars($row['payment_method']) ?></td>
-          <td><?= date('H:i', strtotime($row['created_at'])) ?></td>
-          <td>
-            <?php if (!empty($row['assigned_vehicle'])): ?>
-              <?= htmlspecialchars($row['assigned_vehicle']) ?>
-            <?php else: ?>
-              —
-            <?php endif; ?>
-          </td>
-          <td>
-            <?php if (!empty($row['assigned_vehicle'])): ?>
-              <form method="post" class="assign-form" style="gap:4px">
-                <input type="hidden" name="booking_id" value="<?= (int)$row['id'] ?>">
-                <button type="submit" name="unassign" class="undo-btn" title="Unassign vehicle">Undo</button>
-              </form>
-            <?php elseif (count($waitingVehicles) === 0): ?>
-              <em>No vehicles in waiting</em>
-            <?php else: ?>
-              <form method="post" class="assign-form">
-                <input type="hidden" name="booking_id" value="<?= (int)$row['id'] ?>">
-                <select name="vehicle_number_plate" required>
-                  <option value="">Select vehicle</option>
-                  <?php foreach ($waitingVehicles as $v): ?>
-                    <option 
-                      value="<?= htmlspecialchars($v['number_plate']) ?>"
-                      title="<?= htmlspecialchars(($v['type'] ?? '').' '.($v['color'] ?? '').' · '.(int)($v['capacity'] ?? 0).' seats · '.($v['driver_name'] ?? '')) ?>">
-                      <?= htmlspecialchars($v['number_plate']) ?>
-                    </option>
-                  <?php endforeach; ?>
-                </select>
-                <button type="submit" name="assign">Assign</button>
-              </form>
-            <?php endif; ?>
-          </td>
-        </tr>
-        <?php endwhile; ?>
-      </tbody>
-    </table>
-  <?php else: ?>
-    <div style="text-align: center; padding: 60px 20px; color: #6c757d;">
-      <i class="fas fa-calendar-times" style="font-size: 4rem; margin-bottom: 20px; opacity: 0.5;"></i>
-      <h3 style="margin-bottom: 10px; color: #495057;">No Bookings Today</h3>
-      <p style="font-size: 1.1rem; margin-bottom: 30px;">No bookings have been made today yet. Check back later!</p>
-      <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px; border-radius: 10px; display: inline-block;">
-        <i class="fas fa-info-circle" style="color: var(--info); margin-right: 8px;"></i>
-        Bookings will appear here as customers make reservations
+  <?php echo $message; ?>
+
+  <div class="table-container">
+    <div class="table-header">
+      <h2>Booking Records</h2>
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search bookings...">
       </div>
     </div>
-  <?php endif; ?>
+    
+    <div class="table-wrap">
+      <?php 
+      // Reset result pointer for display
+      $stmt->execute();
+      $result = $stmt->get_result();
+      
+      if ($result->num_rows): ?>
+        <table>
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Phone</th>
+              <th>Route</th>
+              <th>Starting Station</th>
+              <th>Travel Date</th>
+              <th>Departure</th>
+              <th>Seats</th>
+              <th>Payment</th>
+              <th>Booked At</th>
+              <th>Assigned Car</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php while($row = $result->fetch_assoc()): ?>
+            <tr>
+              <td><?php echo htmlspecialchars($row['fullname']); ?></td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span><?php echo htmlspecialchars($row['phone']); ?></span>
+                  <button type="button" class="copy-btn" data-phone="<?php echo htmlspecialchars($row['phone']); ?>" title="Copy to clipboard">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+              </td>
+              <td><?php echo htmlspecialchars($row['route']); ?></td>
+              <td><?php echo htmlspecialchars(ucfirst(substr($row['route'], 0, strpos($row['route'], '-') !== false ? strpos($row['route'], '-') : strlen($row['route'])))); ?></td>
+              <td><?php echo htmlspecialchars($row['travel_date']); ?></td>
+              <td><?php echo htmlspecialchars($row['departure_time']); ?></td>
+              <td><?php echo htmlspecialchars($row['seats']); ?></td>
+              <td><?php echo htmlspecialchars($row['payment_method']); ?></td>
+              <td><?php echo date('H:i', strtotime($row['created_at'])); ?></td>
+              <td>
+                <?php if (!empty($row['assigned_vehicle'])): ?>
+                  <span class="vehicle-status vehicle-assigned">
+                    <?php echo htmlspecialchars($row['assigned_vehicle']); ?>
+                  </span>
+                <?php else: ?>
+                  <span class="vehicle-status vehicle-unassigned">Unassigned</span>
+                <?php endif; ?>
+              </td>
+              <td>
+                <?php if (!empty($row['assigned_vehicle'])): ?>
+                  <form method="post" class="assign-form">
+                    <input type="hidden" name="booking_id" value="<?php echo (int)$row['id']; ?>">
+                    <button type="submit" name="unassign" class="undo-btn" title="Unassign vehicle">
+                      <i class="fas fa-undo"></i> Undo
+                    </button>
+                  </form>
+                <?php elseif (count($waitingVehicles) === 0): ?>
+                  <em>No vehicles</em>
+                <?php else: ?>
+                  <form method="post" class="assign-form">
+                    <input type="hidden" name="booking_id" value="<?php echo (int)$row['id']; ?>">
+                    <select name="vehicle_number_plate" required>
+                      <option value="">Select vehicle</option>
+                      <?php foreach ($waitingVehicles as $v): ?>
+                        <option 
+                          value="<?php echo htmlspecialchars($v['number_plate']); ?>"
+                          title="<?php echo htmlspecialchars(($v['type'] ?? '').' '.($v['color'] ?? '').' · '.(int)($v['capacity'] ?? 0).' seats · '.($v['driver_name'] ?? '')); ?>">
+                          <?php echo htmlspecialchars($v['number_plate']); ?>
+                        </option>
+                      <?php endforeach; ?>
+                    </select>
+                    <button type="submit" name="assign">
+                      <i class="fas fa-check"></i> Assign
+                    </button>
+                  </form>
+                <?php endif; ?>
+              </td>
+            </tr>
+            <?php endwhile; ?>
+          </tbody>
+        </table>
+      <?php else: ?>
+        <div class="empty-state">
+          <i class="fas fa-calendar-times"></i>
+          <h3>No Bookings Today</h3>
+          <p>No bookings have been made today yet. Check back later!</p>
+          <div class="info-box">
+            <i class="fas fa-info-circle" style="color: var(--info); margin-right: 8px;"></i>
+            Bookings will appear here as customers make reservations
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
+  </div>
 
-  <div style="text-align: center; margin-top: 40px;">
+  <div style="text-align: center;">
     <a class="back-btn" href="index.php">
       <i class="fas fa-arrow-left"></i> Back to Dashboard
     </a>
   </div>
-</main>
+</div>
 
-<footer>&copy; <?=date('Y')?> Southrift Services Limited | All Rights Reserved</footer>
+<footer>&copy; <?php echo date('Y'); ?> Southrift Services Limited | All Rights Reserved</footer>
+
+<script>
+// Search functionality
+document.getElementById('searchInput').addEventListener('keyup', function() {
+  const searchTerm = this.value.toLowerCase();
+  const tableRows = document.querySelectorAll('tbody tr');
+  
+  tableRows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    if (text.includes(searchTerm)) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});
+
+// Copy to clipboard functionality
+document.querySelectorAll('.copy-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const phone = this.getAttribute('data-phone');
+    const originalText = this.innerHTML;
+    
+    navigator.clipboard.writeText(phone).then(() => {
+      // Show success feedback
+      this.innerHTML = '<i class="fas fa-check"></i>';
+      this.classList.add('copied');
+      
+      // Reset button after 2 seconds
+      setTimeout(() => {
+        this.innerHTML = originalText;
+        this.classList.remove('copied');
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  });
+});
+</script>
+
 </body>
 </html>

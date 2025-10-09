@@ -48,293 +48,560 @@ while($r=$resM->fetch_assoc()){
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard – Southrift</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="css/admin-styles.css">
 <style>
-:root{--purple:#6A0DAD;--purple-dark:#4e0b8a;--bg:#f4f4f4}
-html{animation:fadeIn .7s ease-in-out}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1}}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins,sans-serif;background:var(--bg);display: flex;min-height: 100vh;flex-direction: column}
-nav{background:var(--purple);padding:1rem 2rem;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.logo{font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;animation:logoGlow 2s ease-in-out infinite alternate}
-@keyframes logoGlow{0%{text-shadow:0 0 8px #fff,0 0 12px #0ff;}100%{text-shadow:0 0 12px #fff,0 0 20px #f0f}}
-.nav-right {
+:root {
+  --primary: #6A0DAD;
+  --primary-dark: #4e0b8a;
+  --primary-light: #8a2be2;
+  --secondary: #FF6B6B;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #F44336;
+  --info: #2196F3;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --border: #dee2e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  color: #333;
+  line-height: 1.6;
   display: flex;
-  gap: 20px;
-  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding-top: 80px;
 }
-.nav-right a {
-  position: relative;
-  color: paleturquoise;
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
   font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 5px;
+}
+
+.dashboard-header p {
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+/* Stats Overview */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.stat-card .icon.blue {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+
+.stat-card .icon.green {
+  background: linear-gradient(135deg, var(--success), #81c784);
+}
+
+.stat-card .icon.orange {
+  background: linear-gradient(135deg, var(--warning), #ffd54f);
+}
+
+.stat-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  color: var(--dark);
+}
+
+.stat-card p {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Section */
+.section {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.view-all {
+  color: var(--primary);
   text-decoration: none;
-  padding: 8px 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-.nav-right a::after {
-  content: "";
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%; height: 2px;
-  background: linear-gradient(to right, #ff6ec4, #7873f5);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s ease-in-out;
-}
-.nav-right a:hover {
-  color: #00ffff;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
-}
-.nav-right a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
 }
 
-main{max-width:1100px;margin:40px auto;padding:20px;flex: 1;padding-bottom: 80px; /* Add padding to prevent content from being hidden behind fixed footer */}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.card{background:var(--purple);color:#fff;border-radius:14px;padding:40px 20px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.15);transition:.2s}
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,.25)}
-.card{text-decoration: none !important;}
-.card:hover{background:linear-gradient(to right,#6A0DAD,#b980ff);transform:translateY(-6px) scale(1.03);box-shadow:0 14px 28px rgba(0,0,0,0.25)}
-.card h2{font-size:2.5rem;margin:0 0 12px}
+.view-all:hover {
+  color: var(--primary-dark);
+}
 
-/* Chart section only (changed) */
-h3.chart-title{text-align:center;margin-top:60px;color:var(--purple)}
-.toggle-buttons{text-align:center;margin:10px 0 20px}
-.toggle-buttons button{background:var(--purple);border:none;color:#fff;padding:10px 18px;margin:0 8px;border-radius:6px;font-weight:600;cursor:pointer;transition:background .3s}
-.toggle-buttons button.active,.toggle-buttons button:hover{background:var(--purple-dark)}
-.chart-container{background:#eee;padding:30px 20px;border-radius:12px;margin-top:20px}
-canvas{background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+/* Quick Actions Grid */
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
 
-/* Add-to-waiting form */
-.waiting-form{margin-top:10px;background:#fff;padding:16px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
-.waiting-form label{display:block;font-weight:600;margin-bottom:8px;color:var(--purple)}
-.waiting-form .row{display:flex;gap:12px}
-.waiting-form input{flex:1;padding:12px 14px;border-radius:8px;border:1px solid #ddd}
-.waiting-form button{background:var(--purple);border:none;color:#fff;padding:12px 16px;border-radius:8px;font-weight:600;cursor:pointer}
-.waiting-form button:hover{background:var(--purple-dark)}
-@media(max-width:600px){.waiting-form .row{flex-direction:column}}
+.action-card {
+  background: #f8f9ff;
+  border-radius: 8px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.action-card:hover {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-light);
+}
+
+.action-card i {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.action-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.action-card p {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Chart Section */
+.chart-container {
+  height: 300px;
+  position: relative;
+}
+
+.toggle-chart-view {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  background: var(--light);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.toggle-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Form Section */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-control {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
+}
 
 /* Alerts */
-.alert{margin:12px 0;padding:10px 12px;border-radius:8px}
-.alert.success{background:#e7f9ef;color:#0f7b3f;border:1px solid #bcebd2}
-.alert.error{background:#fdecea;color:#b00020;border:1px solid #f5c2c7}
-.alert.info{background:#e7f0ff;color:#0b4db3;border:1px solid #c6d6ff}
+.alert {
+  padding: 15px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-footer{background:var(--purple);color:#fff;text-align:center;padding:1rem;position: fixed;bottom: 0;width: 100%;flex-shrink: 0}
+.alert-success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.alert-danger {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.alert-info {
+  background: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #bbdefb;
+}
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-  main {
-    max-width: 95%;
-    margin: 30px auto;
-    padding: 15px;
-    padding-bottom: 80px;
-  }
-}
-
-@media (max-width: 992px) {
-  main {
-    max-width: 90%;
-    margin: 25px auto;
-    padding: 12px;
-    padding-bottom: 100px; /* Increase padding for mobile */
-  }
-}
-
 @media (max-width: 768px) {
-  nav {
-    padding: 1rem;
-    flex-direction: column;
-    align-items: flex-start;
+  .container {
+    padding: 0 15px;
   }
   
-  .nav-right {
-    margin-top: 15px;
-    width: 100%;
-    flex-wrap: wrap;
+  .dashboard-header h1 {
+    font-size: 1.7rem;
+  }
+  
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 20px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
   }
   
-  .nav-right a {
-    padding: 6px 8px;
-    font-size: 0.9rem;
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
   }
   
-  main {
-    max-width: 100%;
-    margin: 20px auto;
-    padding: 10px;
-    padding-bottom: 120px; /* Increase padding for small mobile */
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
   }
   
-  footer {
-    padding: 0.8rem;
-  }
-  
-  footer p {
-    font-size: 0.9rem;
+  .chart-container {
+    height: 250px;
   }
 }
 
 @media (max-width: 576px) {
-  nav {
-    padding: 0.8rem 0.5rem;
+  body {
+    padding-top: 70px;
   }
   
-  .logo {
-    font-size: 1.3rem;
+  .dashboard-header h1 {
+    font-size: 1.5rem;
   }
   
-  .nav-right {
-    gap: 8px;
-    margin-top: 10px;
+  .stat-card {
+    padding: 15px;
   }
   
-  .nav-right a {
-    padding: 5px 6px;
-    font-size: 0.8rem;
+  .stat-card h3 {
+    font-size: 1.5rem;
   }
   
-  main {
-    padding: 8px;
-    margin: 15px auto;
-    padding-bottom: 130px; /* Increase padding for very small mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    padding: 0.7rem 0.4rem;
+  .section {
+    padding: 15px;
   }
   
-  .logo {
-    font-size: 1.2rem;
+  .action-card {
+    padding: 20px 15px;
   }
   
-  .nav-right a {
-    font-size: 0.75rem;
-  }
-  
-  main {
-    padding: 6px;
-    margin: 12px auto;
-    padding-bottom: 140px; /* Increase padding for extra small devices */
-  }
-}
-
-@media (max-width: 360px) {
-  nav {
-    padding: 0.6rem 0.3rem;
-  }
-  
-  .logo {
-    font-size: 1.1rem;
-  }
-  
-  .nav-right a {
-    font-size: 0.7rem;
-  }
-  
-  main {
-    padding: 5px;
-    margin: 10px auto;
-    padding-bottom: 150px; /* Increase padding for extra small devices */
+  .action-card i {
+    font-size: 2rem;
   }
 }
 </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-  <div class="logo">Southrift Services Limited</div>
-  <div class="nav-right">
-    <a href="index.php"><i class="fa fa-home"></i> Dashboard</a>
-    <a href="#"><i class="fa fa-user-shield"></i> Super Admin</a>
-    <a href="logout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
-  </div>
-</nav>
+<?php include 'includes/navbar.php'; ?>
 
-<main>
-  <!-- Quick cards -->
-  <div class="grid">
-    <a class="card" href="add_vehicle.php"><h2><i class="fa fa-plus-circle"></i></h2><p>Add New Vehicle</p></a>
-    <a class="card" href="existing_vehicles.php"><h2><i class="fa fa-bus"></i></h2><p>Existing Vehicles</p></a>
-    <a class="card" href="today_bookings.php"><h2><i class="fa fa-calendar-day"></i></h2><p>Today's Bookings</p></a>
-    <a class="card" href="vehicle_waiting.php"><h2><i class="fa fa-hourglass-half"></i></h2><p>Vehicles in Waiting</p></a>
-    <a class="card" href="manage_admin_stations.php"><h2><i class="fa fa-map-marker-alt"></i></h2><p>Manage Stations</p></a>
+<div class="container">
+  <!-- Dashboard Header -->
+  <div class="dashboard-header">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome back! Here's what's happening today.</p>
+  </div>
+
+  <!-- Stats Overview -->
+  <div class="stats-overview">
+    <div class="stat-card">
+      <div class="icon blue">
+        <i class="fas fa-car"></i>
+      </div>
+      <h3><?php echo $totalVehicles; ?></h3>
+      <p>Total Vehicles</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon green">
+        <i class="fas fa-calendar-check"></i>
+      </div>
+      <h3><?php echo array_sum($weekData); ?></h3>
+      <p>Bookings This Week</p>
+    </div>
+    <div class="stat-card">
+      <div class="icon orange">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <h3><?php echo array_sum($monthData); ?></h3>
+      <p>Bookings This Month</p>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Quick Actions</h2>
+    </div>
+    <div class="quick-actions-grid">
+      <a href="add_vehicle.php" class="action-card">
+        <i class="fas fa-plus-circle"></i>
+        <h3>Add New Vehicle</h3>
+        <p>Register a new vehicle</p>
+      </a>
+      <a href="existing_vehicles.php" class="action-card">
+        <i class="fas fa-car"></i>
+        <h3>Existing Vehicles</h3>
+        <p>Manage all vehicles</p>
+      </a>
+      <a href="today_bookings.php" class="action-card">
+        <i class="fas fa-calendar-day"></i>
+        <h3>Today's Bookings</h3>
+        <p>View today's reservations</p>
+      </a>
+      <a href="vehicle_waiting.php" class="action-card">
+        <i class="fas fa-hourglass-half"></i>
+        <h3>Vehicles in Waiting</h3>
+        <p>Manage waiting list</p>
+      </a>
+    </div>
   </div>
 
   <?php if(isset($_GET['status'])): 
         $s = $_GET['status'];
-        $class = 'info'; $msg = 'Ready.';
-        if($s==='added'){ $class='success'; $msg='Vehicle marked as waiting.'; }
-        elseif($s==='notfound'){ $class='error'; $msg='Vehicle not found.'; }
-        elseif($s==='error'){ $class='error'; $msg='Failed to update vehicle.'; }
-        elseif($s==='empty'){ $class='info'; $msg='Please enter a number plate.'; }
+        $class = 'alert-info'; $msg = 'Ready.';
+        if($s==='added'){ $class='alert-success'; $msg='Vehicle marked as waiting.'; }
+        elseif($s==='notfound'){ $class='alert-danger'; $msg='Vehicle not found.'; }
+        elseif($s==='error'){ $class='alert-danger'; $msg='Failed to update vehicle.'; }
+        elseif($s==='empty'){ $class='alert-info'; $msg='Please enter a number plate.'; }
   ?>
-    <div class="alert <?=htmlspecialchars($class)?>"><?=htmlspecialchars($msg)?></div>
+    <div class="alert <?php echo htmlspecialchars($class); ?>">
+      <i class="fas fa-info-circle"></i>
+      <span><?php echo htmlspecialchars($msg); ?></span>
+    </div>
   <?php endif; ?>
 
-  <form action="add_to_waiting.php" method="POST" class="waiting-form" autocomplete="off" id="add-to-waiting">
-    <label for="number_plate"><i class="fa fa-hourglass-half"></i> Add vehicle to waiting (enter number plate)</label>
-    <div class="row">
-      <input type="text" id="number_plate" name="number_plate" placeholder="e.g. KDA 123A" required>
-      <button type="submit"><i class="fa fa-plus"></i> Add to Waiting</button>
+  <!-- Add to Waiting Form -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Add Vehicle to Waiting List</h2>
     </div>
-  </form>
-
-  <!-- Chart -->
-  <h3 class="chart-title">📊 Booking Chart</h3>
-  <div class="toggle-buttons">
-    <button id="btnWeek" class="active" onclick="showChart('week')">Weekly View</button>
-    <button id="btnMonth" onclick="showChart('month')">Monthly View</button>
+    <form action="add_to_waiting.php" method="POST" autocomplete="off">
+      <div class="form-group">
+        <label for="number_plate">
+          <i class="fas fa-id-card"></i> Vehicle Number Plate
+        </label>
+        <div class="form-row">
+          <input type="text" id="number_plate" name="number_plate" class="form-control" placeholder="e.g. KDA 123A" required>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add to Waiting
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="chart-container">
-    <canvas id="bookingChart" height="160"></canvas>
-  </div>
-</main>
 
-<footer>&copy; <?=date('Y')?> Southrift Services Limited | All Rights Reserved</footer>
+  <!-- Analytics Section -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Booking Analytics</h2>
+    </div>
+    <div class="toggle-chart-view">
+      <button id="btnWeek" class="toggle-btn active" onclick="showChart('week')">Weekly View</button>
+      <button id="btnMonth" class="toggle-btn" onclick="showChart('month')">Monthly View</button>
+    </div>
+    <div class="chart-container">
+      <canvas id="bookingChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<footer>&copy; <?php echo date('Y'); ?> Southrift Services Limited | All Rights Reserved</footer>
 
 <script>
-const weekLabels  = <?=json_encode($weekLabels)?>;
-const weekData    = <?=json_encode($weekData)?>;
-const monthLabels = <?=json_encode(array_keys($monthData))?>;
-const monthData   = <?=json_encode(array_values($monthData))?>;
+const weekLabels  = <?php echo json_encode($weekLabels); ?>;
+const weekData    = <?php echo json_encode($weekData); ?>;
+const monthLabels = <?php echo json_encode(array_keys($monthData)); ?>;
+const monthData   = <?php echo json_encode(array_values($monthData)); ?>;
 
 const ctx = document.getElementById('bookingChart').getContext('2d');
 let chart = new Chart(ctx,{
   type:'bar',
   data:{labels:weekLabels,datasets:[{
-    label:'Weekly Bookings',
+    label:'Bookings',
     data:weekData,
-    backgroundColor:'rgba(106,13,173,.3)',
-    borderColor:'#6A0DAD',
-    borderWidth:2,
-    borderRadius:6,
-    barThickness:40
+    backgroundColor:'rgba(106,13,173,0.7)',
+    borderColor:'rgba(106,13,173,1)',
+    borderWidth:1,
+    borderRadius: 4
   }]},
   options:{
     responsive:true,
+    maintainAspectRatio: false,
     scales:{
       y:{
         beginAtZero:true,
-        min:0,
-        max:50,
-        ticks:{precision:0}
+        grid: {
+          color: 'rgba(0, 0, 0, 0.05)'
+        }
+      },
+      x: {
+        grid: {
+          display: false
+        }
       }
     },
-    plugins:{legend:{display:false}}
+    plugins:{
+      legend:{display:false},
+      tooltip: {
+        backgroundColor: 'rgba(106, 13, 173, 0.9)',
+        padding: 12
+      }
+    }
   }
 });
 
 function showChart(mode){
-  btnWeek.classList.remove('active'); btnMonth.classList.remove('active');
+  const btnWeek = document.getElementById('btnWeek');
+  const btnMonth = document.getElementById('btnMonth');
+  
+  btnWeek.classList.remove('active'); 
+  btnMonth.classList.remove('active');
+  
   if(mode==='week'){
     chart.data.labels = weekLabels;
     chart.data.datasets[0].data = weekData;
@@ -348,8 +615,6 @@ function showChart(mode){
   }
   chart.update();
 }
-const btnWeek  = document.getElementById('btnWeek');
-const btnMonth = document.getElementById('btnMonth');
 </script>
 </body>
 </html>

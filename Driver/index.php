@@ -43,748 +43,736 @@ if (empty($_SESSION['csrf_token'])) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Driver Dashboard – SouthRide</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
-:root{--purple:#6A0DAD;--purple-dark:#4e0b8a;--bg:#f4f4f4}
-html{animation:fadeIn .7s ease-in-out}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1}}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins,sans-serif;background:var(--bg)}
+:root {
+    --primary: #6A0DAD;
+    --primary-dark: #4e0b8a;
+    --secondary: #3498db;
+    --accent: #4CAF50;
+    --light: #f8f9fa;
+    --dark: #2c3e50;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --info: #17a2b8;
+    --success: #28a745;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
 
-/* NAVBAR */
-nav{background:var(--purple);padding:1rem 2rem;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.logo{font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;animation:logoGlow 2s ease infinite alternate}
-@keyframes logoGlow{0%{text-shadow:0 0 8px #fff,0 0 12px #0ff}100%{text-shadow:0 0 12px #fff,0 0 20px #f0f}}
-.nav-right{display:flex;gap:20px;align-items:center}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Navigation Links */
-.nav-right a{
-  position:relative;
-  color:paleturquoise;
-  font-weight:600;
-  text-decoration:none;
-  padding:8px 10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  transition:color .3s;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 2rem;
 }
-.nav-right a::after{
-  content:"";
-  position:absolute;bottom:0;left:0;width:100%;height:2px;
-  background:linear-gradient(to right,#ff6ec4,#7873f5);
-  transform:scaleX(0);transform-origin:right;
-  transition:transform .4s ease-in-out;
+
+/* Header & Navigation */
+.header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-.nav-right a:hover{
-  color:#00ffff;
-  text-shadow:0 0 8px rgba(0,255,255,.6);
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
 }
-.nav-right a:hover::after{
-  transform:scaleX(1);transform-origin:left;
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: #00ffff;
+    text-shadow: 0 0 8px rgba(0,255,255,0.5);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.nav-link i {
+    font-size: 1.1rem;
 }
 
 /* Main Content */
-main{max-width:1100px;margin:40px auto;padding:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-title i {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
 
 /* Cards */
-.card{
-  background:var(--purple);
-  color:#fff;
-  border-radius:14px;
-  padding:40px 20px;
-  text-align:center;
-  box-shadow:0 8px 18px rgba(0,0,0,.15);
-  transition:.2s;
-  text-decoration:none!important;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.8rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
-.card:hover{
-  background:linear-gradient(to right,#6A0DAD,#b980ff);
-  transform:translateY(-6px) scale(1.03);
-  box-shadow:0 14px 28px rgba(0,0,0,.25);
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
-.card i{
-  font-size:2.5rem;
-  margin-bottom:15px;
-  color:rgba(255,255,255,.9);
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
-.card h2{
-  font-size:1.8rem;
-  margin:0 0 8px;
-  font-weight:700;
-  text-shadow:0 2px 4px rgba(0,0,0,.2);
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
 }
-        
+
+.card-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: var(--gray);
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
 /* Driver Info Section */
-.driver-section{
-  background:#fff;
-  border-radius:14px;
-  padding:30px;
-  margin-top:30px;
-  box-shadow:0 4px 6px rgba(0,0,0,.1);
+.driver-info {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
-.driver-section h2{
-  color:var(--purple);
-  margin-bottom:20px;
-  font-size:1.5rem;
-  display:flex;
-  align-items:center;
-  gap:10px;
+
+.driver-info-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--light-gray);
 }
-.driver-section h2 i{
-  font-size:1.3em;
+
+.driver-info-header i {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
 }
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-  gap:20px;
-  margin-top:20px;
+
+.driver-info-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0;
 }
-.info-item{
-  background:#f8f9fa;
-  padding:15px;
-  border-radius:8px;
-  border-left:4px solid var(--purple);
+
+.driver-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
-.info-label{
-  font-size:.85rem;
-  color:#666;
-  margin-bottom:5px;
-  text-transform:uppercase;
-  letter-spacing:.5px;
+
+.detail-card {
+    background: var(--light);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary);
+    transition: var(--transition);
 }
-.info-value{
-  font-size:1.2rem;
-  font-weight:600;
-  color:#333;
+
+.detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.detail-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    word-break: break-word;
+}
+
+/* Location Sharing Card */
+.location-sharing-card {
+    background: linear-gradient(135deg, #6A0DAD, #8A2BE2);
+    color: white;
+}
+
+.location-sharing-card::before {
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+}
+
+.location-sharing-card .card-icon {
+    background: rgba(255,255,255,0.2);
+}
+
+.location-sharing-card .card-title {
+    color: white;
+}
+
+.location-sharing-card .card-text {
+    color: rgba(255,255,255,0.85);
+}
+
+.sharing-form {
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.form-control::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: white;
+    background: rgba(255,255,255,0.15);
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sharing-status {
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    display: none;
+}
+
+.blinking-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.link-preview {
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+/* Footer */
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 40px;
+  position: relative;
+  z-index: 100;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    max-width: 300px;
+    word-wrap: break-word;
+    animation: slideIn 0.3s ease-out;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.notification-success {
+    background-color: var(--success);
+}
+
+.notification-error {
+    background-color: var(--danger);
+}
+
+.notification-info {
+    background-color: var(--info);
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-  main {
-    max-width: 95%;
-    margin: 30px auto;
-    padding: 15px;
-  }
-  
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
-  
-  .card {
-    padding: 35px 18px;
-  }
-  
-  .card i {
-    font-size: 2.2rem;
-    margin-bottom: 12px;
-  }
-  
-  .card h2 {
-    font-size: 1.6rem;
-    margin: 0 0 6px;
-  }
-  
-  .driver-section {
-    padding: 25px;
-    margin-top: 25px;
-  }
-  
-  .driver-section h2 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-  }
-  
-  .info-grid {
-    gap: 15px;
-    margin-top: 15px;
-  }
-  
-  .info-item {
-    padding: 12px;
-  }
-  
-  .info-label {
-    font-size: 0.8rem;
-  }
-  
-  .info-value {
-    font-size: 1.1rem;
-  }
-}
-
 @media (max-width: 992px) {
-  main {
-    max-width: 90%;
-    margin: 25px auto;
-    padding: 12px;
-  }
-  
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 18px;
-  }
-  
-  .card {
-    padding: 30px 15px;
-  }
-  
-  .card i {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .card h2 {
-    font-size: 1.5rem;
-  }
-  
-  .driver-section {
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .driver-section h2 {
-    font-size: 1.3rem;
-  }
-  
-  .info-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  
-  .info-item {
-    padding: 10px;
-  }
-  
-  .info-value {
-    font-size: 1rem;
-  }
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .page-title {
+        font-size: 1.7rem;
+    }
 }
 
 @media (max-width: 768px) {
-  nav {
-    padding: 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .nav-right {
-    margin-top: 15px;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .nav-right a {
-    padding: 6px 8px;
-    font-size: 0.9rem;
-  }
-  
-  main {
-    max-width: 100%;
-    margin: 20px auto;
-    padding: 10px;
-  }
-  
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-  }
-  
-  .card {
-    padding: 25px 12px;
-    border-radius: 12px;
-  }
-  
-  .card i {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-  }
-  
-  .card h2 {
-    font-size: 1.3rem;
-    margin: 0 0 5px;
-  }
-  
-  .driver-section {
-    padding: 18px;
-    margin-top: 18px;
-    border-radius: 12px;
-  }
-  
-  .driver-section h2 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-  
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 12px;
-  }
-  
-  .info-item {
-    padding: 8px;
-  }
-  
-  .info-label {
-    font-size: 0.75rem;
-    margin-bottom: 3px;
-  }
-  
-  .info-value {
-    font-size: 0.95rem;
-  }
-  
-  footer {
-    padding: 0.8rem;
-    margin-top: 30px;
-  }
-  
-  footer p {
-    font-size: 0.9rem;
-  }
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .container {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .driver-details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 576px) {
-  nav {
-    padding: 0.8rem 0.5rem;
-  }
-  
-  .logo {
-    font-size: 1.3rem;
-  }
-  
-  .nav-right {
-    gap: 8px;
-    margin-top: 10px;
-  }
-  
-  .nav-right a {
-    padding: 5px 6px;
-    font-size: 0.8rem;
-  }
-  
-  main {
-    padding: 8px;
-    margin: 15px auto;
-  }
-  
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  
-  .card {
-    padding: 20px 10px;
-  }
-  
-  .card i {
-    font-size: 1.6rem;
-    margin-bottom: 6px;
-  }
-  
-  .card h2 {
-    font-size: 1.2rem;
-  }
-  
-  .driver-section {
-    padding: 15px;
-    margin-top: 15px;
-  }
-  
-  .driver-section h2 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    gap: 8px;
-  }
-  
-  .driver-section h2 i {
-    font-size: 1.1em;
-  }
-  
-  .info-item {
-    padding: 6px;
-  }
-  
-  .info-label {
-    font-size: 0.7rem;
-  }
-  
-  .info-value {
-    font-size: 0.9rem;
-  }
-  
-  footer {
-    padding: 0.6rem;
-    margin-top: 25px;
-  }
-  
-  footer p {
-    font-size: 0.85rem;
-  }
+    .header {
+        padding: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        margin: 1rem auto;
+    }
+    
+    .page-title {
+        font-size: 1.3rem;
+    }
+    
+    .card {
+        padding: 1.2rem;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.2rem;
-  }
-  
-  .nav-right a {
-    font-size: 0.75rem;
-    padding: 4px 5px;
-  }
-  
-  main {
-    padding: 6px;
-    margin: 12px auto;
-  }
-  
-  .card {
-    padding: 18px 8px;
-  }
-  
-  .card i {
-    font-size: 1.4rem;
-  }
-  
-  .card h2 {
-    font-size: 1.1rem;
-  }
-  
-  .driver-section {
-    padding: 12px;
-    margin-top: 12px;
-  }
-  
-  .driver-section h2 {
-    font-size: 1rem;
-    gap: 6px;
-  }
-  
-  .info-grid {
-    gap: 10px;
-  }
-  
-  .info-item {
-    padding: 5px;
-  }
-  
-  .info-label {
-    font-size: 0.65rem;
-  }
-  
-  .info-value {
-    font-size: 0.85rem;
-  }
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .nav-link span {
+        display: none;
+    }
+    
+    .nav-link i {
+        margin-right: 0;
+    }
 }
-
-@media (max-width: 360px) {
-  .logo {
-    font-size: 1.1rem;
-  }
-  
-  .nav-right a {
-    font-size: 0.7rem;
-  }
-  
-  .card {
-    padding: 15px 6px;
-  }
-  
-  .card i {
-    font-size: 1.3rem;
-  }
-  
-  .card h2 {
-    font-size: 1rem;
-  }
-  
-  .driver-section {
-    padding: 10px;
-  }
-  
-  .driver-section h2 {
-    font-size: 0.95rem;
-  }
-  
-  .info-label {
-    font-size: 0.6rem;
-  }
-  
-  .info-value {
-    font-size: 0.8rem;
-  }
-}
-
-.status-pending {
-            background-color: #fff3cd;
-            color: #856404;
-        }
-        
-        .status-assigned {
-            background-color: #cce5ff;
-            color: #004085;
-        }
-        
-        .status-picked_up {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-completed {
-            background-color: #e2e3e5;
-            color: #383d41;
-        }
-    </style>
+</style>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <i class="fas fa-bus"></i> SouthRift Driver
-        </div>
-        
-        <div class="nav-right">
-            <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="profile.php"><i class="fas fa-user"></i> My Profile</a>
-            <a href="#"><i class="fas fa-cog"></i> Settings</a>
-            <a href="../logout.php" style="text-decoration: none; color: paleturquoise; font-weight: 600; padding: 8px 10px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Poppins', sans-serif;">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-        </div>
-    </nav>
-
-    <main>
-        <div class="grid">
-            <a href="profile.php" class="card clickable-card">
-                <i class="fas fa-user"></i>
-                <h2><?= htmlspecialchars($driver_name) ?></h2>
-                <p>View Profile <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></p>
-            </a>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-bus"></i>
+                <span>SouthRift Driver</span>
+            </div>
             
-            <div id="locationCard" class="card clickable-card">
-                <i class="fas fa-location-dot"></i>
-                <h2 id="locationStatus">Share Live Location</h2>
-                <p>Share your Google Maps live location with assigned passengers</p>
+            <div class="nav-links">
+                <a href="index.php" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profile.php" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="../logout.php" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">
+            <i class="fas fa-tachometer-alt"></i>
+            Driver Dashboard
+        </h1>
+        
+        <div class="dashboard-grid">
+            <div class="card fade-in">
+                <div class="card-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 class="card-title"><?= htmlspecialchars($driver_name) ?></h2>
+                <p class="card-text">View and update your personal information and profile settings.</p>
+                <a href="profile.php" class="btn btn-primary">
+                    <i class="fas fa-eye"></i>
+                    View Profile
+                </a>
+            </div>
+            
+            <div class="card location-sharing-card fade-in" id="locationCard">
+                <div class="card-icon">
+                    <i class="fas fa-location-dot"></i>
+                </div>
+                <h2 class="card-title" id="locationStatus">Share Live Location</h2>
+                <p class="card-text">Share your Google Maps live location with assigned passengers for better coordination.</p>
+                <button class="btn btn-outline" id="toggleSharingForm">
+                    <i class="fas fa-share"></i>
+                    Share Location
+                </button>
                 
                 <!-- Google Maps Link Input Form -->
-                <div id="linkInputForm" style="display: none; margin-top: 15px; text-align: left;">
-                    <div style="margin-bottom: 10px;">
-                        <label for="googleMapsLink" style="display: block; margin-bottom: 5px; font-weight: 600; color: #fff;">Paste Google Maps Link:</label>
-                        <input type="text" id="googleMapsLink" placeholder="https://maps.app.goo.gl/..." 
-                               style="width: 100%; padding: 10px; border: none; border-radius: 5px; font-size: 14px; margin-bottom: 10px;">
+                <div class="sharing-form" id="linkInputForm">
+                    <div class="form-group">
+                        <label for="googleMapsLink">Paste Google Maps Link:</label>
+                        <input type="text" id="googleMapsLink" class="form-control" placeholder="https://maps.app.goo.gl/...">
                     </div>
-                    <div style="text-align: center; gap: 10px; display: flex; justify-content: center;">
-                        <button id="shareLocationBtn" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 600;">
-                            <i class="fas fa-share"></i> Share with Passengers
+                    <div class="btn-group">
+                        <button id="shareLocationBtn" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Share with Passengers
                         </button>
-                        <button id="cancelShareBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 600;">
-                            <i class="fas fa-times"></i> Cancel
+                        <button id="cancelShareBtn" class="btn" style="background: rgba(255,255,255,0.2); color: white;">
+                            <i class="fas fa-times"></i>
+                            Cancel
                         </button>
                     </div>
                 </div>
                 
                 <!-- Sharing Status -->
-                <div id="locationStatusIndicator" style="display: none; margin-top: 10px;">
-                    <span class="blinking-dot"></span>
-                    <span id="statusText">Google Maps location is being shared</span>
-                    <div id="sharedLinkPreview" style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9; word-break: break-all;"></div>
-                    <div style="margin-top: 10px;">
-                        <button id="stopSharingBtn" style="background: #f44336; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">
-                            <i class="fas fa-stop"></i> Stop Sharing
+                <div class="sharing-status" id="locationStatusIndicator">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span class="blinking-dot"></span>
+                        <span id="statusText">Google Maps location is being shared</span>
+                    </div>
+                    <div class="link-preview" id="sharedLinkPreview"></div>
+                    <div style="margin-top: 1rem;">
+                        <button id="stopSharingBtn" class="btn" style="background: var(--danger); color: white;">
+                            <i class="fas fa-stop"></i>
+                            Stop Sharing
                         </button>
                     </div>
                 </div>
             </div>
             
-
-            
-            <a href="todays_bookings.php" class="card clickable-card">
-                <i class="fas fa-calendar-day"></i>
-                <h2>Today's Bookings</h2>
-                <p>View all bookings for today</p>
-            </a>
+            <div class="card fade-in">
+                <div class="card-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <h2 class="card-title">Today's Bookings</h2>
+                <p class="card-text">View all bookings assigned to you for today and manage their status.</p>
+                <a href="todays_bookings.php" class="btn btn-primary">
+                    <i class="fas fa-list"></i>
+                    View Bookings
+                </a>
+            </div>
         </div>
         
-        <div class="driver-section">
-            <h2><i class="fas fa-id-card"></i> Driver Information</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <div class="info-label">Full Name</div>
-                    <div class="info-value"><?= htmlspecialchars($driver_name) ?></div>
+        <div class="driver-info fade-in">
+            <div class="driver-info-header">
+                <i class="fas fa-id-card"></i>
+                <h2 class="driver-info-title">Driver Information</h2>
+            </div>
+            
+            <div class="driver-details-grid">
+                <div class="detail-card">
+                    <div class="detail-label">Full Name</div>
+                    <div class="detail-value"><?= htmlspecialchars($driver_name) ?></div>
                 </div>
                 
-                <div class="info-item">
-                    <div class="info-label">Phone Number</div>
-                    <div class="info-value"><?= htmlspecialchars($driver_phone) ?></div>
+                <div class="detail-card">
+                    <div class="detail-label">Phone Number</div>
+                    <div class="detail-value"><?= htmlspecialchars($driver_phone) ?></div>
                 </div>
                 
                 <?php if (!empty($vehicle)): ?>
-                <div class="info-item">
-                    <div class="info-label">Vehicle Type</div>
-                    <div class="info-value"><?= htmlspecialchars($vehicle_name) ?></div>
+                <div class="detail-card">
+                    <div class="detail-label">Vehicle Type</div>
+                    <div class="detail-value"><?= htmlspecialchars($vehicle_name) ?></div>
                 </div>
                 
-                <div class="info-item">
-                    <div class="info-label">Number Plate</div>
-                    <div class="info-value"><?= htmlspecialchars($vehicle_plate) ?></div>
+                <div class="detail-card">
+                    <div class="detail-label">Number Plate</div>
+                    <div class="detail-value"><?= htmlspecialchars($vehicle_plate) ?></div>
                 </div>
                 
-                <div class="info-item">
-                    <div class="info-label">Vehicle Type</div>
-                    <div class="info-value"><?= htmlspecialchars($vehicle['type'] ?? 'N/A') ?></div>
+                <div class="detail-card">
+                    <div class="detail-label">Color</div>
+                    <div class="detail-value"><?= htmlspecialchars($vehicle['color'] ?? 'N/A') ?></div>
                 </div>
-                
-                <div class="info-item">
-                    <div class="info-label">Color</div>
-                    <div class="info-value"><?= htmlspecialchars($vehicle['color'] ?? 'N/A') ?></div>
+                <?php else: ?>
+                <div class="detail-card">
+                    <div class="detail-label">Vehicle Status</div>
+                    <div class="detail-value">No vehicle assigned</div>
                 </div>
                 <?php endif; ?>
             </div>
         </div>
-    </main>
-
-   
+    </div>
+    
+    <footer>
+        &copy; <?php echo date('Y'); ?> Southrift Services Limited | All Rights Reserved
+    </footer>
+    
     <meta name="csrf-token" content="<?= $_SESSION['csrf_token'] ?? '' ?>">
     <meta name="driver-id" content="<?= $driver_phone ?>">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-    .blinking-dot {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        background-color: #4CAF50;
-        border-radius: 50%;
-        margin-right: 8px;
-        animation: blink 1.5s infinite;
-    }
-    
-    @keyframes blink {
-        0% { opacity: 0.2; }
-        50% { opacity: 1; }
-        100% { opacity: 0.2; }
-    }
-    
-    .sharing-active {
-        box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
-        transition: box-shadow 0.3s ease;
-        background: linear-gradient(135deg, #6A0DAD, #4CAF50) !important;
-    }
-    
-    #locationCard:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-    </style>
-    <footer style="background: var(--purple); color: white; text-align: center; padding: 1rem; margin-top: 2rem;">
-        &copy; <?= date('Y') ?> Southrift Services Limited | All Rights Reserved
-    </footer>
-    
-    <style>
-    :root {
-        --purple: #6A0DAD;
-        --purple-dark: #4e0b8a;
-        --bg: #f4f4f4;
-    }
-    
-    .clickable-card {
-        cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s;
-        text-decoration: none;
-        color: inherit;
-        display: block;
-    }
-    
-    .clickable-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    
-    .dashboard-footer {
-        background: #2c3e50;
-        color: #ecf0f1;
-        padding: 2rem 0 0;
-        margin-top: 3rem;
-    }
-    
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-    
-    .footer-section h4 {
-        color: #3498db;
-        margin-bottom: 1rem;
-    }
-    
-    .footer-section ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .footer-section a {
-        color: #bdc3c7;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    
-    .footer-section a:hover {
-        color: #3498db;
-    }
-    
-    .footer-section i {
-        margin-right: 8px;
-        width: 20px;
-        text-align: center;
-    }
-    
-    .footer-bottom {
-        text-align: center;
-        padding: 1rem 0;
-        margin-top: 2rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        font-size: 0.9rem;
-        color: #7f8c8d;
-    }
-    
-    @media (max-width: 768px) {
-        .footer-content {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-    }
-    </style>
-    
     <script>
     // Google Maps Link Sharing System
     class GoogleMapsLinkSharing {
@@ -807,19 +795,16 @@ main{max-width:1100px;margin:40px auto;padding:20px}
         }
 
         initializeUI() {
-            const locationCard = document.getElementById('locationCard');
+            const toggleBtn = document.getElementById('toggleSharingForm');
             const shareBtn = document.getElementById('shareLocationBtn');
             const cancelBtn = document.getElementById('cancelShareBtn');
             const stopBtn = document.getElementById('stopSharingBtn');
             const linkInput = document.getElementById('googleMapsLink');
 
-            // Location card click handler
-            locationCard.addEventListener('click', (e) => {
-                // Don't trigger if clicking on buttons or input
-                if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
-                
+            // Toggle sharing form
+            toggleBtn.addEventListener('click', () => {
                 if (!this.isSharing) {
-                    this.showLinkInputForm();
+                    this.toggleSharingForm();
                 }
             });
 
@@ -830,7 +815,7 @@ main{max-width:1100px;margin:40px auto;padding:20px}
 
             // Cancel button click
             cancelBtn.addEventListener('click', () => {
-                this.hideLinkInputForm();
+                this.toggleSharingForm();
             });
 
             // Stop sharing button click
@@ -846,14 +831,10 @@ main{max-width:1100px;margin:40px auto;padding:20px}
             });
         }
 
-        showLinkInputForm() {
-            document.getElementById('linkInputForm').style.display = 'block';
-            document.getElementById('googleMapsLink').focus();
-        }
-
-        hideLinkInputForm() {
-            document.getElementById('linkInputForm').style.display = 'none';
-            document.getElementById('googleMapsLink').value = '';
+        toggleSharingForm() {
+            const form = document.getElementById('linkInputForm');
+            const isDisplayed = form.style.display === 'block';
+            form.style.display = isDisplayed ? 'none' : 'block';
         }
 
         async shareGoogleMapsLink() {
@@ -911,7 +892,8 @@ main{max-width:1100px;margin:40px auto;padding:20px}
                 if (data.success) {
                     this.isSharing = true;
                     this.updateSharingStatus(link, data.passengers_notified || 0);
-                    this.hideLinkInputForm();
+                    document.getElementById('linkInputForm').style.display = 'none';
+                    document.getElementById('googleMapsLink').value = '';
                     this.showNotification(`Location shared with ${data.passengers_notified} passengers!`, 'success');
                 } else {
                     console.error('Server error response:', data);
@@ -928,7 +910,7 @@ main{max-width:1100px;margin:40px auto;padding:20px}
                 
                 // Restore button
                 const shareBtn = document.getElementById('shareLocationBtn');
-                shareBtn.innerHTML = '<i class="fas fa-share"></i> Share with Passengers';
+                shareBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Share with Passengers';
                 shareBtn.disabled = false;
             }
         }
@@ -993,15 +975,21 @@ main{max-width:1100px;margin:40px auto;padding:20px}
         updateUI(isSharing) {
             const statusElement = document.getElementById('locationStatus');
             const indicatorElement = document.getElementById('locationStatusIndicator');
+            const toggleBtn = document.getElementById('toggleSharingForm');
             const cardElement = document.getElementById('locationCard');
 
             if (isSharing) {
                 statusElement.innerHTML = 'Google Maps Location Shared <i class="fas fa-check-circle" style="color: #4CAF50;"></i>';
                 indicatorElement.style.display = 'block';
+                toggleBtn.innerHTML = '<i class="fas fa-stop"></i> Stop Sharing';
+                toggleBtn.style.background = 'var(--danger)';
                 cardElement.classList.add('sharing-active');
             } else {
                 statusElement.innerHTML = 'Share Live Location';
                 indicatorElement.style.display = 'none';
+                toggleBtn.innerHTML = '<i class="fas fa-share"></i> Share Location';
+                toggleBtn.style.background = '';
+                toggleBtn.style.color = '';
                 cardElement.classList.remove('sharing-active');
             }
         }
@@ -1022,35 +1010,10 @@ main{max-width:1100px;margin:40px auto;padding:20px}
             return link.length > 50 ? link.substring(0, 50) + '...' : link;
         }
 
-            showNotification(message, type = 'info') {
+        showNotification(message, type = 'info') {
             // Create notification element
             const notification = document.createElement('div');
             notification.className = `notification notification-${type}`;
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 15px 20px;
-                border-radius: 5px;
-                color: white;
-                font-weight: 500;
-                z-index: 1000;
-                max-width: 300px;
-                word-wrap: break-word;
-                animation: slideIn 0.3s ease-out;
-            `;
-            
-            // Set background color based on type
-            switch (type) {
-                case 'success':
-                    notification.style.backgroundColor = '#4CAF50';
-                    break;
-                case 'error':
-                    notification.style.backgroundColor = '#f44336';
-                    break;
-                default:
-                    notification.style.backgroundColor = '#2196F3';
-            }
             
             notification.innerHTML = message;
             
@@ -1094,5 +1057,5 @@ main{max-width:1100px;margin:40px auto;padding:20px}
         window.googleMapsSharing = new GoogleMapsLinkSharing();
     });
     </script>
-  </body>
+</body>
 </html>
